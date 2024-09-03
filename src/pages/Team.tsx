@@ -1,8 +1,9 @@
 import React from 'react'
+import Header from '../components/layout/header'
 
 const Team = () => {
   return (
-    <div>Team</div>
+    <div>      <Header /> Team</div>
   )
 }
 

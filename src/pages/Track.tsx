@@ -3,10 +3,11 @@ import CustomServices from "../components/custom-components/custom-services";
 import CustomTittle from "../components/custom-components/custom-title";
 import GraphicSection from "../components/custom-components/graphic-section";
 import Footer from "./Footer";
+import Header from "../components/layout/header";
 
 const Track = () => {
   return (
-    <div>
+    <div>      <Header /> 
       Track
       <CustomTittle
         title={

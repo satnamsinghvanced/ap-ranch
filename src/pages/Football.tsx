@@ -9,12 +9,11 @@ const Football = () => {
   return (
     <div>
       <Header />
-      
+
       <section className="football-banner ">
         <div className="d-flex align-items-center justify-content-center h-100">
           <h1 className="apr-sport-name">FOOTBALL</h1>
         </div>
-          
       </section>
 
       <section className=" about-apr section-pending">
@@ -24,14 +23,14 @@ const Football = () => {
             facility and community dedicated to cultivating and empowering
             student-athletes of all backgrounds and abilities. We strive to
             provide a nurturing environment where INDIVIDUALS can explore their
-            passions, develop skills, and unlock their true potential. 
+            passions, develop skills, and unlock their true potential.
           </p>
         </div>
       </section>
       <section className="container-fluid">
         <div className="row">
           <div className="col-lg-4 col-md-6 p-0 ">
-            <div className="foodball-img sport-img-box ">
+            <div className="football-img sport-img-box ">
               <div className="d-flex align-items-center justify-content-center flex-column h-100">
                 <h3 className="sport-name-heading">FOOTBALL</h3>
                 <button className="explore-btn  mt-4">EXPLORE</button>
@@ -68,10 +67,8 @@ const Football = () => {
         <h3 className="incredible-partners-heading text-center">
           our incredible partners
         </h3>
-
-    
       </section>
-      
+
       <Footer />
     </div>
   );

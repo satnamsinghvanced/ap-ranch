@@ -1,6 +1,7 @@
 import React from "react";
 import { ROUTES } from "../components/consts/routes.consts";
 import whiteLogo from "../assets/img/png/apr-white-logo.png";
+import footerlogo from "../assets/img/png/footer-logo.png";
 
 const Footer = () => {
   return (
@@ -9,10 +10,13 @@ const Footer = () => {
         <div className="apr-footer-logo">
           <img src={whiteLogo} alt="" />
         </div>
+        <div className="footer-logo">
+        <img src={footerlogo} alt="" />
+        </div>
 
-        <div className="d-flex align-items-center pt-4 justify-content-between">
+        <div className="footer-content">
           <div className="footer-list-group">
-            <ul className="list-style-none d-flex gap-3">
+            <ul className="list-style-none d-flex gap-3 flex-wrap">
               <li className="color-gray-custom">
                 <a href={ROUTES.ABOUT} className="me-3">
                   About
@@ -62,7 +66,21 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="d-flex">
+          <div className="contact-details">
+            <div className="form-group">
+              <label htmlFor="">CONTACT US</label>
+              <p>+1 999 888-76-54</p>
+            </div>
+            <div className="form-group">
+              <label htmlFor="">EMAIl</label>
+              <p>hello@apranch.com</p>
+            </div>
+            <div className="form-group">
+              <label htmlFor="">Address</label>
+              <p>1590 FM2871 Fort Worth, TX 76126</p>
+            </div>
+          </div>
+          <div className="media-link">
             <div>
               <svg
                 width="32"
