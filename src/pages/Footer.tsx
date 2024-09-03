@@ -11,14 +11,17 @@ const Footer = () => {
           <img src={whiteLogo} alt="" />
         </div>
         <div className="footer-logo">
-        <img src={footerlogo} alt="" />
+          <img src={footerlogo} alt="" className="img-fluid" />
         </div>
 
         <div className="footer-content">
           <div className="footer-list-group">
             <ul className="list-style-none d-flex gap-3 flex-wrap">
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.ABOUT} className="me-3">
+                <a //href={ROUTES.ABOUT}
+                  href={"/"}
+                  className="me-3"
+                >
                   About
                 </a>
                 /
@@ -42,13 +45,21 @@ const Footer = () => {
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.FACILITY} className="me-3">
+                <a
+                  href={"/"}
+                  // href={ROUTES.FACILITY}
+                  className="me-3"
+                >
                   Facility
                 </a>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.TEAM} className="me-3">
+                <a
+                  // href={ROUTES.TEAM}
+                  href={"/"}
+                  className="me-3"
+                >
                   Our Team
                 </a>
                 /
@@ -60,7 +71,10 @@ const Footer = () => {
                 /
               </li>
               <li className="footer-items">
-                <a href={ROUTES.CONTACT} className="me-3">
+                <a //href={ROUTES.CONTACT}
+                  href={"/"}
+                  className="me-3"
+                >
                   Contact
                 </a>
               </li>
@@ -68,15 +82,21 @@ const Footer = () => {
           </div>
           <div className="contact-details">
             <div className="form-group">
-              <label htmlFor="" className="footer-contect">CONTACT US</label>
+              <label htmlFor="" className="footer-contect">
+                CONTACT US
+              </label>
               <p className="footer-items">+1 999 888-76-54</p>
             </div>
             <div className="form-group">
-              <label htmlFor="" className="footer-contect">EMAIl</label>
+              <label htmlFor="" className="footer-contect">
+                EMAIl
+              </label>
               <p className="footer-items">hello@apranch.com</p>
             </div>
             <div className="form-group">
-              <label htmlFor="" className="footer-contect">Address</label>
+              <label htmlFor="" className="footer-contect">
+                Address
+              </label>
               <p className="footer-items">1590 FM2871 Fort Worth, TX 76126</p>
             </div>
           </div>

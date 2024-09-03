@@ -11,7 +11,7 @@ const Header = () => {
             <a className="navbar-brand p-0" href={ROUTES.HOME}>
               <img src={logo} alt="" />
             </a>
-            <a className="logo-mobile" href={"/"}>
+            <a className="logo-mobile" href={ROUTES.HOME}>
               <img src={logo2} alt="" />
             </a>
           </div>
@@ -67,7 +67,11 @@ const Header = () => {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href={ROUTES.ABOUT}>
+                <a
+                  className="nav-link"
+                  // href={ROUTES.ABOUT}
+                  href={"/"}
+                >
                   About
                 </a>
               </li>
@@ -87,17 +91,29 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link " href={ROUTES.FACILITY}>
+                <a
+                  className="nav-link "
+                  href={"/"}
+                  // href={ROUTES.FACILITY}
+                >
                   The Facility
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link " href={ROUTES.TEAM}>
+                <a
+                  className="nav-link "
+                  //  href={ROUTES.TEAM}
+                  href={"/"}
+                >
                   The Team
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link  " href={ROUTES.CONTACT}>
+                <a
+                  className="nav-link  "
+                  // href={ROUTES.CONTACT}
+                  href={"/"}
+                >
                   Contact
                 </a>
               </li>

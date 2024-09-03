@@ -94,8 +94,8 @@ const Home = () => {
           <div className="col-lg-6 pb-5">
             <div className="d-inline-flex w-auto justify-content-center h-100 flex-column click-to-donate-content  ">
               <h1 className="click-to-donate-heading">
-                CLICK to
-                <br /> donate
+                CLICK TO
+                <br /> DONATE
               </h1>
               <button className="donate-white-btn border-0 mt-3  ">
                 DONATE

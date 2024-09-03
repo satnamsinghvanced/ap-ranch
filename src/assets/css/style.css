@@ -116,13 +116,13 @@ body {
 
 
 .container.apr-navbar {
-    @media(max-width: 576px) {
+    @media(max-width: 800px) {
         background: none;
         gap: 16px;
     }
 
     .navbar-brand {
-        @media(max-width: 576px) {
+        @media(max-width: 800px) {
             display: none;
         }
     }
@@ -134,13 +134,13 @@ body {
     .logo-mobile {
         display: none;
 
-        @media(max-width: 576px) {
+        @media(max-width: 800px) {
             display: block;
         }
     }
 
     .navbar-toggler-icon {
-        @media(max-width: 576px) {
+        @media(max-width: 800px) {
             display: none;
         }
     }
@@ -148,20 +148,20 @@ body {
     .menu-mobile {
         display: none;
 
-        @media(max-width: 576px) {
+        @media(max-width: 800px) {
             display: block;
         }
     }
 }
 
 .donate-link {
-    @media(max-width: 576px) {
+    @media(max-width: 800px) {
         display: none;
     }
 }
 
 .header-nav {
-    @media(max-width: 576px) {
+    @media(max-width: 800px) {
         width: 100%;
 
         .nav-link {
@@ -172,23 +172,23 @@ body {
 }
 
 .apr-header {
-    @media(max-width: 576px) {
+    @media(max-width: 800px) {
         background: #161415;
         position: absolute;
         width: 100%;
-        top: 0px  !important;
+        top: 0px !important;
     }
 }
 
-@media (max-width:576px){
-    .nav-link{
+@media (max-width:800px) {
+    .nav-link {
         color: #ffffff !important;
         padding-left: 30px;
         font-family: 'Satoshi', sans-serif;
         font-size: 14px !important;
         margin-bottom: 20px;
     }
-    
+
 }
 
 
@@ -377,6 +377,7 @@ body {
     border-radius: 11px;
     font-size: 16px;
     font-weight: 600;
+    max-width: 180px;
 }
 
 .apr-footer {
@@ -549,18 +550,22 @@ body {
         align-items: baseline;
     }
 }
-.footer-logo{
+
+.footer-logo {
     padding: 0 26px;
 }
-.footer-items{
+
+.footer-items {
     font-size: 14px;
     font-family: 'Satoshi', sans-serif;
 }
-.footer-contect{
+
+.footer-contect {
     font-size: 10px;
     color: #D4D5D9;
     font-family: 'Satoshi', sans-serif;
 }
+
 .contact-details {
     display: none;
 
@@ -621,26 +626,8 @@ body {
 
 /* football , basketball and track  css 
 ======================================== */
-.football-banner{
-    background:  linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/png/football-banner.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    margin-top: -72px;
-    padding: 0 16px;
-}
-.basketball-banner{
-    background:   linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/png/basketball-banner.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    margin-top: -72px;
-    padding: 0 16px;
-}
-.track-banner{
-    background:   url(../img/png/track-banner.png);
+.football-banner {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/png/football-banner.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -649,17 +636,38 @@ body {
     padding: 0 16px;
 }
 
-.apr-sport-name{
+.basketball-banner {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/png/basketball-banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    margin-top: -72px;
+    padding: 0 16px;
+}
+
+.track-banner {
+    background: url(../img/png/track-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    margin-top: -72px;
+    padding: 0 16px;
+}
+
+.apr-sport-name {
     font-size: 112px;
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
 }
 
-.sport-contant-us{
+.sport-contant-us {
     padding: 64px 10px;
-    border-top: 5px solid  #ffffff;
+    border-top: 5px solid #ffffff;
 }
+
 .sport-contant-us p {
     font-size: 25px;
     font-weight: 500;
@@ -667,7 +675,8 @@ body {
     color: #ffffff;
     letter-spacing: 0.5px;
 }
-.contact-white-btn{
+
+.contact-white-btn {
     font-size: 13px;
     font-weight: 400;
     color: #000000;
@@ -678,58 +687,68 @@ body {
     margin-top: 40px;
     letter-spacing: 0.5px;
 }
-.sport-img-1{
+
+.sport-img-1 {
     background-image: url(../img/png/sport-img1.png);
 }
-.sport-img-2{
+
+.sport-img-2 {
     background-image: url(../img/png/sport-img2.png);
 }
-.sport-img-3{
+
+.sport-img-3 {
     background-image: url(../img/png/sport-img3.png);
 }
 
-.basketball-img-1{
+.basketball-img-1 {
     background-image: url(../img/png/basketball-img1.png);
 }
-.basketball-img-2{
+
+.basketball-img-2 {
     background-image: url(../img/png/basketball-img2.png);
 }
-.basketball-img-3{
+
+.basketball-img-3 {
     background-image: url(../img/png/basketball-img3.png);
 }
 
-.track-img-1{
+.track-img-1 {
     background-image: url(../img/png/track-img1.png);
 }
 
-.track-img-2{
+.track-img-2 {
     background-image: url(../img/png/track-img2.png);
 }
 
-.track-img-3{
+.track-img-3 {
     background-image: url(../img/png/track-img3.png);
 }
-.sports-services-section{
+
+.sports-services-section {
     padding: 100px 16px;
 }
-.sport-services-accordion{
+
+.sport-services-accordion {
     margin-top: 75px;
 }
-.sport-services-heading{
+
+.sport-services-heading {
     font-size: 100px;
     font-weight: 600;
     color: #F2F2F2;
     text-transform: uppercase;
     letter-spacing: -5px;
 }
-.sport-services-text{
+
+.sport-services-text {
     font-size: 32px;
     font-weight: 900;
     font-family: 'Satoshi', sans-serif;
     color: #ffffff;
     text-transform: uppercase;
 }
-.apr-sports-img{
+
+.apr-sports-img {
     width: 100%;
     height: 100%;
     height: 525px;
@@ -740,25 +759,29 @@ body {
 /* football css   responsive 
 ======================================= */
 
-@media(max-width: 1190px){
-    .apr-sport-name{
+@media(max-width: 1190px) {
+    .apr-sport-name {
         font-size: 80px;
     }
-    .sport-services-heading{
+
+    .sport-services-heading {
         font-size: 75px;
     }
 }
-@media(max-width:768px){
-    .apr-sport-name{
+
+@media(max-width:768px) {
+    .apr-sport-name {
         font-size: 34px;
     }
-    .football-banner{
+
+    .football-banner {
         height: 70vh;
     }
-   
-    .sport-services-heading{
+
+    .sport-services-heading {
         font-size: 42px;
     }
+
     .sport-contant-us {
         border: 0;
         padding: 0px 16px 64px 10px;
@@ -766,7 +789,8 @@ body {
         position: relative;
 
     }
-    .football-banner{
+
+    .football-banner {
         background-position: center;
     }
 }
