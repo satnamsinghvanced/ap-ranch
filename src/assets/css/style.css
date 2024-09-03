@@ -189,6 +189,9 @@ body {
         margin-bottom: 20px;
     }
 
+    .donate-btn {
+        display: none;
+    }
 }
 
 
