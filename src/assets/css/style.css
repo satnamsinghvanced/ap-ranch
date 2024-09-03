@@ -90,21 +90,45 @@ a {
     text-decoration: none;
     color: #F2F2F2;
 }
+@import url('../font/stylesheet.css');
+
+body{
+    background: #161415; 
+    font-family: 'Tactic Sans Extra Extended';
+}
+
+
+
+/* header css 
+=============================================== */
+
+.navbar-nav .nav-item .nav-link{
+
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+
+
+
+
 
 /* comman css  */
 
 .font-50{
     font-size: 50px !important;
 }
+.font-14{
+    font-size: 14px;
+}
+
 .list-style-none{
     list-style: none;
 }
 
-body{
 
-    background: #161415;
-    
-}
 .color-gray-custom{
     color: #565656;
 }
@@ -122,9 +146,10 @@ body{
     background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(https://i.imgur.com/KBTA779.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh);
+    height: 100vh;
     position: relative;
     margin-top: -72px;
+    padding: 0 16px;
 }
 
 .apr-header{
@@ -156,7 +181,7 @@ body{
 }
 .about-apr p {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 .foodball-img{
@@ -206,12 +231,16 @@ body{
     font-weight: 600;
 }
 .incredible-partners-logos{
-    display: grid;
+    display: flex;
     max-width: 1080px;
-    grid-template-columns: repeat(5, auto);
     margin: auto;
     align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 40px;
+    padding:  0 33px ;
+    grid-gap: 16px;
+    row-gap: 50px;
 }
 .click-to-donate-box{
     background: #00000099  url('../img/png/donate-banner.png');
@@ -244,6 +273,59 @@ body{
     border-bottom: 1px solid #FFFFFF;
 }
 .apr-copyright{
-    color: #D4D5D9;
-    font-size: 12px
+    color: #898989;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media(max-width:1500px){
+    .click-to-donate-content{
+        margin-left: 0;
+    }
+}
+
+@media(max-width:992px){
+    .the-facility-img-box{
+        height: 720px;
+    }
+    .text-center-md{
+        text-align: center;
+    }
+    .incredible-partners-logos{
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+    }
+    
+}
+
+@media(max-width:768px){
+    .the-facility-img-box{
+        height: 200px;
+        background-position: center;
+    }
+    .sport-img-box{
+        height: 200px;
+        background-position: center;
+    }
+    .the-facility-img-box h3{
+        font-size: 30px !important;
+    }
+    .about-apr p {
+        font-size: 14px;
+        line-height: 1.7;
+        font-weight: 500;
+        padding: 0 16px;
+    }
+    .d-done-sm{
+        display: none;
+    }
+    .click-to-donate-heading{
+        font-size: 50px;
+    }
+    .apr-banner{
+        height: 80vh;
+    }
+    .section-pending{
+        padding: 0px 0px 65px 0;
+    }
 }
