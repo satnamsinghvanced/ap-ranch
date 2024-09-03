@@ -20,14 +20,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className=" about-apr section-pending">
+      <section className=" about-apr section-padding">
         <div className="max-width-1000 mx-auto text-center ">
           <p>
-            Our mission at AP Ranch is to create a transformative sports
-            facility and community dedicated to cultivating and empowering
-            student-athletes of all backgrounds and abilities. We strive to
-            provide a nurturing environment where INDIVIDUALS can explore their
-            passions, develop skills, and unlock their true potential. 
+           At AP Ranch, we believe that football is more than just a game; it’s an opportunity to develop important life skills like teamwork, leadership, and perseverance. By providing a supportive and inclusive environment, we aim to help our student athletes grow into confident and well-rounded individuals who are prepared to succeed in all aspects of life.
           </p>
         </div>
       </section>
