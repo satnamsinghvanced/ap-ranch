@@ -17,49 +17,49 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-list-group">
             <ul className="list-style-none d-flex gap-3 flex-wrap">
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.ABOUT} className="me-3">
                   About
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.FOOTBALL} className="me-3">
                   Football
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.BASKETBALL} className="me-3">
                   Basketball
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.TRACK} className="me-3">
                   Track
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.FACILITY} className="me-3">
                   Facility
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.TEAM} className="me-3">
                   Our Team
                 </a>
                 /
               </li>
-              <li className="color-gray-custom">
+              <li className="color-gray-custom footer-items">
                 <a href={ROUTES.DONATE} className="me-3">
                   Donate
                 </a>
                 /
               </li>
-              <li>
+              <li className="footer-items">
                 <a href={ROUTES.CONTACT} className="me-3">
                   Contact
                 </a>
@@ -68,16 +68,16 @@ const Footer = () => {
           </div>
           <div className="contact-details">
             <div className="form-group">
-              <label htmlFor="">CONTACT US</label>
-              <p>+1 999 888-76-54</p>
+              <label htmlFor="" className="footer-contect">CONTACT US</label>
+              <p className="footer-items">+1 999 888-76-54</p>
             </div>
             <div className="form-group">
-              <label htmlFor="">EMAIl</label>
-              <p>hello@apranch.com</p>
+              <label htmlFor="" className="footer-contect">EMAIl</label>
+              <p className="footer-items">hello@apranch.com</p>
             </div>
             <div className="form-group">
-              <label htmlFor="">Address</label>
-              <p>1590 FM2871 Fort Worth, TX 76126</p>
+              <label htmlFor="" className="footer-contect">Address</label>
+              <p className="footer-items">1590 FM2871 Fort Worth, TX 76126</p>
             </div>
           </div>
           <div className="media-link">
