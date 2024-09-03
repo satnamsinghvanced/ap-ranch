@@ -5,13 +5,18 @@ import rekortan from "../assets/img/png/Rekortan-logo.png";
 import USATrackLogo from "../assets/img/png/USA_Track-logo.png";
 import sorinexLogo from "../assets/img/png/sorinex-logo.png";
 import artboardLogo from "../assets/img/png/Artboard-logo.png";
+import aprSxLogo from "../assets/img/png/apr-sx-logo.png";
+
+
 const Home = () => {
+
   return (
     <section className="apr-main-section">
       <Header />
+
       <section className="apr-banner section-padding">
         <div className="d-flex justify-content-center w-100 align-items-center h-100 animate__animated animate__fadeInDown">
-          <img src="assets/img/apr-sx-logo.png" alt="" className="img-fluid" />
+          <img src={aprSxLogo} alt="" className="img-fluid" />
         </div>
       </section>
 
@@ -23,10 +28,12 @@ const Home = () => {
             student-athletes of all backgrounds and abilities. We strive to
             provide a nurturing environment where INDIVIDUALS can explore their
             passions, develop skills, and unlock their true potential.
+            <h1 data-aos="zoom-y-out" data-aos-delay="50">
+              Sample heading
+            </h1>
           </p>
         </div>
       </section>
-
       <section className="container-fluid">
         <div className="row">
           <div className="col-md-4 p-0 ">
@@ -67,6 +74,7 @@ const Home = () => {
         <h3 className="incredible-partners-heading text-center">
           our incredible partners
         </h3>
+        <h1 data-aos="zoom-y-out">Sample heading</h1>
         <div className="incredible-partners-logos">
           <div>
             <img src={nikeLogo} alt="" />
