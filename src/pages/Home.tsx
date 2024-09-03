@@ -19,7 +19,7 @@ const Home = () => {
       </section>
 
       <section className=" about-apr section-padding pb-2">
-        <div className="max-width-1000 mx-auto text-center ">
+        <div className="max-width-1050 mx-auto text-center ">
           <p>
             Our mission at AP Ranch is to create a transformative sports
             facility and community dedicated to cultivating and empowering
