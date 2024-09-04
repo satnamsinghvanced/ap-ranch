@@ -6,7 +6,10 @@ import USATrackLogo from "../assets/img/png/USA_Track-logo.png";
 import sorinexLogo from "../assets/img/png/sorinex-logo.png";
 import artboardLogo from "../assets/img/png/Artboard-logo.png";
 import aprSxLogo from "../assets/img/png/apr-sx-logo.png";
-
+import trackImg from "../assets/img/png/track-img.png";
+import footballImg from "../assets/img/png/football-img.png";
+import basketballImg from "../assets/img/png/basketball-img.png";
+import facilityImg from "../assets/img/png/facility-img.png";
 const Home = () => {
   return (
     <section className="apr-main-section">
@@ -32,24 +35,45 @@ const Home = () => {
       <section className="container-fluid">
         <div className="row">
           <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="football-img sport-img-box ">
-              <div className="d-flex align-items-center justify-content-center flex-column h-100">
+            <div className="sport-img-box ">
+              <img
+                src={footballImg}
+                alt=""
+                height={"100%"}
+                width={"100%"}
+                style={{ objectFit: "cover" }}
+              />
+              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">FOOTBALL</h3>
                 <button className="explore-btn  mt-4">EXPLORE</button>
               </div>
             </div>
           </div>
           <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="basketball-img sport-img-box  ">
-              <div className="d-flex align-items-center justify-content-center flex-column h-100 ">
+            <div className="sport-img-box  ">
+              <img
+                src={basketballImg}
+                alt=""
+                height={"100%"}
+                width={"100%"}
+                style={{ objectFit: "cover" }}
+              />
+              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">BASKETBALL</h3>
                 <button className="explore-btn  mt-4">EXPLORE</button>
               </div>
             </div>
           </div>
           <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="track-img sport-img-box ">
-              <div className="d-flex align-items-center justify-content-center flex-column h-100">
+            <div className="sport-img-box">
+              <img
+                src={trackImg}
+                alt=""
+                height={"100%"}
+                width={"100%"}
+                style={{ objectFit: "cover" }}
+              />
+              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">TRACK</h3>
                 <button className="explore-btn  mt-4">EXPLORE</button>
               </div>
@@ -57,7 +81,14 @@ const Home = () => {
           </div>
           <div className="col-lg-12  col-md-6 p-0 explore-section">
             <div className="the-facility-img-box ">
-              <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md">
+              <img
+                src={facilityImg}
+                alt=""
+                height={"100%"}
+                width={"100%"}
+                style={{ objectFit: "cover" }}
+              />
+              <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md position-absolute w-100 top-0">
                 <h3 className="sport-name-heading font-50">the facility</h3>
                 <button className="explore-btn  mt-4">EXPLORE</button>
               </div>

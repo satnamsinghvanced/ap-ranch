@@ -104,8 +104,7 @@ body {
 
 /* header css 
 =============================================== */
-
-.navbar-nav .nav-item .nav-link{
+.navbar-nav .nav-item .nav-link {
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
@@ -113,9 +112,11 @@ body {
     letter-spacing: 0.5px;
     position: relative;
 }
+
 .navbar-nav .nav-item.active .nav-link {
     font-weight: 900;
 }
+
 .navbar-nav .nav-item.active .nav-link:after {
     content: "";
     position: absolute;
@@ -303,25 +304,13 @@ body {
 
 }
 
-.football-img {
-    background-image: url('../img/png/football-img.png');
-
-}
-
-.basketball-img {
-    background-image: url('../img/png/basketball-img.png');
-}
-
-.track-img {
-    background-image: url('../img/png/track-img.png');
-}
-
 .sport-img-box {
     width: 100%;
     height: 100%;
     height: 720px;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .sport-name-heading {
@@ -347,10 +336,10 @@ body {
 }
 
 .the-facility-img-box {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://i.imgur.com/KBTA779.png);
     height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .incredible-partners {
@@ -817,7 +806,7 @@ body {
 /* facility css
 ========================================= */
 
-.facilities-banner{
+.facilities-banner {
     background-image: url(../img/png/facility-banner.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -826,7 +815,8 @@ body {
     margin-top: -72px;
     padding: 0 16px;
 }
-.facility-conatnt-heading{
+
+.facility-conatnt-heading {
     font-size: 32px;
     font-weight: 600;
     color: #ffffff;
@@ -834,21 +824,23 @@ body {
     text-transform: uppercase;
     margin-top: 12px;
 }
-.facilities-list{
-    padding:0px  34px;
+
+.facilities-list {
+    padding: 0px 34px;
 }
 
 
 /* facility responsive css
 =================================== */
-@media(max-width:768px){
-    .facilities-list img{
+@media(max-width:768px) {
+    .facilities-list img {
         border-radius: 14px;
         height: 360px;
         object-fit: cover;
 
     }
-    .facility-conatnt-heading{
+
+    .facility-conatnt-heading {
         font-size: 24px;
     }
 }
@@ -856,34 +848,39 @@ body {
 
 /* team css 
 ==================================== */
-.team-section{
+.team-section {
     margin-top: 100px;
 }
-.team-section-heading{
+
+.team-section-heading {
     font-size: 87px;
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
 }
-.team-member-list{
+
+.team-member-list {
     padding-bottom: 63px;
     display: flex;
     justify-content: center;
 }
-.team-member{
+
+.team-member {
     padding-top: 100px;
 }
-.team-member-imgbox{
+
+.team-member-imgbox {
     height: 300px;
     width: 300px;
 }
 
-.team-member-imgbox img{
-    height:100%;
+.team-member-imgbox img {
+    height: 100%;
     width: 100%;
     border-radius: 14px;
 }
-.team-member-name{
+
+.team-member-name {
     font-size: 18px;
     font-weight: 600;
     color: #FFFFFF;
@@ -892,7 +889,8 @@ body {
     margin-top: 27px;
     width: 300px;
 }
-.team-member-position{
+
+.team-member-position {
     font-size: 16px;
     font-weight: 700;
     color: #ffffff;
@@ -905,20 +903,23 @@ body {
 
 /* team css responsive 
 ========================================= */
-@media(max-width:786px){
-    .team-section-heading{
+@media(max-width:786px) {
+    .team-section-heading {
         font-size: 42px;
     }
-    .team-section{
+
+    .team-section {
         margin-top: 0px;
     }
-    .team-member{
+
+    .team-member {
         padding-top: 52px;
     }
 
 }
-@media(max-width:370px){
-    .team-section-heading{
+
+@media(max-width:370px) {
+    .team-section-heading {
         font-size: 30px;
         padding-top: 20px !important;
     }
@@ -928,10 +929,11 @@ body {
 
 /* about css 
 ====================================== */
-.about-section-img{
+.about-section-img {
     margin-top: -72px;
 }
-.about-page-content{
+
+.about-page-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -939,13 +941,15 @@ body {
     max-width: 635px;
     margin-left: auto;
 }
-.about-page-heading{
+
+.about-page-heading {
     font-size: 87px;
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 48px;
 }
-.about-page-para{
+
+.about-page-para {
     font-size: 22px;
     line-height: 30px;
     font-weight: 400;
@@ -953,25 +957,29 @@ body {
     font-family: 'Satoshi', sans-serif;
     margin-top: 20px;
 }
-.about-football-banner{
+
+.about-football-banner {
     background-image: url(../img/png/about-football-img.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
 }
-.about-basketball-banner{
+
+.about-basketball-banner {
     background-image: url(../img/png/about-basketball.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
 }
-.about-track-banner{
+
+.about-track-banner {
     background-image: url(../img/png/about-track-img.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
 }
-.about-page-accordian{
+
+.about-page-accordian {
     font-size: 60px;
     font-weight: 700;
     color: #ffffff;
@@ -981,32 +989,42 @@ body {
 /* about responsive css 
 ===================================== */
 
-@media(max-width:993px){
-    .about-page-content{
-        background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%),  linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)),  url(../img/png/about-banner.png);
+@media(max-width:993px) {
+    .about-page-content {
+        background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(../img/png/about-banner.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .d-none-lg{
+
+    .d-none-lg {
         display: none;
     }
-    .about-page-content{
+
+    .about-page-content {
         max-width: 100%;
-        padding:0 40px;
+        padding: 0 40px;
 
     }
-    .about-page-heading{
+
+    .about-page-heading {
         font-size: 42px;
         text-align: center;
         margin-top: 30px;
         margin-bottom: 11px;
     }
-    .about-page-para{
+
+    .about-page-para {
         text-align: center;
         margin-bottom: 14px;
     }
-    .about-page-accordian{
+
+    .about-page-accordian {
         font-size: 30px;
         font-weight: 400;
     }
+}
+
+/* --------------- Contact Page ----------- */
+.contact-page {
+    margin-top: -75px;
 }

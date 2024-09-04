@@ -1,6 +1,4 @@
-import CustomServices from "../components/custom-components/custom-services";
-import CustomTittle from "../components/custom-components/custom-title";
-import GraphicSection from "../components/custom-components/graphic-section";
+
 import Header from "../components/layout/header";
 import Footer from "./Footer";
 

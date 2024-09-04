@@ -11,7 +11,7 @@ const Contact = () => {
         <div className="col-7 contact-form">
           <ContactForm />
         </div>
-        <div className="col-3">
+        <div className="col-3 mt--75px">
           <img src={contactBg} alt="contactBg" />
         </div>
       </div>

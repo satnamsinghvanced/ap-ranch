@@ -2,18 +2,21 @@ import React from "react";
 import { ROUTES } from "../consts/routes.consts";
 import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
+import { Link, useLocation } from "react-router-dom";
 const Header = () => {
+  const location = useLocation();
+  const isActive = (path: string) => location.pathname === path;
   return (
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
         <div className="container apr-navbar">
           <div className="logo-bar">
-            <a className="navbar-brand p-0" href={ROUTES.HOME}>
+            <Link to={ROUTES.HOME} className="navbar-brand p-0">
               <img src={logo} alt="" />
-            </a>
-            <a className="logo-mobile" href={ROUTES.HOME}>
+            </Link>
+            <Link to={ROUTES.HOME} className="logo-mobile">
               <img src={logo2} alt="" />
-            </a>
+            </Link>
           </div>
 
           <button
@@ -66,61 +69,76 @@ const Header = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href={ROUTES.ABOUT}
-                >
+              <li
+                className={`nav-item ${isActive(ROUTES.ABOUT) ? "active" : ""}`}
+              >
+                <Link to={ROUTES.ABOUT} className="nav-link">
                   About
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href={ROUTES.FOOTBALL}>
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.FOOTBALL) ? "active" : ""
+                }`}
+              >
+                <Link to={ROUTES.FOOTBALL} className="nav-link">
                   Football
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href={ROUTES.BASKETBALL}>
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.BASKETBALL) ? "active" : ""
+                }`}
+              >
+                <Link to={ROUTES.BASKETBALL} className="nav-link">
                   Basketball
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link " href={ROUTES.TRACK}>
+              <li
+                className={`nav-item ${isActive(ROUTES.TRACK) ? "active" : ""}`}
+              >
+                <Link to={ROUTES.TRACK} className="nav-link">
                   Track
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link "
-                  href={ROUTES.FACILITY}
-                >
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.FACILITY) ? "active" : ""
+                }`}
+              >
+                <Link to={ROUTES.FACILITY} className="nav-link">
                   The Facility
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link "
-                   href={ROUTES.TEAM}
-                >
+              <li
+                className={`nav-item ${isActive(ROUTES.TEAM) ? "active" : ""}`}
+              >
+                <Link to={ROUTES.TEAM} className="nav-link">
                   The Team
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link  "
-                  // href={ROUTES.CONTACT}
-                  href={"/"}
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.CONTACT) ? "active" : ""
+                }`}
+              >
+                <Link
+                  to={
+                    "/"
+                    // ROUTES.CONTACT
+                  }
+                  className="nav-link"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="donate-link">
             <button className="donate-btn btn">
-              <a className="nav-link  " href={ROUTES.DONATE}>
+              <Link to={ROUTES.DONATE} className="nav-link">
                 DONATE
-              </a>
+              </Link>
             </button>
           </div>
         </div>
