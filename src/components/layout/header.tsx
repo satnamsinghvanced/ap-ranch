@@ -69,8 +69,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  // href={ROUTES.ABOUT}
-                  href={"/"}
+                  href={ROUTES.ABOUT}
                 >
                   About
                 </a>
