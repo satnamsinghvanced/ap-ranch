@@ -105,13 +105,28 @@ body {
 /* header css 
 =============================================== */
 
-.navbar-nav .nav-item .nav-link {
-
+.navbar-nav .nav-item .nav-link{
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     color: #000000;
+    letter-spacing: 0.5px;
+    position: relative;
 }
+.navbar-nav .nav-item.active .nav-link {
+    font-weight: 900;
+}
+.navbar-nav .nav-item.active .nav-link:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: #164576;
+    width: 7px;
+    height: 7px;
+    left: calc(50% - 7px);
+    border-radius: 100%;
+}
+
 
 
 
