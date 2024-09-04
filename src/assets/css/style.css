@@ -1120,4 +1120,6 @@ body {
 
 /* team member css 
 ====================================== */
-
+.banner-img{
+    margin-top: -72px;
+}
