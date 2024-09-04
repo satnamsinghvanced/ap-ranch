@@ -124,8 +124,8 @@ const Header = () => {
               >
                 <Link
                   to={
-                    "/"
-                    // ROUTES.CONTACT
+                   
+                    ROUTES.CONTACT
                   }
                   className="nav-link"
                 >
