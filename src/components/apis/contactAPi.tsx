@@ -4,7 +4,7 @@ const injectedRtkApi = api.injectEndpoints({
     createContact: builder.mutation<any, ContactApiArg>({
       query: (queryArg) => {
         return {
-          url: `/api/comment/post`,
+          url: `/api/contact`,
           method: "POST",
           body: queryArg,
         };
@@ -15,10 +15,11 @@ const injectedRtkApi = api.injectEndpoints({
 export { injectedRtkApi as enhancedApi };
 
 export type ContactApiArg = {
-  id?: string;
-  employee?: any;
-  text?: any;
-  image?: any;
+  name?: string;
+  email?: any;
+  phoneNumber?: any;
+  reason?: any;
+  comments?: any;
 };
 
 export const { useCreateContactMutation } = injectedRtkApi;
