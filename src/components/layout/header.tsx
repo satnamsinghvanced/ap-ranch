@@ -93,8 +93,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className="nav-link "
-                  href={"/"}
-                  // href={ROUTES.FACILITY}
+                  href={ROUTES.FACILITY}
                 >
                   The Facility
                 </a>
@@ -102,8 +101,7 @@ const Header = () => {
               <li className="nav-item">
                 <a
                   className="nav-link "
-                  //  href={ROUTES.TEAM}
-                  href={"/"}
+                   href={ROUTES.TEAM}
                 >
                   The Team
                 </a>

@@ -674,6 +674,7 @@ body {
     padding: 0 16px;
 }
 
+
 .apr-sport-name {
     font-size: 112px;
     font-weight: 900;
@@ -810,5 +811,116 @@ body {
 
     .football-banner {
         background-position: center;
+    }
+}
+
+
+/* facility css
+========================================= */
+
+.facilities-banner{
+    background-image: url(../img/png/facility-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    margin-top: -72px;
+    padding: 0 16px;
+}
+.facility-conatnt-heading{
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'Satoshi', sans-serif;
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+.facilities-list{
+    padding:0px  34px;
+}
+
+
+/* facility responsive css
+=================================== */
+@media(max-width:768px){
+    .facilities-list img{
+        border-radius: 14px;
+        height: 360px;
+        object-fit: cover;
+
+    }
+    .facility-conatnt-heading{
+        font-size: 24px;
+    }
+}
+
+
+/* team css 
+==================================== */
+.team-section{
+    margin-top: 100px;
+}
+.team-section-heading{
+    font-size: 87px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.team-member-list{
+    padding-bottom: 63px;
+    display: flex;
+    justify-content: center;
+}
+.team-member{
+    padding-top: 100px;
+}
+.team-member-imgbox{
+    height: 300px;
+    width: 300px;
+}
+
+.team-member-imgbox img{
+    height:100%;
+    width: 100%;
+    border-radius: 14px;
+}
+.team-member-name{
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 27px;
+    width: 300px;
+}
+.team-member-position{
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Satoshi', sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    width: 300px;
+}
+
+
+/* team css responsive 
+========================================= */
+@media(max-width:786px){
+    .team-section-heading{
+        font-size: 42px;
+    }
+    .team-section{
+        margin-top: 0px;
+    }
+    .team-member{
+        padding-top: 52px;
+    }
+
+}
+@media(max-width:370px){
+    .team-section-heading{
+        font-size: 30px;
+        padding-top: 20px !important;
     }
 }
