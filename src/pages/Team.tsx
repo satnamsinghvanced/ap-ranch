@@ -6,8 +6,13 @@ import GregScholars from "../assets/img/png/greg-scholars-img.png";
 import fosterSawyer from "../assets/img/png/foster-sawyer-img.png";
 import latoshaJohnson from "../assets/img/png/latosha-johnson-img.png";
 import KieranHayward from "../assets/img/png/Kieran-Hayward-img.png";
+import { useNavigate } from "react-router-dom";
 
 const Team = () => {
+  const navigate = useNavigate();
+  const handleMemberClick = (memberName: any) => {
+    navigate(`/team/${memberName}`);
+  };
   return (
     <div>
       <Header />
@@ -16,7 +21,10 @@ const Team = () => {
         <div className="container ">
           <h1 className="team-section-heading pt-5">the team</h1>
           <div className="row team-member">
-            <div className="col-lg-4 col-md-6">
+            <div
+              className="col-lg-4 col-md-6 "
+              onClick={() => handleMemberClick("mike-dry")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">
@@ -28,7 +36,10 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="col-lg-4  col-md-6">
+            <div
+              className="col-lg-4  col-md-6"
+              onClick={() => handleMemberClick("greg-scholars")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">
@@ -42,7 +53,10 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="col-lg-4  col-md-6">
+            <div
+              className="col-lg-4  col-md-6"
+              onClick={() => handleMemberClick("foster-sawyer")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">
@@ -54,7 +68,10 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="col-lg-4  col-md-6">
+            <div
+              className="col-lg-4  col-md-6"
+              onClick={() => handleMemberClick("kieran-hayward")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">
@@ -66,7 +83,10 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="col-lg-4  col-md-6">
+            <div
+              className="col-lg-4  col-md-6"
+              onClick={() => handleMemberClick("latosha-johnson")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">
@@ -78,7 +98,10 @@ const Team = () => {
               </div>
             </div>
 
-            <div className="col-lg-4  col-md-6">
+            <div
+              className="col-lg-4  col-md-6"
+              onClick={() => handleMemberClick("marquette-miller")}
+            >
               <div className="team-member-list">
                 <div>
                   <div className="team-member-imgbox">

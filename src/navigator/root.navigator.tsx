@@ -9,6 +9,7 @@ import Contact from "../pages/Contact";
 import Donate from "../pages/Donate";
 import Facilities from "../pages/Facilities";
 import Team from "../pages/Team";
+import TeamMemberDetail from "../components/team/team-member-detail";
 
 export const RootNavigator = () => {
   return (
@@ -23,6 +24,7 @@ export const RootNavigator = () => {
         <Route path={ROUTES.DONATE} element={<Donate />} />
         <Route path={ROUTES.FACILITY} element={<Facilities />} />
         <Route path={ROUTES.TEAM} element={<Team />} />
+        <Route path={ROUTES.TEAM_MEMBER_DETAIL} element={<TeamMemberDetail />} />
       </Routes>
     </>
   );
