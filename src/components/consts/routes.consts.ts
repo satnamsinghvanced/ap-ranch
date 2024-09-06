@@ -8,5 +8,5 @@ export const ROUTES = {
   TEAM: "/the-team",
   CONTACT: "/contact",
   DONATE: "/donate",
-  TEAM_MEMBER_DETAIL: "/team/:memberName",
+  TEAM_MEMBER_DETAIL: "/team/:id",
 };

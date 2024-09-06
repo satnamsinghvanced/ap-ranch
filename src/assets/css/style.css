@@ -84,6 +84,7 @@ video {
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
+    color: #F2F2F2;
 }
 
 a {
@@ -1032,6 +1033,7 @@ body {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    padding: 0px 12px;
 }
 
 .contact-img {
@@ -1064,6 +1066,18 @@ body {
     border-radius: 9px;
     border: 0;
     margin-bottom: 28px;
+    padding: 10px 16px;
+}
+
+.success-message {
+    padding: 25px;
+    text-align: center;
+    color: #00db00;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.contact-main {
+    margin: 0;
 }
 
 .submit-btn {
@@ -1095,6 +1109,7 @@ body {
         background-repeat: no-repeat;
         background-repeat: no-repeat;
         background-size: cover;
+        padding: 0px 12px;
     }
 
     .contact-page-heading {
@@ -1106,7 +1121,7 @@ body {
     .contact-form {
         max-width: 100%;
         margin-left: 0;
-        padding: 0px 20px;
+        padding: 0px 32px;
     }
 
     .contact-form-inner {
@@ -1184,23 +1199,63 @@ body {
 
     .member-name {
         font-size: 38px;
-        text-align: center;
-        margin-top: 30px;
+        margin-top: 350px;
     }
 
     .member-profile {
         font-size: 28px;
-        text-align: center;
         margin-bottom: 11px;
     }
 
     .about-page-para {
-        text-align: center;
         margin-bottom: 14px;
     }
 
     .about-page-accordian {
         font-size: 30px;
         font-weight: 400;
+    }
+}
+
+/*  -------------- Accordion --------------- */
+
+.accordion-main {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    margin-top: 75px;
+}
+
+.accordion-title-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-description {
+    font-size: 23px;
+    font-weight: 500;
+    font-family: "Satoshi";
+    color: #FFFFFF;
+    margin-top: 38px;
+}
+
+@media(max-width: 1190px) {
+    .accordion-main {
+        margin-top: 19px;
+    }
+
+    .accordion-description {
+        margin-top: 19px;
+    }
+}
+
+@media(max-width:768px) {
+    .accordion-main {
+        margin-top: 19px;
+    }
+
+    .accordion-description {
+        margin-top: 19px;
     }
 }

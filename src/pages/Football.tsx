@@ -4,8 +4,13 @@ import CustomServices from "../components/custom-components/custom-services";
 import Footer from "./Footer";
 import GraphicSection from "../components/custom-components/graphic-section";
 import Header from "../components/layout/header";
+import { useGetServicesByIdQuery } from "../components/apis/servicesApi";
 
 const Football = () => {
+  const { data } = useGetServicesByIdQuery<any>({
+    serviceId: 3,
+  });
+  console.log(data, "datavvv");
   return (
     <div>
       <Header />

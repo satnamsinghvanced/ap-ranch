@@ -1,12 +1,12 @@
 import React from "react";
 import CustomAccordion from "./custom-accordion";
 
-const CustomServices = () => {
+const CustomServices = ({ items }: { items: any }) => {
   return (
-    <div>
-      <h1>Services</h1>
-      <CustomAccordion />
-    </div>
+    <section className="container">
+      <h1 className="sport-services-heading">Services</h1>
+      <CustomAccordion items={items} />
+    </section>
   );
 };
 

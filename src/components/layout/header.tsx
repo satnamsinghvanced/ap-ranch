@@ -41,9 +41,9 @@ const Header = () => {
                   <path
                     d="M13 13L10.6667 10.6667M12.3333 6.66667C12.3333 9.79628 9.79628 12.3333 6.66667 12.3333C3.53705 12.3333 1 9.79628 1 6.66667C1 3.53705 3.53705 1 6.66667 1C9.79628 1 12.3333 3.53705 12.3333 6.66667Z"
                     stroke="#707070"
-                    stroke-width="1.33333"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.33333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </span>
@@ -57,9 +57,9 @@ const Header = () => {
                 <path
                   d="M1 7H19M1 1H19M7 13H19"
                   stroke="#F2F2F2"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </span>
@@ -122,13 +122,7 @@ const Header = () => {
                   isActive(ROUTES.CONTACT) ? "active" : ""
                 }`}
               >
-                <Link
-                  to={
-                   
-                    ROUTES.CONTACT
-                  }
-                  className="nav-link"
-                >
+                <Link to={ROUTES.CONTACT} className="nav-link">
                   Contact
                 </Link>
               </li>
