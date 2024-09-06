@@ -129,6 +129,13 @@ body {
     border-radius: 100%;
 }
 
+@media(max-width:992px){
+    .navbar-nav .nav-item.active .nav-link:after {
+        content: "";
+        left: 5px;
+        top: 16px;
+    }
+}
 
 
 
@@ -1295,3 +1302,76 @@ body {
         margin-top: 19px;
     }
 }
+
+
+
+/* about page open css 
+====================================== */
+
+.about-football-banner-open{
+    background-image: url(../img/png/football-full-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+.about-accoridan-text{
+    font-size: 25px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Satoshi";     
+}
+.about-accoridan-services{
+    text-align: end;
+}
+
+.about-accoridan-services-heading{
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.about-accoridan-services-para{
+    font-size: 17px;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-family: "Satoshi"; 
+    line-height: 27px; 
+    margin-top: 15px;   
+}
+.explore-btn-transparent{
+    font-size: 13px;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 14px 40px;
+    border: 2px solid #F2F2F2;
+    background-color: transparent;
+    border-radius: 70PX;
+    margin-top: 23px;
+    text-transform: uppercase;
+}
+
+@media(max-width:992px){
+    .about-football-banner-open{
+        background-position: center;
+
+    }
+    .about-accoridan-services-heading{
+        display: none;
+    }
+    .about-accoridan-services-para{
+        display: none;
+    }
+    .about-accoridan-services{
+        text-align: center;
+    }
+    .about-accoridan-text{
+        font-size: 19px;
+
+    }
+    .explore-btn-transparent{
+        margin: 0;
+    }
+    .about-football-banner-open .mt-5{
+        margin-top: 20px !important;
+    }
+}
+
