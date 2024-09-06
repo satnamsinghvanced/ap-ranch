@@ -18,7 +18,7 @@ const Home = () => {
     <section className="apr-main-section">
       <Header />
 
-      <section className="apr-banner section-padding">
+      <section className="apr-banner">
         <div className="d-flex justify-content-center w-100 align-items-center h-100 ">
           <img src={aprSxLogo} alt="" className="img-fluid" />
         </div>
@@ -145,7 +145,7 @@ const Home = () => {
 
       <section className="click-to-donate  container-fluid">
         <div className="row">
-          <div className="col-lg-6 pb-5">
+          <div className="col-lg-6 pb-5 px-4">
             <div className="d-inline-flex w-auto justify-content-center h-100 flex-column click-to-donate-content  ">
               <h1 className="click-to-donate-heading">
                 CLICK TO
