@@ -43,9 +43,9 @@ const DonationForm = () => {
         <div className="col-sm-12 col-md-6">
           <div className="form-group">
             <select name="" id="" className="form-select form-select-lg">
-              <option value="">1</option>
-              <option value="">1</option>
-              <option value="">1</option>
+              <option value="">State</option>
+              <option value="">State1</option>
+              <option value="">State2</option>
             </select>
           </div>
         </div>

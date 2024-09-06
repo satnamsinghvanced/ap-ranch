@@ -2,7 +2,6 @@ import ContactForm from "../components/forms/contact-form";
 import Footer from "./Footer";
 import Header from "../components/layout/header";
 import contactBg from "../assets/img/png/contact-bg.png";
-import CustomServices from "../components/custom-components/custom-services";
 const Contact = () => {
   return (
     <div>

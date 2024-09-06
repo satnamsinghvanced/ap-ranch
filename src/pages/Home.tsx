@@ -10,7 +10,10 @@ import trackImg from "../assets/img/png/track-img.png";
 import footballImg from "../assets/img/png/football-img.png";
 import basketballImg from "../assets/img/png/basketball-img.png";
 import facilityImg from "../assets/img/png/facility-img.png";
+import { ROUTES } from "../components/consts/routes.consts";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <section className="apr-main-section">
       <Header />
@@ -45,7 +48,12 @@ const Home = () => {
               />
               <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">FOOTBALL</h3>
-                <button className="explore-btn  mt-4">EXPLORE</button>
+                <button
+                  className="explore-btn  mt-4"
+                  onClick={() => navigate(ROUTES.FOOTBALL)}
+                >
+                  EXPLORE
+                </button>
               </div>
             </div>
           </div>
@@ -60,7 +68,12 @@ const Home = () => {
               />
               <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">BASKETBALL</h3>
-                <button className="explore-btn  mt-4">EXPLORE</button>
+                <button
+                  className="explore-btn  mt-4"
+                  onClick={() => navigate(ROUTES.BASKETBALL)}
+                >
+                  EXPLORE
+                </button>
               </div>
             </div>
           </div>
@@ -75,7 +88,12 @@ const Home = () => {
               />
               <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                 <h3 className="sport-name-heading">TRACK</h3>
-                <button className="explore-btn  mt-4">EXPLORE</button>
+                <button
+                  className="explore-btn  mt-4"
+                  onClick={() => navigate(ROUTES.TRACK)}
+                >
+                  EXPLORE
+                </button>
               </div>
             </div>
           </div>
@@ -90,7 +108,12 @@ const Home = () => {
               />
               <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md position-absolute w-100 top-0">
                 <h3 className="sport-name-heading font-50">the facility</h3>
-                <button className="explore-btn  mt-4">EXPLORE</button>
+                <button
+                  className="explore-btn  mt-4"
+                  onClick={() => navigate(ROUTES.FACILITY)}
+                >
+                  EXPLORE
+                </button>
               </div>
             </div>
           </div>
@@ -128,7 +151,10 @@ const Home = () => {
                 CLICK TO
                 <br /> DONATE
               </h1>
-              <button className="donate-white-btn border-0 mt-3  ">
+              <button
+                className="donate-white-btn border-0 mt-3"
+                onClick={() => navigate(ROUTES.DONATE)}
+              >
                 DONATE
               </button>
             </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { ROUTES } from "../components/consts/routes.consts";
 import whiteLogo from "../assets/img/png/apr-white-logo.png";
 import footerlogo from "../assets/img/png/footer-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -18,65 +19,51 @@ const Footer = () => {
           <div className="footer-list-group">
             <ul className="list-style-none d-flex gap-3 flex-wrap">
               <li className="color-gray-custom footer-items">
-                <a //href={ROUTES.ABOUT}
-                  href={"/"}
-                  className="me-3"
-                >
+                <Link to={ROUTES.ABOUT} className="me-3">
                   About
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.FOOTBALL} className="me-3">
+                <Link to={ROUTES.FOOTBALL} className="me-3">
                   Football
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.BASKETBALL} className="me-3">
+                <Link to={ROUTES.BASKETBALL} className="me-3">
                   Basketball
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.TRACK} className="me-3">
+                <Link to={ROUTES.TRACK} className="me-3">
                   Track
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a
-                  href={"/"}
-                  // href={ROUTES.FACILITY}
-                  className="me-3"
-                >
+                <Link to={ROUTES.FACILITY} className="me-3">
                   Facility
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a
-                  // href={ROUTES.TEAM}
-                  href={"/"}
-                  className="me-3"
-                >
+                <Link to={ROUTES.TEAM} className="me-3">
                   Our Team
-                </a>
+                </Link>
                 /
               </li>
               <li className="color-gray-custom footer-items">
-                <a href={ROUTES.DONATE} className="me-3">
+                <Link to={ROUTES.DONATE} className="me-3">
                   Donate
-                </a>
+                </Link>
                 /
               </li>
               <li className="footer-items">
-                <a //href={ROUTES.CONTACT}
-                  href={"/"}
-                  className="me-3"
-                >
+                <Link to={ROUTES.CONTACT} className="me-3">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

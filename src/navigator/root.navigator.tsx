@@ -10,10 +10,12 @@ import Donate from "../pages/Donate";
 import Facilities from "../pages/Facilities";
 import Team from "../pages/Team";
 import TeamMemberDetail from "../components/team/team-member-detail";
+import ScrollToTop from "../components/scrollTop";
 
 export const RootNavigator = () => {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
@@ -24,7 +26,10 @@ export const RootNavigator = () => {
         <Route path={ROUTES.DONATE} element={<Donate />} />
         <Route path={ROUTES.FACILITY} element={<Facilities />} />
         <Route path={ROUTES.TEAM} element={<Team />} />
-        <Route path={ROUTES.TEAM_MEMBER_DETAIL} element={<TeamMemberDetail />} />
+        <Route
+          path={ROUTES.TEAM_MEMBER_DETAIL}
+          element={<TeamMemberDetail />}
+        />
       </Routes>
     </>
   );
