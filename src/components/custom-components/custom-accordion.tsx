@@ -49,7 +49,7 @@ const CustomAccordion = ({ items }: { items: any }) => {
               {index === activeIndex && <p className="accordion-description">{item.content}</p>}
             </>
           ) : (
-            <h1>{item.title}</h1>
+            <h1 className="sport-services-text">{item.title}</h1>
           )}
         </div>
       ))}

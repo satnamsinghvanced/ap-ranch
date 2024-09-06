@@ -129,7 +129,7 @@ body {
     border-radius: 100%;
 }
 
-@media(max-width:992px){
+@media(max-width:992px) {
     .navbar-nav .nav-item.active .nav-link:after {
         content: "";
         left: 5px;
@@ -216,21 +216,24 @@ body {
     .donate-btn {
         display: none;
     }
-    .logo-bar .navbar-brand{
+
+    .logo-bar .navbar-brand {
         display: none;
     }
 }
-@media(min-width:1200px){
+
+@media(min-width:1200px) {
     .apr-header .container {
         max-width: 1185px;
     }
 }
 
-@media(max-width:1200px){
+@media(max-width:1200px) {
     .navbar-nav .nav-item .nav-link {
         font-size: 10px;
     }
-    .donate-btn{
+
+    .donate-btn {
         padding: 6px 15px !important;
     }
 }
@@ -405,6 +408,7 @@ body {
     color: #F2F2F2;
     font-size: 60px;
     font-weight: 600;
+    max-width: 457px;
 }
 
 .donate-white-btn {
@@ -497,8 +501,8 @@ body {
     }
 }
 
-@media(max-width:380px){
-    .click-to-donate-heading{
+@media(max-width:380px) {
+    .click-to-donate-heading {
         font-size: 35px;
     }
 }
@@ -592,7 +596,7 @@ body {
     gap: 24px;
     margin-top: 24px;
     flex-wrap: wrap;
-   
+
 
     @media(max-width: 576px) {
         flex-direction: column;
@@ -1002,27 +1006,6 @@ body {
     margin-top: 20px;
 }
 
-.about-football-banner {
-    background-image: url(../img/png/about-football-img.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-}
-
-.about-basketball-banner {
-    background-image: url(../img/png/about-basketball.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-}
-
-.about-track-banner {
-    background-image: url(../img/png/about-track-img.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-}
-
 .about-page-accordian {
     font-size: 60px;
     font-weight: 700;
@@ -1194,6 +1177,7 @@ body {
     font-weight: 800;
     color: #ffffff;
     font-family: 'Tactic Sans Extra Extended';
+    text-transform: uppercase;
 }
 
 .member-profile {
@@ -1202,6 +1186,7 @@ body {
     color: #ffffff;
     margin-bottom: 86px;
     font-family: 'Satoshi';
+    text-transform: uppercase;
 }
 
 .about-member {
@@ -1214,10 +1199,13 @@ body {
 .member-detail-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     max-width: 610px;
     margin-left: auto;
+}
+
+.member-detail {
+    margin-top: 152px;
 }
 
 /* member detail responsive css 
@@ -1272,7 +1260,8 @@ body {
 .accordion-title-button {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    cursor: pointer;
 }
 
 .accordion-description {
@@ -1308,36 +1297,40 @@ body {
 /* about page open css 
 ====================================== */
 
-.about-football-banner-open{
+/* .about-football-banner-open {
     background-image: url(../img/png/football-full-img.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
-}
-.about-accoridan-text{
+} */
+
+.about-accoridan-text {
     font-size: 25px;
     font-weight: 500;
     color: #ffffff;
-    font-family: "Satoshi";     
+    font-family: "Satoshi";
 }
-.about-accoridan-services{
+
+.about-accoridan-services {
     text-align: end;
 }
 
-.about-accoridan-services-heading{
+.about-accoridan-services-heading {
     font-size: 25px;
     font-weight: 600;
     color: #FFFFFF;
 }
-.about-accoridan-services-para{
+
+.about-accoridan-services-para {
     font-size: 17px;
     font-weight: 500;
     color: #FFFFFF;
-    font-family: "Satoshi"; 
-    line-height: 27px; 
-    margin-top: 15px;   
+    font-family: "Satoshi";
+    line-height: 27px;
+    margin-top: 15px;
 }
-.explore-btn-transparent{
+
+.explore-btn-transparent {
     font-size: 13px;
     font-weight: 400;
     color: #ffffff;
@@ -1349,29 +1342,34 @@ body {
     text-transform: uppercase;
 }
 
-@media(max-width:992px){
-    .about-football-banner-open{
+@media(max-width:992px) {
+    .about-football-banner-open {
         background-position: center;
 
     }
-    .about-accoridan-services-heading{
+
+    .about-accoridan-services-heading {
         display: none;
     }
-    .about-accoridan-services-para{
+
+    .about-accoridan-services-para {
         display: none;
     }
-    .about-accoridan-services{
+
+    .about-accoridan-services {
         text-align: center;
     }
-    .about-accoridan-text{
+
+    .about-accoridan-text {
         font-size: 19px;
 
     }
-    .explore-btn-transparent{
+
+    .explore-btn-transparent {
         margin: 0;
     }
-    .about-football-banner-open .mt-5{
+
+    .about-football-banner-open .mt-5 {
         margin-top: 20px !important;
     }
 }
-

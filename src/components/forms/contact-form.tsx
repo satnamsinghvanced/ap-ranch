@@ -80,7 +80,6 @@ const ContactForm = () => {
     }
     try {
       const res = await addContact(formData).unwrap();
-      console.log(res);
       setResponse(res);
       toast.success(res.message);
       setFormData({
@@ -99,12 +98,11 @@ const ContactForm = () => {
       if (response?.message !== "") {
         setResponse("");
       }
-    }, 1000);
+    }, 5000);
   }, [response?.message]);
 
   return (
     <div className="contact-form-inner">
-      {/* <form action=""> */}
       <div className="d-flex flex-column position-relative">
         <label htmlFor="" className="contact-form-label">
           Name
@@ -184,7 +182,6 @@ const ContactForm = () => {
           Submit
         </button>
       </div>
-      {/* </form> */}
       <h1 className="success-message">{response?.message}</h1>
     </div>
   );

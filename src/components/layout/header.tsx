@@ -10,7 +10,7 @@ const Header = () => {
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
         <div className="container apr-navbar">
-          <div className="logo-bar">
+          <div className="logo-bar mt-2">
             <Link to={ROUTES.HOME} className="navbar-brand p-0">
               <img src={logo} alt="" />
             </Link>

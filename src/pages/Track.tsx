@@ -1,16 +1,17 @@
 import React from "react";
 import CustomServices from "../components/custom-components/custom-services";
 import CustomTittle from "../components/custom-components/custom-title";
-import GraphicSection from "../components/custom-components/graphic-section";
+// import GraphicSection from "../components/custom-components/graphic-section";
 import Footer from "./Footer";
 import Header from "../components/layout/header";
-import { useGetServicesByIdQuery } from "../components/apis/servicesApi";
+// import { useGetServicesByIdQuery } from "../components/apis/servicesApi";
+import { TrackServices } from "../components/consts/const";
 
 const Track = () => {
-  const { data } = useGetServicesByIdQuery<any>({
-    serviceId: 4,
-  });
-  console.log(data, "datavvv");
+  // const { data } = useGetServicesByIdQuery<any>({
+  //   serviceId: 4,
+  // });
+  // console.log(data, "datavvv");
   return (
     <div>
       <Header />
@@ -23,16 +24,11 @@ const Track = () => {
 
       <section className="sport-contant-us">
         <div className="max-width-1050 mx-auto text-center ">
-          <p>
-            AP Ranch is proud to offer a world-class track club and training,
-            coached by three-time NCAA National Champion Greg Sholars and his
-            team of professional coaches. Athletes will receive an elite-level
-            of training and an unprecedented opportunity to achieve at a level
-            they may have only have dreamed of. We teach our athletes the
-            importance of hard work, dedication, determination and perseverance
-            both in the classroom and on the track. 
-          </p>
-          <button className="contact-white-btn">CONTACT</button>
+          <CustomTittle
+            title={
+              "AP Ranch is proud to offer a world-class track club and training, coached by three-time NCAA National Champion Greg Sholars and his team of professional coaches. Athletes will receive an elite-level of training and an unprecedented opportunity to achieve at a level they may have only have dreamed of. We teach our athletes the importance of hard work, dedication, determination and perseverance both in the classroom and on the track. "
+            }
+          />
         </div>
       </section>
 
@@ -53,27 +49,7 @@ const Track = () => {
       </section>
 
       <section className="sports-services-section">
-        <div className="container">
-          <div>
-            <h1 className="sport-services-heading">Services</h1>
-          </div>
-
-          <div className="sport-services-accordion">
-            <div className="d-flex  justify-content-between mb-3">
-              <p className="sport-services-text">
-                Off Season Training (September-January)
-              </p>
-            </div>
-
-            <div className="d-flex justify-content-between mt-4">
-              <p className="sport-services-text">Indoor Track (January)</p>
-            </div>
-
-            <div className="d-flex  justify-content-between mt-4">
-              <p className="sport-services-text">Summer Track (April-August)</p>
-            </div>
-          </div>
-        </div>
+        <CustomServices items={TrackServices} />
       </section>
 
       <Footer />
