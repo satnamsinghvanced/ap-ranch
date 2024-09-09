@@ -11,6 +11,8 @@ import Facilities from "../pages/Facilities";
 import Team from "../pages/Team";
 import TeamMemberDetail from "../components/team/team-member-detail";
 import ScrollToTop from "../components/scrollTop";
+import OurMissions from "../components/about/our-missions";
+import Forms from "../components/about/forms";
 
 export const RootNavigator = () => {
   return (
@@ -30,6 +32,9 @@ export const RootNavigator = () => {
           path={ROUTES.TEAM_MEMBER_DETAIL}
           element={<TeamMemberDetail />}
         />
+        <Route path={ROUTES.OUR_MISSION} element={<OurMissions />} />
+        <Route path={ROUTES.FORM} element={<Forms />} />
+        <Route path={ROUTES.COLLABORATE} element={<Forms />} />
       </Routes>
     </>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ROUTES } from "../consts/routes.consts";
 import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
@@ -6,6 +6,22 @@ import { Link, useLocation } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isSportsVisible, setSportsVisible] = useState(false);
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownVisible(false);
+  };
+  const handleSportsMouseEnter = () => {
+    setSportsVisible(true);
+  };
+
+  const handleSportsMouseLeave = () => {
+    setSportsVisible(false);
+  };
   return (
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
@@ -70,13 +86,84 @@ const Header = () => {
           >
             <ul className="navbar-nav">
               <li
-                className={`nav-item ${isActive(ROUTES.ABOUT) ? "active" : ""}`}
+                className={`nav-item ${
+                  isActive(ROUTES.OUR_MISSION) || isActive(ROUTES.FORM)
+                    ? "active"
+                    : ""
+                }`}
               >
-                <Link to={ROUTES.ABOUT} className="nav-link">
+                <div
+                  className="nav-link"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  style={{
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                >
                   About
+                  {/* <DropdownMenu /> */}
+                  {isDropdownVisible && (
+                    <div className="dropdown-menu">
+                      <ul>
+                        <Link to={ROUTES.OUR_MISSION} className="nav-link">
+                          OUR MISSION
+                        </Link>
+                        <Link to={ROUTES.FORM} className="nav-link">
+                          FORMS
+                        </Link>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </li>
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.COLLABORATE) ? "active" : ""
+                }`}
+              >
+                <Link to={ROUTES.COLLABORATE} className="nav-link">
+                  Collaborate
                 </Link>
               </li>
               <li
+                className={`nav-item ${
+                  isActive(ROUTES.FOOTBALL) ||
+                  isActive(ROUTES.BASKETBALL) ||
+                  isActive(ROUTES.TRACK)
+                    ? "active"
+                    : ""
+                }`}
+              >
+                <div
+                  className="nav-link"
+                  onMouseEnter={handleSportsMouseEnter}
+                  onMouseLeave={handleSportsMouseLeave}
+                  style={{
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                >
+                  Sports
+                  {/* <DropdownMenu /> */}
+                  {isSportsVisible && (
+                    <div className="dropdown-menu">
+                      <ul>
+                        <Link to={ROUTES.FOOTBALL} className="nav-link">
+                          Football
+                        </Link>
+                        <Link to={ROUTES.BASKETBALL} className="nav-link">
+                          Basketball
+                        </Link>
+                        <Link to={ROUTES.TRACK} className="nav-link">
+                          Track
+                        </Link>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </li>
+              {/* <li
                 className={`nav-item ${
                   isActive(ROUTES.FOOTBALL) ? "active" : ""
                 }`}
@@ -100,7 +187,7 @@ const Header = () => {
                 <Link to={ROUTES.TRACK} className="nav-link">
                   Track
                 </Link>
-              </li>
+              </li> */}
               <li
                 className={`nav-item ${
                   isActive(ROUTES.FACILITY) ? "active" : ""

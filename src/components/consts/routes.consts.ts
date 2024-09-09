@@ -9,4 +9,7 @@ export const ROUTES = {
   CONTACT: "/contact",
   DONATE: "/donate",
   TEAM_MEMBER_DETAIL: "/team/:id",
+  OUR_MISSION: "/our-mission",
+  FORM: "/form",
+  COLLABORATE: "/collaborate",
 };
