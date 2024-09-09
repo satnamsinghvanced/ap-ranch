@@ -1457,3 +1457,56 @@ body {
         margin-top: 0PX;
     }
 }
+
+
+
+
+/* collaborate css
+=======================================  */
+
+.collabrate-banner{
+  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%),  url(../img/png/collaborate-banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: -80px
+}
+.collabrate-heading{
+    font-size: 112px;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;  
+}
+.about-collaborate{
+    background-image: url(../img/png/about-collarbate.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1390px;
+}
+
+.about-collabrate{
+    padding-bottom: 35px;
+}
+.about-inner-page{
+    margin-top: 100px;
+    max-width: 800px;
+    margin-left: auto;
+
+}
+
+.about-collabrate-question{
+    font-size: 34px;
+    font-weight: 500;
+    font-family: "Satoshi";
+}
+
+.about-collabrate-answer{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Satoshi";
+}
+.about-collabrate-subpoint{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Satoshi";
+}

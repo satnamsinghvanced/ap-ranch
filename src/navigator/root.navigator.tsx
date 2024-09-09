@@ -13,6 +13,7 @@ import TeamMemberDetail from "../components/team/team-member-detail";
 import ScrollToTop from "../components/scrollTop";
 import OurMissions from "../components/about/our-missions";
 import Forms from "../components/about/forms";
+import Collaborate from "../pages/Collaborate";
 
 export const RootNavigator = () => {
   return (
@@ -34,7 +35,7 @@ export const RootNavigator = () => {
         />
         <Route path={ROUTES.OUR_MISSION} element={<OurMissions />} />
         <Route path={ROUTES.FORM} element={<Forms />} />
-        <Route path={ROUTES.COLLABORATE} element={<Forms />} />
+        <Route path={ROUTES.COLLABORATE} element={<Collaborate />} />
       </Routes>
     </>
   );

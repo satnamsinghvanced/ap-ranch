@@ -1,11 +1,47 @@
 import React from "react";
 import Header from "../components/layout/header";
+import Footer from "./Footer";
 
 const Collaborate = () => {
   return (
     <div>
       <Header />
-      Collaborate
+        <section className="collabrate-banner">
+          <div className="d-flex align-items-center justify-content-center h-100">
+            <h1 className="collabrate-heading">Collaborate</h1>
+          </div>
+        </section>
+
+        <section className="about-collabrate">
+          <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="about-inner-page"> 
+                    <h3 className="about-collabrate-question mb-3">Who is it for?</h3>
+                    <p className="about-collabrate-answer mb-4">Any student entering fifth through twelfth grade is welcome to apply. We are looking for students who demonstrate a strong commitment to academic excellence.</p>
+                    <div>
+                        <h3 className="about-collabrate-question mb-5">What does it look like?</h3>
+                        <h4 className="about-collabrate-subpoint mb-2">Accountability</h4>
+                        <p className="about-collabrate-answer">Students who are accepted to AP Ranch Collaborate will be assigned a partner for the duration of the school year. This fellow student will be a teammate, ally, and accountability partner. Both students will navigate this journey together along with the help and coaching of the Academic Coordinator.</p>
+                        <h4 className="about-collabrate-subpoint mb-2 mt-5">Monthly Checkpoints </h4>
+                        <p className="about-collabrate-answer">Students will meet once a month for a touch-base with the Academic Coordinator. This will be a small group accountability session with only one or two other students and is intended to provide the student with accountability and guidance. It is important that the student attend every session and come ready to be honest and be challenged in their academic performance.</p>
+                        <h4 className="about-collabrate-subpoint mb-2 mt-5">Monthly Skills Development</h4>
+                        <p className="about-collabrate-answer">All students will also participate in monthly group sessions on highly practical topics brought to you by the Academic Coordinator and visiting guest specialists. There will be separate sessions for middle and high school students. These training sessions are intended to help you grow in study skills, time management, goal setting, personal discipline, public speaking, and other practical life skills that are essential to your success.</p>
+                        <h4 className="about-collabrate-subpoint mb-2 mt-5">Bi-Semester Parent Sessions</h4>
+                        <p className="about-collabrate-answer">Parent(s) and/or guardian(s) will be expected to participate in one group session per semester as well as one individual session. The group session will focus on a practical topic such as college admissions, adolescent development, or financial aid. The second session will be scheduled with the parent(s) and/or guardian(s) of both student partners so that all parties will have the opportunity to meet with the Academic Coordinator and (for older grades) the College Advisor to discuss the individual needs of their children.</p>
+                    </div>
+                   </div>
+                  </div>
+
+                <div className="col-md-6 p-0">
+                  <div className="about-collaborate"></div>
+                </div>
+              </div>
+           
+          </div>
+        </section>
+      <Footer />
+     
     </div>
   );
 };
