@@ -13,24 +13,57 @@ interface PayState {
   sourceId: string;
 }
 
+
 interface SquarePaymentProps {
   pay: PayState;
   setPay: React.Dispatch<React.SetStateAction<PayState>>;
+  setSubmitCheck: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay }) => {
+const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay, setSubmitCheck }) => {
   const [addDonate] = useCreateDanateMutation();
   const [response, setResponse] = useState<any>("");
+  const [error, setError] =  useState<any>("");
   return (
     <div className="form-donation">
       <PaymentForm
         applicationId={squareApplicationId}
         cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
+          try{
           console.log('token:', token.token);
           console.log('verifiedBuyer:', verifiedBuyer);
           let formData = pay;
           formData.sourceId = token.token ?? '';
           const res = await addDonate(formData).unwrap();
-          setResponse(res);
+            setResponse(res);
+          setTimeout(function () {
+            setPay({
+              firstName: "",
+              lastName: "",
+              email: "",
+              phone: "",
+              state: "",
+              amount: "",
+              sourceId: ""
+            })
+            setSubmitCheck(false);
+          }, 3000)
+        } catch (err) {
+          console.log("err");
+          console.log(err);
+          setError("Payment Failed, Please try again!");
+          setTimeout(function () {
+            setPay({
+              firstName: "",
+              lastName: "",
+              email: "",
+              phone: "",
+              state: "",
+              amount: "",
+              sourceId: ""
+            })
+            setSubmitCheck(false);
+          }, 3000)
+        }
         }}
         locationId={squareLocationId}
       >
@@ -47,7 +80,8 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay }) => {
             },
           }}
         >Submit</CreditCard>
-
+        {error && <div className="text-danger" style={{ fontSize: "14px", marginTop: "5px"}}>{error}</div>}
+        {response && <div style={{ fontSize: "14px", marginTop: "5px", color: "green"}}>{response?.message}</div>}
       </PaymentForm>
     </div>
   )

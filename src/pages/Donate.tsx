@@ -43,6 +43,7 @@ const Donate = () => {
             <SquarePayment 
               pay={pay}
               setPay={setPay}
+              setSubmitCheck={setSubmitCheck}
             />
           }
         </div>
