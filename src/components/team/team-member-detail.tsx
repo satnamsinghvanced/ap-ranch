@@ -32,7 +32,7 @@ const TeamMemberDetail: React.FC = () => {
         <Header />
         <section className="container-fluid">
           <div className="row">
-            <div className="col-lg-6 member-detail">
+            <div className="col-lg-6 p-0 member-detail">
               <div className="member-detail-container">
                 <h1 className="member-name">
                   {nameParts?.map((part: any, index: any) => (
