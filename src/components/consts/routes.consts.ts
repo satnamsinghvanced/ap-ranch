@@ -12,4 +12,6 @@ export const ROUTES = {
   OUR_MISSION: "/our-mission",
   FORM: "/form",
   COLLABORATE: "/collaborate",
+  INDEMNITY_AGREEMENT: "/indemnity-agreement",
+  CODE_OF_CONDUCT: "/code-of-conduct",
 };

@@ -1,8 +1,11 @@
 import React from "react";
 import Header from "../layout/header";
 import Footer from "../../pages/Footer";
+import { ROUTES } from "../consts/routes.consts";
+import { useNavigate } from "react-router-dom";
 
 const Forms = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div>
@@ -60,10 +63,14 @@ const Forms = () => {
                   <button
                     className="form-white-btn"
                     style={{ fontFamily: "'Satoshi', sans-serif" }}
+                    onClick={() => navigate(ROUTES.INDEMNITY_AGREEMENT)}
                   >
                     Indemnity Agreement
                   </button>
-                  <button className="form-white-btn">
+                  <button
+                    className="form-white-btn"
+                    onClick={() => navigate(ROUTES.CODE_OF_CONDUCT)}
+                  >
                     Parent's Code of Conduct Agreement
                   </button>
                   <button className="form-white-btn">

@@ -14,6 +14,8 @@ import ScrollToTop from "../components/scrollTop";
 import OurMissions from "../components/about/our-missions";
 import Forms from "../components/about/forms";
 import Collaborate from "../pages/Collaborate";
+import CodeOfConductForm from "../components/about/code-of-conduct";
+import IndemnityAgreement from "../components/about/indemnity-agreement";
 
 export const RootNavigator = () => {
   return (
@@ -36,6 +38,11 @@ export const RootNavigator = () => {
         <Route path={ROUTES.OUR_MISSION} element={<OurMissions />} />
         <Route path={ROUTES.FORM} element={<Forms />} />
         <Route path={ROUTES.COLLABORATE} element={<Collaborate />} />
+        <Route path={ROUTES.CODE_OF_CONDUCT} element={<CodeOfConductForm />} />
+        <Route
+          path={ROUTES.INDEMNITY_AGREEMENT}
+          element={<IndemnityAgreement />}
+        />
       </Routes>
     </>
   );
