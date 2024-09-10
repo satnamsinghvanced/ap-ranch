@@ -1,13 +1,6 @@
-import React from "react";
 import Header from "../components/layout/header";
 import Footer from "./Footer";
-import teamMember1 from "../assets/img/png/team-member1.png";
-import GregScholars from "../assets/img/png/greg-scholars-img.png";
-import fosterSawyer from "../assets/img/png/millar-img.png";
-import latoshaJohnson from "../assets/img/png/latosha-johnson-img.png";
-import KieranHayward from "../assets/img/png/Kieran-Hayward-img.png";
 import { useNavigate } from "react-router-dom";
-import { useGetTeamListQuery } from "../components/apis/teamApi";
 import { TeamsData } from "../components/consts/const";
 
 const Team = () => {
@@ -17,8 +10,6 @@ const Team = () => {
   };
   // const { data, refetch }: any = useGetTeamListQuery();
   // console.log(data, "data");
-
-
 
   return (
     <div>

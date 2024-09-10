@@ -87,12 +87,14 @@ const Header = () => {
             <ul className="navbar-nav">
               <li
                 className={`nav-item ${
-                  isActive(ROUTES.OUR_MISSION) || isActive(ROUTES.FORM)
+                  isActive(ROUTES.OUR_MISSION) ||
+                  isActive(ROUTES.FORM) ||
+                  isActive(ROUTES.ABOUT)
                     ? "active"
                     : ""
                 }`}
               >
-                <div
+                <Link
                   className="nav-link"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -100,6 +102,7 @@ const Header = () => {
                     cursor: "pointer",
                     position: "relative",
                   }}
+                  to={ROUTES.ABOUT}
                 >
                   About
                   {/* <DropdownMenu /> */}
@@ -115,7 +118,7 @@ const Header = () => {
                       </ul>
                     </div>
                   )}
-                </div>
+                </Link>
               </li>
               <li
                 className={`nav-item ${
