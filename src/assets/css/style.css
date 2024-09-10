@@ -1611,7 +1611,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
 
 .code-of-conduct{
-    margin-top: 150px;
+    margin-top: 150px !important;
     padding-bottom: 50px;
     max-width: 900px;
     margin: auto;
