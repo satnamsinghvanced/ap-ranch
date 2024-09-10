@@ -275,7 +275,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    margin-top: -80px ;
+    margin-top: -80px;
     padding: 0 16px;
 }
 
@@ -686,7 +686,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    margin-top: -80px ;
+    margin-top: -80px;
     padding: 0 16px;
 }
 
@@ -696,7 +696,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    margin-top: -80px ;
+    margin-top: -80px;
     padding: 0 16px;
 }
 
@@ -706,7 +706,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    margin-top: -80px ;
+    margin-top: -80px;
     padding: 0 16px;
 }
 
@@ -852,8 +852,8 @@ body {
     }
 }
 
- @media(max-width:370px) {
-    .apr-sport-name  {
+@media(max-width:370px) {
+    .apr-sport-name {
         font-size: 26px;
     }
 }
@@ -868,7 +868,7 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    margin-top: -80px ;
+    margin-top: -80px;
     padding: 0 16px;
 }
 
@@ -987,7 +987,7 @@ body {
 /* about css 
 ====================================== */
 .about-section-img {
-    margin-top: -80px ;
+    margin-top: -80px;
 }
 
 .about-page-content {
@@ -1072,7 +1072,7 @@ body {
 }
 
 .contact-img {
-    margin-top: -80px ;
+    margin-top: -80px;
 }
 
 .contact-page-heading {
@@ -1178,7 +1178,7 @@ body {
 /* team member css 
 ====================================== */
 .banner-img {
-    margin-top: -80px ;
+    margin-top: -80px;
 }
 
 .member-name {
@@ -1255,7 +1255,8 @@ body {
         font-size: 30px;
         font-weight: 400;
     }
-    .member-detail{
+
+    .member-detail {
         margin-top: 0px;
     }
 }
@@ -1430,11 +1431,12 @@ body {
 
 /* our mission css 
 ============================= */
-.our-missions-page{
+
+.our-missions-page {
     margin-top: 120px;
 }
 
-.our-missions-page-content{
+.our-missions-page-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1443,7 +1445,8 @@ body {
     margin-left: auto;
     padding: 0px 16px;
 }
-.upcoming-event-heading{
+
+.upcoming-event-heading {
     font-size: 40px;
     font-weight: 600;
     font-family: 'Satoshi', sans-serif;
@@ -1452,8 +1455,8 @@ body {
 /* our mission  responsive  css
 ======================================== */
 
-@media(max-width:992px){
-    .our-missions-page{
+@media(max-width:992px) {
+    .our-missions-page {
         margin-top: 0PX;
     }
 }
@@ -1464,49 +1467,66 @@ body {
 /* collaborate css
 =======================================  */
 
-.collabrate-banner{
-  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%),  url(../img/png/collaborate-banner.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  margin-top: -80px
+.collabrate-banner {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(../img/png/collaborate-banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin-top: -80px
 }
-.collabrate-heading{
+
+.collabrate-heading {
     font-size: 112px;
     font-weight: 900;
     color: #ffffff;
-    text-transform: uppercase;  
+    text-transform: uppercase;
 }
-.about-collaborate{
+
+.about-collaborate {
     background-image: url(../img/png/about-collarbate.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 1390px;
 }
 
-.about-collabrate{
+.about-collabrate {
     padding-bottom: 35px;
 }
-.about-inner-page{
+
+.about-inner-page {
     margin-top: 100px;
     max-width: 800px;
     margin-left: auto;
 
 }
 
-.about-collabrate-question{
+.about-collabrate-question {
     font-size: 34px;
     font-weight: 500;
     font-family: "Satoshi";
 }
 
-.about-collabrate-answer{
+.about-collabrate-answer {
     font-size: 20px;
     font-weight: 500;
     font-family: "Satoshi";
 }
-.about-collabrate-subpoint{
+
+.about-collabrate-subpoint {
     font-size: 24px;
     font-weight: 600;
+    font-family: "Satoshi";
+}
+
+/* ------------- Forms ------------ */
+
+.form-white-btn {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    padding: 14px 40px;
+    background-color: #f2f2f2;
+    border: 2px solid #F2F2F2;
+    border-radius: 12px;
     font-family: "Satoshi";
 }
