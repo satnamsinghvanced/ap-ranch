@@ -10,15 +10,16 @@ const Donate = () => {
     "lastName": "",
     "email": "",
     "phone": "",
-    "state": "",
+    "state": "AL",
     "amount": "",
-    "sourceId": ""
+    "sourceId": "",
+    "postalCode": "99999"
   });
   const [submitCheck, setSubmitCheck] = useState(false);
 
   const handleSubmit = () => {
     const { sourceId, ...otherFields } = pay;
-
+    console.log(otherFields);
     if(!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(pay.email)){
       return false;
     }

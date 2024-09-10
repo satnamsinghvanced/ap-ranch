@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { allStates } from "../consts/usState";
 interface PayState {
   firstName: string;
   lastName: string;
@@ -8,6 +8,7 @@ interface PayState {
   state: string;
   amount: string;
   sourceId: string;
+  postalCode: string;
 }
 
 interface DonationFormProps {
@@ -91,9 +92,12 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
               className="form-select form-select-lg"
               onChange={(ev) => setPay({...pay, state: ev.target.value})}
             >
-              <option value="California">California</option>
+              {allStates.map((state)=> 
+              <option key={state.value} value={state.value}>{state.name}</option>
+              )}
+              {/* <option value="CA">California</option>
               <option value="New York">New York</option>
-              <option value="New Mexico">New Mexico</option>
+              <option value="New Mexico">New Mexico</option> */}
             </select>
           </div>
         </div>
