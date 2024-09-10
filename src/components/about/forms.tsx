@@ -11,26 +11,26 @@ const Forms = () => {
       <div>
         <Header />
         <section className="about-banner ">
-          <div className="container-fluid mb-4">
+          <div className="container mb-4 mt-3">
             <div className="row">
-              <div className="col-lg-6 p-0  our-missions-page">
+              <div className="col-lg-6 p-0  our-missions-page ">
                 <div className="our-missions-page-content ">
                   <h1 className="about-collabrate-question">
                     REGISTRATION NOW OPEN!!!
                   </h1>
-                  <ul style={{ listStyleType: "num" }}>
-                    <li className="about-page-para">
+                  <ol>
+                    <li className="about-page-para  text-start">
                       Fill out the registration form.
                     </li>
-                    <li className="about-page-para">
+                    <li className="about-page-para  text-start">
                       Fill out the Indemnity waiver form.
                     </li>
-                    <li className="about-page-para">
+                    <li className="about-page-para  text-start">
                       Make payment for selected training, payments can be paid
                       online at www.apranch.org under “donate”
                     </li>
-                  </ul>
-                  <p className="about-page-para mt-5">
+                  </ol>
+                  <p className="about-page-para  text-start mt-5">
                     **Scholarships and grants are also available**
                   </p>
                   <p className="about-collabrate-question  mt-5">
@@ -39,23 +39,23 @@ const Forms = () => {
                   <p className="about-collabrate-question  mt-3">
                     Training Days :
                   </p>
-                  <p className="about-page-para  mt-3">
+                  <p className="about-page-para  text-start  mt-3">
                     Monday -Thursday 2:00pm-9:00pm
                   </p>
-                  <p className="about-page-para  mt-3">
+                  <p className="about-page-para  text-start  mt-3">
                     Saturday 10:00am-3:00pm
                   </p>
-                  <p className="about-page-para  mt-3">Sunday: Per Request</p>
-                  <p className="about-page-para  mt-3">
+                  <p className="about-page-para  text-start  mt-3">Sunday: Per Request</p>
+                  <p className="about-page-para  text-start  mt-3">
                     Contact Coach Kae to schedule training: coachkae@apranch.org
                   </p>
-                  <p className="about-page-para  mt-3">
+                  <p className="about-page-para  text-start  mt-3">
                     Location: 1590 RM 2871 Fort Worth, TX 76126
                   </p>
                 </div>
               </div>
 
-              <div className="col-lg-5 p-0 our-missions-page  ">
+              <div className="col-lg-6 p-0 our-missions-page  ">
                 <div
                   className="d-flex justify-content-center flex-wrap "
                   style={{ gap: "20px" }}

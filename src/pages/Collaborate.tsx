@@ -15,7 +15,7 @@ const Collaborate = () => {
         <section className="about-collabrate">
           <div className="container-fluid">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-lg-6">
                   <div className="about-inner-page"> 
                     <h3 className="about-collabrate-question mb-3">Who is it for?</h3>
                     <p className="about-collabrate-answer mb-4">Any student entering fifth through twelfth grade is welcome to apply. We are looking for students who demonstrate a strong commitment to academic excellence.</p>
@@ -33,7 +33,7 @@ const Collaborate = () => {
                    </div>
                   </div>
 
-                <div className="col-md-6 p-0">
+                <div className="col-lg-6 p-0 d-none-lg ">
                   <div className="about-collaborate"></div>
                 </div>
               </div>
