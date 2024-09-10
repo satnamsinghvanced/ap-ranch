@@ -6,14 +6,14 @@ const IndemnityAgreement = () => {
   return (
     <div>
       <Header />
-      
+
       <section className="code-of-conduct">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <h2 className="indemnity-heading">Indemnity Agreement</h2>
 
-              <form action="" className="pt-5 row">
+              <form action="" className="pt-5 row align-items-end">
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
                     <label className="contact-form-label">
@@ -220,7 +220,7 @@ const IndemnityAgreement = () => {
               </p>
             </div>
 
-            <form action="" className="row mt-5">
+            <form action="" className="row mt-5 align-items-end">
               <div className="col-md-6">
                 <div className="d-flex flex-column position-relative">
                   <label className="contact-form-label">Age Division</label>
@@ -236,7 +236,9 @@ const IndemnityAgreement = () => {
                   <input type="text" className="contact-from-input" />
                 </div>
               </div>
-              <div className="col-md-12">
+              <div
+                className="col-md-12 d-flex justify-content-end"
+              >
                 <button className="send-btn">SEND</button>
               </div>
             </form>

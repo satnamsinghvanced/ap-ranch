@@ -108,7 +108,7 @@ const CodeOfConductForm = () => {
                 child’s opportunity to participate in the track youth program.
               </p>
 
-              <form action="" className="pt-5 row">
+              <form action="" className="pt-5 row align-items-end">
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
                     <label className="contact-form-label">
@@ -141,8 +141,9 @@ const CodeOfConductForm = () => {
                   </div>
                 </div>
               </form>
-
-              <button className="send-btn">SEND</button>
+              <div className="col-md-12 d-flex justify-content-end">
+                <button className="send-btn">SEND</button>
+              </div>
             </div>
           </div>
         </div>
