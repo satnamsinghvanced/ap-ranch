@@ -105,7 +105,6 @@ const Header = () => {
                   to={ROUTES.ABOUT}
                 >
                   About
-                  {/* <DropdownMenu /> */}
                   {isDropdownVisible && (
                     <div className="dropdown-menu">
                       <ul>
@@ -148,7 +147,6 @@ const Header = () => {
                   }}
                 >
                   Sports
-                  {/* <DropdownMenu /> */}
                   {isSportsVisible && (
                     <div className="dropdown-menu">
                       <ul>
@@ -166,31 +164,6 @@ const Header = () => {
                   )}
                 </div>
               </li>
-              {/* <li
-                className={`nav-item ${
-                  isActive(ROUTES.FOOTBALL) ? "active" : ""
-                }`}
-              >
-                <Link to={ROUTES.FOOTBALL} className="nav-link">
-                  Football
-                </Link>
-              </li>
-              <li
-                className={`nav-item ${
-                  isActive(ROUTES.BASKETBALL) ? "active" : ""
-                }`}
-              >
-                <Link to={ROUTES.BASKETBALL} className="nav-link">
-                  Basketball
-                </Link>
-              </li>
-              <li
-                className={`nav-item ${isActive(ROUTES.TRACK) ? "active" : ""}`}
-              >
-                <Link to={ROUTES.TRACK} className="nav-link">
-                  Track
-                </Link>
-              </li> */}
               <li
                 className={`nav-item ${
                   isActive(ROUTES.FACILITY) ? "active" : ""
