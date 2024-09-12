@@ -587,8 +587,12 @@ body {
     font-size: 17px;
 }
 
+.directions-container {
+    max-width: 406px;
+}
+
 .directions {
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Satoshi', sans-serif;
     margin-top: 110px;
 }

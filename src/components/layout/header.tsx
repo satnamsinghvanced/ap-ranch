@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { ROUTES } from "../consts/routes.consts";
 import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
+  const teamMemberPattern = new RegExp(`^${ROUTES.TEAM}|/team/\\d+`, "i");
+  const isActive = (path: any) => {
+    return location.pathname === path;
+  };
+
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isSportsVisible, setSportsVisible] = useState(false);
   const handleMouseEnter = () => {
@@ -174,7 +178,12 @@ const Header = () => {
                 </Link>
               </li>
               <li
-                className={`nav-item ${isActive(ROUTES.TEAM) ? "active" : ""}`}
+                className={`nav-item ${
+                  isActive(ROUTES.TEAM) ||
+                  teamMemberPattern.test(location.pathname)
+                    ? "active"
+                    : ""
+                }`}
               >
                 <Link to={ROUTES.TEAM} className="nav-link">
                   The Team

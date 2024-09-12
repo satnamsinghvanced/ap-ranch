@@ -7,14 +7,14 @@ const Contact = () => {
     <div>
       <Header />
       <div className="row contact-main">
-        <div className="col-lg-4 p-0 ">
+        <div className="col-lg-5 p-0 ">
           <div className="contact-form">
             <h1 className="contact-page-heading">CONTACT</h1>
             <ContactForm />
           </div>
         </div>
-        <div className="col-lg-5 d-flex justify-content-center">
-          <div className="contact-form justify-content-start m-0">
+        <div className="col-lg-4 d-flex justify-content-center">
+          <div className="justify-content-start m-0 directions-container">
             <h1 className="directions">
               Directions to the Athletic Performance Ranch
             </h1>
