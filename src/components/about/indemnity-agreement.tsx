@@ -1,8 +1,137 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/header";
 import Footer from "../../pages/Footer";
+import { toast } from "react-toastify";
+import { useCreateIndemnityAgreementMutation } from "../apis/indemnityAgreementAPI";
 
 const IndemnityAgreement = () => {
+  const [createAgreement] = useCreateIndemnityAgreementMutation();
+  const [response, setResponse] = useState<any>("");
+  const [formData, setFormData] = useState({
+    name: "",
+    activity: "",
+    email: "",
+    courseNumber: "",
+    instructor: "",
+    destination: "",
+    semester: "",
+    dateSigned: "",
+    sign: "",
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    activity: "",
+    email: "",
+    courseNumber: "",
+    instructor: "",
+    destination: "",
+    semester: "",
+    dateSigned: "",
+    sign: "",
+  });
+  // Validation function
+  const validate = () => {
+    let isValid = true;
+    const newErrors = {
+      name: "",
+      activity: "",
+      email: "",
+      courseNumber: "",
+      instructor: "",
+      destination: "",
+      semester: "",
+      dateSigned: "",
+      sign: "",
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required.";
+      isValid = false;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
+      newErrors.email = "Invalid email format.";
+      isValid = false;
+    }
+    if (!formData.courseNumber.trim()) {
+      newErrors.courseNumber = "Course number is required.";
+      isValid = false;
+    } else if (!/^\d+$/.test(formData.courseNumber)) {
+      newErrors.courseNumber = "Course number must be numeric.";
+      isValid = false;
+    }
+    if (!formData.instructor.trim()) {
+      newErrors.instructor = "Instructor is required.";
+      isValid = false;
+    }
+    if (!formData.destination.trim()) {
+      newErrors.destination = "Destination are required.";
+      isValid = false;
+    }
+    if (!formData.semester.trim()) {
+      newErrors.semester = "Semester are required.";
+      isValid = false;
+    }
+    if (!formData.sign.trim()) {
+      newErrors.sign = "Sign are required.";
+      isValid = false;
+    }
+    if (!formData.dateSigned.trim()) {
+      newErrors.dateSigned = "Date signed is required.";
+      isValid = false;
+    } else if (isNaN(Date.parse(formData.dateSigned))) {
+      newErrors.dateSigned = "Invalid date format.";
+      isValid = false;
+    }
+    setErrors(newErrors);
+    return isValid;
+  };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "", // Clear error when user starts typing
+    }));
+  };
+  const handleAddComment = async () => {
+    if (!validate()) {
+      toast.error("Please correct the errors in the form.");
+      return;
+    }
+    try {
+      const res = await createAgreement(formData).unwrap();
+      setResponse(res);
+      toast.success(res.message);
+      setFormData({
+        name: "",
+        activity: "",
+        email: "",
+        courseNumber: "",
+        instructor: "",
+        destination: "",
+        semester: "",
+        dateSigned: "",
+        sign: "",
+      });
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      if (response?.message !== "") {
+        setResponse("");
+      }
+    }, 5000);
+  }, [response?.message]);
   return (
     <div>
       <Header />
@@ -13,13 +142,22 @@ const IndemnityAgreement = () => {
             <div className="col-md-12">
               <h2 className="indemnity-heading">Indemnity Agreement</h2>
 
-              <form action="" className="pt-5 row align-items-end">
+              <div className="pt-5 row align-items-end">
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
                     <label className="contact-form-label">
                       Printed Name of Student/Participant
                     </label>
-                    <input type="text" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                    {errors.name && (
+                      <span className="error-message">{errors.name}</span>
+                    )}
                   </div>
                 </div>
 
@@ -28,7 +166,16 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Course/Activity
                     </label>
-                    <input type="text" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="activity"
+                      value={formData.activity}
+                      onChange={handleChange}
+                    />
+                    {errors.activity && (
+                      <span className="error-message">{errors.activity}</span>
+                    )}
                   </div>
                 </div>
 
@@ -37,7 +184,18 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Course Number (if applicable)
                     </label>
-                    <input type="date" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="courseNumber"
+                      value={formData.courseNumber}
+                      onChange={handleChange}
+                    />
+                    {errors.courseNumber && (
+                      <span className="error-message">
+                        {errors.courseNumber}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -46,7 +204,16 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Instructor/Sponsor
                     </label>
-                    <input type="dob" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="instructor"
+                      value={formData.instructor}
+                      onChange={handleChange}
+                    />
+                    {errors.instructor && (
+                      <span className="error-message">{errors.instructor}</span>
+                    )}
                   </div>
                 </div>
 
@@ -55,7 +222,18 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Destination (if travel required) (required)
                     </label>
-                    <input type="dob" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="destination"
+                      value={formData.destination}
+                      onChange={handleChange}
+                    />
+                    {errors.destination && (
+                      <span className="error-message">
+                        {errors.destination}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -64,7 +242,16 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Semester/Dates of Participation
                     </label>
-                    <input type="dob" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="semester"
+                      value={formData.semester}
+                      onChange={handleChange}
+                    />
+                    {errors.semester && (
+                      <span className="error-message">{errors.semester}</span>
+                    )}
                   </div>
                 </div>
 
@@ -73,10 +260,19 @@ const IndemnityAgreement = () => {
                     <label className="contact-form-label">
                       Email (required)
                     </label>
-                    <input type="dob" className="contact-from-input" />
+                    <input
+                      type="email"
+                      className="contact-from-input"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    {errors.email && (
+                      <span className="error-message">{errors.email}</span>
+                    )}
                   </div>
                 </div>
-              </form>
+              </div>
               <p className="about-indemnity mb-3">
                 For and in consideration of being permitted to participate in
                 the Course/Activity above (including related travel, if any), I,
@@ -220,11 +416,20 @@ const IndemnityAgreement = () => {
               </p>
             </div>
 
-            <form action="" className="row mt-5 align-items-end">
+            <div className="row mt-5 align-items-end">
               <div className="col-md-6">
                 <div className="d-flex flex-column position-relative">
-                  <label className="contact-form-label">Age Division</label>
-                  <input type="date" className="contact-from-input" />
+                  <label className="contact-form-label">Date Signed</label>
+                  <input
+                    type="date"
+                    className="contact-from-input"
+                    name="dateSigned"
+                    value={formData.dateSigned}
+                    onChange={handleChange}
+                  />
+                  {errors.dateSigned && (
+                    <span className="error-message">{errors.dateSigned}</span>
+                  )}
                 </div>
               </div>
 
@@ -233,15 +438,25 @@ const IndemnityAgreement = () => {
                   <label className="contact-form-label">
                     Signature of Parent or Legal Guardian (print you name)
                   </label>
-                  <input type="text" className="contact-from-input" />
+                  <input
+                    type="text"
+                    className="contact-from-input"
+                    name="sign"
+                    value={formData.sign}
+                    onChange={handleChange}
+                  />
+                  {errors.sign && (
+                    <span className="error-message">{errors.sign}</span>
+                  )}
                 </div>
               </div>
-              <div
-                className="col-md-12 d-flex justify-content-end"
-              >
-                <button className="send-btn">SEND</button>
+              <div className="col-md-12 d-flex justify-content-end">
+                <button className="send-btn" onClick={handleAddComment}>
+                  SEND
+                </button>
               </div>
-            </form>
+              <h1 className="success-message">{response?.message}</h1>  
+            </div>
           </div>
         </div>
       </section>

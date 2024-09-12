@@ -1,8 +1,95 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/header";
 import Footer from "../../pages/Footer";
+import { toast } from "react-toastify";
+import { useCreateParentAgreementMutation } from "../apis/parentAgreement";
 
 const CodeOfConductForm = () => {
+  const [createAgreement] = useCreateParentAgreementMutation();
+  const [response, setResponse] = useState<any>("");
+  const [formData, setFormData] = useState({
+    name: "",
+    ageDivision: "",
+    dateSigned: "",
+    sign: "",
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    ageDivision: "",
+    dateSigned: "",
+    sign: "",
+  });
+  // Validation function
+  const validate = () => {
+    let isValid = true;
+    const newErrors = {
+      name: "",
+      ageDivision: "",
+      dateSigned: "",
+      sign: "",
+    };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required.";
+      isValid = false;
+    }
+    if (!formData.ageDivision.trim()) {
+      newErrors.ageDivision = "Age Division is required.";
+      isValid = false;
+    }
+    if (!formData.sign.trim()) {
+      newErrors.sign = "Sign are required.";
+      isValid = false;
+    }
+    if (!formData.dateSigned.trim()) {
+      newErrors.dateSigned = "Date signed is required.";
+      isValid = false;
+    } else if (isNaN(Date.parse(formData.dateSigned))) {
+      newErrors.dateSigned = "Invalid date format.";
+      isValid = false;
+    }
+    setErrors(newErrors);
+    return isValid;
+  };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "", // Clear error when user starts typing
+    }));
+  };
+  const handleAddComment = async () => {
+    if (!validate()) {
+      toast.error("Please correct the errors in the form.");
+      return;
+    }
+    try {
+      const res = await createAgreement(formData).unwrap();
+      setResponse(res);
+      toast.success(res.message);
+      setFormData({
+        name: "",
+        ageDivision: "",
+        dateSigned: "",
+        sign: "",
+      });
+    } catch (error: any) {
+      toast.error(error.data.message);
+    }
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      if (response?.message !== "") {
+        setResponse("");
+      }
+    }, 5000);
+  }, [response?.message]);
   return (
     <div>
       <Header />
@@ -107,28 +194,56 @@ const CodeOfConductForm = () => {
                 with any of these standards this could potentially jeopardize my
                 child’s opportunity to participate in the track youth program.
               </p>
-
               <form action="" className="pt-5 row align-items-end">
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
                     <label className="contact-form-label">
                       Printed Name of Student/Participant
                     </label>
-                    <input type="text" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                    {errors.name && (
+                      <span className="error-message">{errors.name}</span>
+                    )}
                   </div>
                 </div>
 
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
                     <label className="contact-form-label">Age Division</label>
-                    <input type="text" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="ageDivision"
+                      value={formData.ageDivision}
+                      onChange={handleChange}
+                    />
+                    {errors.ageDivision && (
+                      <span className="error-message">
+                        {errors.ageDivision}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 <div className="col-md-6">
                   <div className="d-flex flex-column position-relative">
-                    <label className="contact-form-label">Age Division</label>
-                    <input type="date" className="contact-from-input" />
+                    <label className="contact-form-label">Date Signed</label>
+                    <input
+                      type="date"
+                      className="contact-from-input"
+                      name="dateSigned"
+                      value={formData.dateSigned}
+                      onChange={handleChange}
+                    />
+                    {errors.dateSigned && (
+                      <span className="error-message">{errors.dateSigned}</span>
+                    )}
                   </div>
                 </div>
 
@@ -137,13 +252,25 @@ const CodeOfConductForm = () => {
                     <label className="contact-form-label">
                       Signature of Parent or Legal Guardian (print you name)
                     </label>
-                    <input type="text" className="contact-from-input" />
+                    <input
+                      type="text"
+                      className="contact-from-input"
+                      name="sign"
+                      value={formData.sign}
+                      onChange={handleChange}
+                    />
+                    {errors.sign && (
+                      <span className="error-message">{errors.sign}</span>
+                    )}
                   </div>
                 </div>
               </form>
               <div className="col-md-12 d-flex justify-content-end">
-                <button className="send-btn">SEND</button>
+                <button className="send-btn" onClick={handleAddComment}>
+                  SEND
+                </button>
               </div>
+              <h1 className="success-message">{response?.message}</h1>
             </div>
           </div>
         </div>

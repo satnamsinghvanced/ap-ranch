@@ -587,6 +587,18 @@ body {
     font-size: 17px;
 }
 
+.directions {
+    font-size: 50px;
+    font-family: 'Satoshi', sans-serif;
+    margin-top: 110px;
+}
+
+.directions-description {
+    font-family: 'Satoshi';
+    font-size: 16px;
+    margin-top: 20px;
+}
+
 /* footer css 
 =================================================== */
 .footer-content {
@@ -927,8 +939,10 @@ body {
 }
 
 .team-member-imgbox {
-    height: 300px;
+    max-height: 300px;
     width: 300px;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .team-member-imgbox img {
@@ -1519,26 +1533,28 @@ body {
 }
 
 
-@media(max-width:1350px){
-    .collabrate-heading{
+@media(max-width:1350px) {
+    .collabrate-heading {
         font-size: 60px;
     }
-    .about-inner-page{
+
+    .about-inner-page {
         max-width: 100%;
     }
 }
 
-@media(max-width:768px){
-    .collabrate-heading{
+@media(max-width:768px) {
+    .collabrate-heading {
         font-size: 35px;
     }
 }
 
-@media(max-width:420px){
-    .collabrate-heading{
+@media(max-width:420px) {
+    .collabrate-heading {
         font-size: 28px;
     }
 }
+
 /* ------------- Forms ------------ */
 
 .form-white-btn {
@@ -1559,32 +1575,37 @@ body {
 /* indemnity agreement  and  code of conduvt css 
 =================================== */
 
-.indemnity-form{
+.indemnity-form {
     margin-top: 150px !important;
     padding-bottom: 50px;
     margin: auto;
     max-width: 900px;
 }
-.indemnity-heading{
+
+.indemnity-heading {
     font-size: 62px;
     font-weight: 700;
     font-family: "Satoshi";
     margin-bottom: 30px;
     text-transform: uppercase;
 }
-.about-indemnity{
+
+.about-indemnity {
     font-size: 16px;
     font-family: "Satoshi";
     color: #f2f2f2;
     line-height: 1.5;
 }
-.indemnity-agreement{
+
+.indemnity-agreement {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .indemnity-agreement ol {
     padding-left: 40px;
 }
+
 .indemnity-agreement ol li {
     font-size: 16px;
     font-family: "Satoshi";
@@ -1592,7 +1613,7 @@ body {
     line-height: 1.5;
 }
 
-.send-btn{
+.send-btn {
     background-color: #164576;
     border: 1px solid #164576;
     color: #FFFFFF;
@@ -1605,12 +1626,12 @@ body {
     letter-spacing: 1px;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator{
+input[type="date"]::-webkit-calendar-picker-indicator {
     font-family: "Satoshi";
 }
 
 
-.code-of-conduct{
+.code-of-conduct {
     margin-top: 150px !important;
     padding-bottom: 50px;
     max-width: 900px;
@@ -1618,8 +1639,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 
 
-@media(max-width:992px){
-    .indemnity-heading{
+@media(max-width:992px) {
+    .indemnity-heading {
         font-size: 45px;
     }
 }

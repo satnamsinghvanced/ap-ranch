@@ -45,7 +45,9 @@ const Forms = () => {
                   <p className="about-page-para  text-start  mt-3">
                     Saturday 10:00am-3:00pm
                   </p>
-                  <p className="about-page-para  text-start  mt-3">Sunday: Per Request</p>
+                  <p className="about-page-para  text-start  mt-3">
+                    Sunday: Per Request
+                  </p>
                   <p className="about-page-para  text-start  mt-3">
                     Contact Coach Kae to schedule training: coachkae@apranch.org
                   </p>
@@ -73,10 +75,61 @@ const Forms = () => {
                   >
                     Parent's Code of Conduct Agreement
                   </button>
-                  <button className="form-white-btn">
+                  <button
+                    className="form-white-btn"
+                    onClick={() =>
+                      window.open(
+                        "http://greg.wwwaz1-tr104.supercp.com/pdf/Special%20Events%20Application%20AP%20Ranch.pdf",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Special Events Application
+                  </button>
+                  <button
+                    className="form-white-btn"
+                    onClick={() =>
+                      window.open(
+                        "http://greg.wwwaz1-tr104.supercp.com/pdf/AP%20Ranch%20Athlete%20Questionnaire%20113014.pdf",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Athlete Questionnaire
+                  </button>
+                  <button
+                    className="form-white-btn"
+                    onClick={() =>
+                      window.open(
+                        "http://greg.wwwaz1-tr104.supercp.com/pdf/APR%20Scholarship%20Application.pdf",
+                        "_blank"
+                      )
+                    }
+                  >
                     Scholarship Application
                   </button>
-                  <button className="form-white-btn">Grant Application</button>
+                  <button
+                    className="form-white-btn"
+                    onClick={() =>
+                      window.open(
+                        "http://greg.wwwaz1-tr104.supercp.com/pdf/APR%20Grant%20Application.pdf",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Grant Application
+                  </button>
+                  <button
+                    className="form-white-btn"
+                    onClick={() =>
+                      window.open(
+                        "http://greg.wwwaz1-tr104.supercp.com/pdf/Student%20Participant%20Release%20Indemnity%20AP%20Ranch.pdf",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Participant Release and Indemnity Agreement
+                  </button>
                 </div>
               </div>
             </div>
