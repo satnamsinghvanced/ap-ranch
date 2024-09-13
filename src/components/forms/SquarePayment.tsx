@@ -42,7 +42,7 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
     }, 3000);
   };
   return (
-    <div className="form-donation">
+    <div className="form-donation ">
       <PaymentForm
         applicationId={squareApplicationId}
         locationId={squareLocationId}
@@ -97,11 +97,9 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
 
         {error && (
           <div
-            className="text-danger"
+            className="error-message"
             style={{
-              fontSize: "14px",
-              marginTop: "5px",
-              fontFamily: "Satoshi",
+              fontWeight: 600,
             }}
           >
             {error}

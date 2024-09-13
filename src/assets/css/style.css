@@ -269,7 +269,7 @@ body {
     position: relative;
 }
 
-.apr-banner {
+/* .apr-banner {
     background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(https://i.imgur.com/KBTA779.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -277,7 +277,7 @@ body {
     position: relative;
     margin-top: -80px;
     padding: 0 16px;
-}
+} */
 
 .apr-header {
     position: sticky;
@@ -385,7 +385,7 @@ body {
     max-width: 1080px;
     margin: auto;
     align-items: baseline;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     margin-top: 40px;
     padding: 0 33px;
@@ -397,12 +397,12 @@ body {
     padding-bottom: 40px;
 }
 
-.click-to-donate-box {
+/* .click-to-donate-box {
     background: #00000099 url('../img/png/donate-banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 600px;
-}
+} */
 
 .click-to-donate-heading {
     color: #F2F2F2;
@@ -493,7 +493,7 @@ body {
     }
 
     .apr-banner {
-        height: 80vh;
+        height: 80vh !important;
     }
 
     .section-padding {

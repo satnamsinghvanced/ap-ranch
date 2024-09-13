@@ -7,25 +7,45 @@ import facilityImg from "../assets/img/png/facility-img.png";
 import { ROUTES } from "../components/consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetHomeDataQuery } from "../components/apis/homeAPi";
+import { apiBaseUrl } from "../components/consts/api-url.const";
+import DOMPurify from "dompurify";
 const Home = () => {
   const navigate = useNavigate();
   const { data }: any = useGetHomeDataQuery();
   if (!data) {
     return null;
   }
+  const description = DOMPurify.sanitize(data[0].banner.descriptions);
   return (
     <section className="apr-main-section">
       <Header />
 
-      <section className="apr-banner">
+      <section
+        className="apr-banner"
+        style={{
+          background: `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(${apiBaseUrl}/${data[0].banner.bannerImage})`,
+          backgroundRepeat: " no-repeat",
+          backgroundSize: "cover",
+          height: "100vh",
+          position: "relative",
+          marginTop: "-80px",
+          padding: "0 16px",
+        }}
+      >
         <div className="d-flex justify-content-center w-100 align-items-center h-100 ">
-          <img src={data[0].banner.logoImage} alt="" className="img-fluid" />
+          <img
+            src={`${apiBaseUrl}/${data[0].banner.logoImage}`}
+            alt=""
+            className="img-fluid"
+            style={{ maxWidth: "820px", maxHeight: "231px" }}
+          />
         </div>
       </section>
 
       <section className=" about-apr section-padding pb-2">
         <div className="max-width-1050 mx-auto text-center ">
-          <p>{data[0].banner.descriptions}</p>
+          {/* <p>{data[0].banner.descriptions}</p> */}
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </section>
       <section className="container-fluid">
@@ -120,7 +140,11 @@ const Home = () => {
         <div className="incredible-partners-logos">
           {data[0].partnerLogos.map((val: any, indx: any) => (
             <div className="text-center" key={indx}>
-              <img src={val.logo} alt="" />
+              <img
+                src={`${apiBaseUrl}/${val.logo}`}
+                alt=""
+                style={{ maxWidth: "200px", maxHeight: "85px" }}
+              />
             </div>
           ))}
         </div>
@@ -140,7 +164,15 @@ const Home = () => {
             </div>
           </div>
           <div className="col-lg-6 p-0 d-done-sm">
-            <div className="click-to-donate-box"></div>
+            <div
+              className="click-to-donate-box"
+              style={{
+                background: `linear-gradient(180deg, #00000099, #00000099),  url(${apiBaseUrl}/${data[0].donate.image})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                height: "600px",
+              }}
+            ></div>
           </div>
         </div>
       </section>
