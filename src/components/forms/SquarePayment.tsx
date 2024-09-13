@@ -34,7 +34,7 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay, setSubmitChe
         state: "",
         amount: "",
         sourceId: "",
-        postalCode: "",
+        postalCode: "99999",
       })
       setSubmitCheck(false);
     }, 3000)
@@ -43,25 +43,39 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay, setSubmitChe
     <div className="form-donation">
       <PaymentForm
         applicationId={squareApplicationId}
+        locationId={squareLocationId}
         cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
           try {
-            console.log('token:', token);
-            console.log('details:', token?.details?.billing);
-            let formData = pay;
-            formData.sourceId = token.token ?? '';
-            formData.postalCode = token?.details?.billing?.postalCode ?? '';
+            if (token.status === "OK") {
+              console.log('Token received:', token);
+              console.log('Billing details:', token?.details?.billing);
 
-            const res = await addDonate(formData).unwrap();
-            setResponse(res);
-            reloadAllStep();
+              // Prepare form data
+              let formData = {
+                ...pay,
+                sourceId: token.token || '',
+                postalCode: token?.details?.billing?.postalCode || ''
+              };
+              console.log(formData);
+
+              // Process payment with your API
+            //  const res = await addDonate(formData).unwrap();
+             // setResponse(res);
+
+              // Handle successful response
+              reloadAllStep();
+            } else {
+              // Handle tokenization failure
+              console.error("Tokenization failed:", token);
+              setError("Payment Failed, Please try again!");
+              reloadAllStep();
+            }
           } catch (err) {
-            console.log("err");
-            console.log(err);
+            console.error("Error processing payment:", err);
             setError("Payment Failed, Please try again!");
             reloadAllStep();
           }
         }}
-        locationId={squareLocationId}
       >
         <CreditCard
           buttonProps={{
@@ -71,13 +85,25 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({ pay, setPay, setSubmitChe
               color: "#fff",
               "&:hover": {
                 backgroundColor: "#164576",
-                color: "#fff"
+                color: "#fff",
               },
             },
           }}
-        >Submit</CreditCard>
-        {error && <div className="text-danger" style={{ fontSize: "14px", marginTop: "5px" }}>{error}</div>}
-        {response && <div style={{ fontSize: "14px", marginTop: "5px", color: "green" }}>{response?.message}</div>}
+        >
+          Submit
+        </CreditCard>
+
+        {error && (
+          <div className="text-danger" style={{ fontSize: "14px", marginTop: "5px" }}>
+            {error}
+          </div>
+        )}
+
+        {response && (
+          <div style={{ fontSize: "14px", marginTop: "5px", color: "green" }}>
+            {response?.message}
+          </div>
+        )}
       </PaymentForm>
     </div>
   )

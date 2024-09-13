@@ -10,7 +10,7 @@ const Donate = () => {
     "lastName": "",
     "email": "",
     "phone": "",
-    "state": "AL",
+    "state": "",
     "amount": "",
     "sourceId": "",
     "postalCode": "99999"

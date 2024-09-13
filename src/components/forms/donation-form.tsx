@@ -92,6 +92,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
               className="form-select form-select-lg"
               onChange={(ev) => setPay({...pay, state: ev.target.value})}
             >
+              <option value="">State</option>
               {allStates.map((state)=> 
               <option key={state.value} value={state.value}>{state.name}</option>
               )}
@@ -106,7 +107,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Amount$"
+              placeholder="Amount ($)"
               onChange={handleAmountChange}
             />
           </div>
