@@ -568,6 +568,10 @@ body {
     }
 }
 
+.form-group input::placeholder {
+    color: black !important;
+}
+
 .submit {
     margin-top: 25px;
 }
@@ -576,6 +580,7 @@ body {
 .form-donation .form-group select {
     font-size: 17px;
     min-height: 56px;
+    font-family: 'Satoshi';
 }
 
 .submit .btn {
@@ -594,7 +599,7 @@ body {
 .directions {
     font-size: 30px;
     font-family: 'Satoshi', sans-serif;
-    margin-top: 110px;
+    margin-top: 269px;
 }
 
 .directions-description {
@@ -1155,7 +1160,7 @@ body {
     }
 }
 
-@media(max-width:992px) {
+@media(max-width:995px) {
 
     .contact-form {
         background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(../img/png/contact-bg.png);
@@ -1183,6 +1188,14 @@ body {
         margin-top: 25px;
     }
 
+    .directions {
+        margin-top: 0px;
+    }
+
+    .directions-container {
+        max-width: 60%;
+        margin-bottom: 20px !important;
+    }
 }
 
 
@@ -1442,7 +1455,7 @@ body {
     display: block;
     position: absolute;
     top: 35px;
-    right: -75px;
+    right: -5px;
 }
 
 

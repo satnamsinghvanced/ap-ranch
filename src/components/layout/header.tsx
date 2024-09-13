@@ -98,7 +98,7 @@ const Header = () => {
                     : ""
                 }`}
               >
-                <Link
+                <div
                   className="nav-link"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -106,12 +106,14 @@ const Header = () => {
                     cursor: "pointer",
                     position: "relative",
                   }}
-                  to={ROUTES.ABOUT}
                 >
-                  About
+                  Who We Are
                   {isDropdownVisible && (
                     <div className="dropdown-menu">
                       <ul>
+                        <Link to={ROUTES.ABOUT} className="nav-link">
+                          About
+                        </Link>
                         <Link to={ROUTES.OUR_MISSION} className="nav-link">
                           OUR MISSION
                         </Link>
@@ -121,7 +123,7 @@ const Header = () => {
                       </ul>
                     </div>
                   )}
-                </Link>
+                </div>
               </li>
               <li
                 className={`nav-item ${

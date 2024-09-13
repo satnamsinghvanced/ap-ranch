@@ -16,8 +16,12 @@ interface DonationFormProps {
   pay: PayState;
   setPay: React.Dispatch<React.SetStateAction<PayState>>;
 }
-const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }) => {
-  const [emailError, setEmailError] = useState('');
+const DonationForm: React.FC<DonationFormProps> = ({
+  handleSubmit,
+  pay,
+  setPay,
+}) => {
+  const [emailError, setEmailError] = useState("");
 
   const handleEmailChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const email = ev.target.value;
@@ -25,18 +29,18 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(email)) {
-      setEmailError('');
+      setEmailError("");
     } else {
-      setEmailError('Invalid email format');
+      setEmailError("Invalid email format");
     }
   };
 
   const handlePhoneChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const value = ev.target.value.replace(/\D/g, '');
+    const value = ev.target.value.replace(/\D/g, "");
     setPay({ ...pay, phone: value });
   };
-  const handleAmountChange= (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const value = ev.target.value.replace(/\D/g, '');
+  const handleAmountChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    const value = ev.target.value.replace(/\D/g, "");
     setPay({ ...pay, amount: value });
   };
   return (
@@ -48,7 +52,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
               type="text"
               className="form-control form-control-lg"
               placeholder="First Name"
-              onChange={(ev) => setPay({...pay, firstName: ev.target.value})}
+              onChange={(ev) => setPay({ ...pay, firstName: ev.target.value })}
             />
           </div>
         </div>
@@ -58,11 +62,11 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
               type="text"
               className="form-control form-control-lg"
               placeholder="Last Name"
-              onChange={(ev) => setPay({...pay, lastName: ev.target.value})}
+              onChange={(ev) => setPay({ ...pay, lastName: ev.target.value })}
             />
           </div>
         </div>
-        <div className="col-sm-12 col-md-6">
+        <div className="col-sm-12 col-md-6 position-relative">
           <div className="form-group">
             <input
               type="text"
@@ -70,10 +74,19 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
               placeholder="Email"
               onChange={handleEmailChange}
             />
-            {emailError && <div className="text-danger" style={{ fontSize: "14px", marginTop: "5px"}}>{emailError}</div>}
+            {emailError && (
+              <div
+                className="error-message"
+                style={{
+                  fontWeight: 600,
+                }}
+              >
+                {emailError}
+              </div>
+            )}
           </div>
         </div>
-        <div className="col-sm-12 col-md-6">
+        <div className="col-sm-12 col-md-6 ">
           <div className="form-group">
             <input
               type="text"
@@ -86,16 +99,18 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
         </div>
         <div className="col-sm-12 col-md-6">
           <div className="form-group">
-            <select 
-              name="" 
-              id="" 
+            <select
+              name=""
+              id=""
               className="form-select form-select-lg"
-              onChange={(ev) => setPay({...pay, state: ev.target.value})}
+              onChange={(ev) => setPay({ ...pay, state: ev.target.value })}
             >
               <option value="">State</option>
-              {allStates.map((state)=> 
-              <option key={state.value} value={state.value}>{state.name}</option>
-              )}
+              {allStates.map((state) => (
+                <option key={state.value} value={state.value}>
+                  {state.name}
+                </option>
+              ))}
               {/* <option value="CA">California</option>
               <option value="New York">New York</option>
               <option value="New Mexico">New Mexico</option> */}
@@ -114,7 +129,9 @@ const DonationForm: React.FC<DonationFormProps> = ({ handleSubmit, pay, setPay }
         </div>
       </div>
       <div className="submit">
-        <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+        <button className="btn btn-primary" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );
