@@ -7,6 +7,8 @@ import trackImage from "../../assets/img/png/track-full-img.png";
 import trackCollapseImage from "../../assets/img/png/about-track-img.png";
 import { ROUTES } from "../consts/routes.consts";
 import { useNavigate } from "react-router-dom";
+import { useGetServicesListQuery } from "../apis/servicesApi";
+import { apiBaseUrl } from "../consts/api-url.const";
 const accordionData = [
   {
     title: "FOOTBALL",
@@ -57,22 +59,25 @@ const AboutAccordions = () => {
   const toggleAccordion = (index: any) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  const { data }: any = useGetServicesListQuery();
+  console.log(data, "data");
+  if (!data) {
+    return null;
+  }
   return (
     <>
-      {accordionData.map((item, index) => (
+      {data.map((item: any, index: any) => (
         <div className="col-ms-12 p-0" key={index}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               height: openIndex === index ? "600px" : "200px",
-              backgroundImage: `url(${
-                openIndex === index ? item.image : item.collapseImage
-              })`,
-              backgroundRepeat: openIndex === index ? "no-repeat" : "no-repeat", 
-              backgroundSize: openIndex === index ? "cover" : "cover", 
+              backgroundImage: `url(${apiBaseUrl}/${item.service?.servicesImage})`,
+              backgroundRepeat: openIndex === index ? "no-repeat" : "no-repeat",
+              backgroundSize: openIndex === index ? "cover" : "cover",
               backgroundPosition: "center",
+              boxShadow: "inset -20px -20px 0px 300px hsl(0deg 0% 0% / 60%)",
             }}
             className={openIndex === index ? "about-football-banner-open" : ""}
           >
@@ -82,7 +87,9 @@ const AboutAccordions = () => {
                 onClick={() => toggleAccordion(index)}
                 style={{ cursor: "pointer" }}
               >
-                <h1 className="about-page-accordian">{item.title}</h1>
+                <h1 className="about-page-accordian">
+                  {item.service?.servicesName}
+                </h1>
                 <div className="ms-auto">
                   <svg
                     width="38"
@@ -101,7 +108,9 @@ const AboutAccordions = () => {
               {openIndex === index && (
                 <div className="row">
                   <div className="col-lg-6 mt-5">
-                    <p className="about-accoridan-text">{item.description}</p>
+                    <p className="about-accoridan-text">
+                      {item.service?.serviceDescriptions}
+                    </p>
                   </div>
                   <div className="col-lg-5 mt-5">
                     <div className="about-accoridan-services">
@@ -109,16 +118,18 @@ const AboutAccordions = () => {
                         Services
                       </h3>
                       <p className="about-accoridan-services-para">
-                        {item.services.map((service, serviceIndex) => (
-                          <React.Fragment key={serviceIndex}>
-                            {service}
-                            <br />
-                          </React.Fragment>
-                        ))}
+                        {item.providedServices?.map(
+                          (service: any, serviceIndex: any) => (
+                            <React.Fragment key={serviceIndex}>
+                              {service.title}
+                              <br />
+                            </React.Fragment>
+                          )
+                        )}
                       </p>
                       <button
                         className="explore-btn-transparent"
-                        onClick={() => navigate(item.path)}
+                        // onClick={() => navigate(item.path)}
                       >
                         Explore
                       </button>

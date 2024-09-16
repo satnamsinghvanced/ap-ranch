@@ -1,11 +1,18 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "../components/layout/header";
-import aboutBanner from "../assets/img/png/about-banner.png";
-import CustomAboutAccordion from "../components/custom-components/custom-about-accordian";
 import AboutAccordions from "../components/custom-components/custom-about-accordian";
+import { useGetAboutDataQuery } from "../components/apis/aboutApi";
+import { apiBaseUrl } from "../components/consts/api-url.const";
+import DOMPurify from "dompurify";
 
 const About = () => {
+  const { data }: any = useGetAboutDataQuery();
+  console.log(data, "data");
+  if (!data) {
+    return null;
+  }
+  const description = DOMPurify.sanitize(data[0]?.descriptions);
   return (
     <div>
       <Header />
@@ -15,13 +22,14 @@ const About = () => {
           <div className="row">
             <div className="col-lg-6 p-0">
               <div className="about-page-content ">
-                <h1 className="about-page-heading">ABOUT</h1>
+                <h1 className="about-page-heading">{data[0]?.name}</h1>
                 <p className="about-page-para">
-                  AP Ranch is a transformative sports facility and community
-                  dedicated to cultivating and empowering students athletes of
-                  all backgrounds and abilities.
+                  <div
+                    dangerouslySetInnerHTML={{ __html: description }}
+                    className="about-page-para"
+                  />
                 </p>
-                <p className="about-page-para">
+                {/* <p className="about-page-para">
                   We strive to provide a nurturing environment where athletes
                   can explore their passions, develop skills, and unlock their
                   true potential. Through relentless dedication, innovative
@@ -38,13 +46,18 @@ const About = () => {
                 <p className="about-page-para fw-bold">
                   At AP Ranch, we empower athletes to new heights and define
                   their limits to leave a lasting impact on the world.
-                </p>
+                </p> */}
               </div>
             </div>
 
             <div className="col-lg-6 p-0 d-none-lg">
               <div className="d-flex justify-content-end about-section-img">
-                <img src={aboutBanner} alt="" className="img-fluid" />
+                <img
+                  src={`${apiBaseUrl}/${data[0]?.image}`}
+                  alt=""
+                  className="img-fluid"
+                  style={{ minHeight: "1066px", minWidth: "626px" }}
+                />
               </div>
             </div>
           </div>

@@ -45,7 +45,10 @@ const Home = () => {
       <section className=" about-apr section-padding pb-2">
         <div className="max-width-1050 mx-auto text-center ">
           {/* <p>{data[0].banner.descriptions}</p> */}
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: description }}
+            className="home-description"
+          />
         </div>
       </section>
       <section className="container-fluid">

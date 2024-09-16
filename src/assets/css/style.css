@@ -1498,13 +1498,13 @@ body {
 /* collaborate css
 =======================================  */
 
-.collabrate-banner {
+/* .collabrate-banner {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(../img/png/collaborate-banner.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     margin-top: -80px
-}
+} */
 
 .collabrate-heading {
     font-size: 112px;
@@ -1513,12 +1513,12 @@ body {
     text-transform: uppercase;
 }
 
-.about-collaborate {
+/* .about-collaborate {
     background-image: url(../img/png/about-collarbate.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 1390px;
-}
+} */
 
 .about-collabrate {
     padding-bottom: 35px;
@@ -1660,4 +1660,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .indemnity-heading {
         font-size: 45px;
     }
+}
+
+/*  ----------------- Home ----------------- */
+.home-description {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Satoshi';
+    text-transform: uppercase;
 }
