@@ -79,7 +79,7 @@ const Forms = () => {
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
-                        "http://greg.wwwaz1-tr104.supercp.com/pdf/Special%20Events%20Application%20AP%20Ranch.pdf",
+                        "https://apranch.org/pdf/Special%20Events%20Application%20AP%20Ranch.pdf",
                         "_blank"
                       )
                     }
@@ -90,7 +90,7 @@ const Forms = () => {
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
-                        "http://greg.wwwaz1-tr104.supercp.com/pdf/AP%20Ranch%20Athlete%20Questionnaire%20113014.pdf",
+                        "https://apranch.org/pdf/AP%20Ranch%20Athlete%20Questionnaire%20113014.pdf",
                         "_blank"
                       )
                     }
@@ -101,7 +101,7 @@ const Forms = () => {
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
-                        "http://greg.wwwaz1-tr104.supercp.com/pdf/APR%20Scholarship%20Application.pdf",
+                        "https://apranch.org/pdf/APR%20Scholarship%20Application.pdf",
                         "_blank"
                       )
                     }
@@ -112,7 +112,7 @@ const Forms = () => {
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
-                        "http://greg.wwwaz1-tr104.supercp.com/pdf/APR%20Grant%20Application.pdf",
+                        "https://apranch.org/pdf/APR%20Grant%20Application.pdf",
                         "_blank"
                       )
                     }
@@ -123,7 +123,7 @@ const Forms = () => {
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
-                        "http://greg.wwwaz1-tr104.supercp.com/pdf/Student%20Participant%20Release%20Indemnity%20AP%20Ranch.pdf",
+                        "https://apranch.org/pdf/Student%20Participant%20Release%20Indemnity%20AP%20Ranch.pdf",
                         "_blank"
                       )
                     }

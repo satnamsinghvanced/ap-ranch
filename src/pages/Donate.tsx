@@ -19,7 +19,6 @@ const Donate = () => {
 
   const handleSubmit = () => {
     const { sourceId, ...otherFields } = pay;
-    console.log(otherFields);
     if(!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(pay.email)){
       return false;
     }

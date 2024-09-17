@@ -1,18 +1,20 @@
 import Header from "../components/layout/header";
 import Footer from "./Footer";
-import trackImg from "../assets/img/png/track-img.png";
-import footballImg from "../assets/img/png/football-img.png";
-import basketballImg from "../assets/img/png/basketball-img.png";
 import facilityImg from "../assets/img/png/facility-img.png";
 import { ROUTES } from "../components/consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetHomeDataQuery } from "../components/apis/homeAPi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
 import DOMPurify from "dompurify";
+import { useGetServicesListQuery } from "../components/apis/servicesApi";
 const Home = () => {
   const navigate = useNavigate();
   const { data }: any = useGetHomeDataQuery();
+  const { data: services }: any = useGetServicesListQuery();
   if (!data) {
+    return null;
+  }
+  if (!services) {
     return null;
   }
   const description = DOMPurify.sanitize(data[0].banner.descriptions);
@@ -53,27 +55,52 @@ const Home = () => {
       </section>
       <section className="container-fluid">
         <div className="row">
-          <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="sport-img-box ">
-              <img
-                src={footballImg}
-                alt=""
-                height={"100%"}
-                width={"100%"}
-                style={{ objectFit: "cover" }}
-              />
-              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
-                <h3 className="sport-name-heading">FOOTBALL</h3>
-                <button
-                  className="explore-btn  mt-4"
-                  onClick={() => navigate(ROUTES.FOOTBALL)}
-                >
-                  EXPLORE
-                </button>
+          {services.map((item: any, index: any) => (
+            <div
+              className={`${
+                services.length === 1
+                  ? "col-lg-12"
+                  : services.length === 2
+                  ? "col-lg-6"
+                  : "col-lg-4"
+              } col-md-6 p-0 explore-section`}
+              key={index}
+            >
+              <div
+                className="sport-img-box "
+                style={{
+                  boxShadow:
+                    "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 60%)",
+                  backgroundImage: `url(${apiBaseUrl}/${item.service?.servicesImage})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {/* <img
+                  src={`${apiBaseUrl}/${item.service?.servicesImage}`}
+                  alt=""
+                  height={"100%"}
+                  width={"100%"}
+                  style={{
+                    objectFit: "cover",
+                  }}
+                /> */}
+                <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
+                  <h3 className="sport-name-heading">
+                    {item.service?.servicesName}
+                  </h3>
+                  <button
+                    className="explore-btn  mt-4"
+                    onClick={() => navigate(ROUTES.FOOTBALL)}
+                  >
+                    EXPLORE
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4 col-md-6 p-0 explore-section">
+          ))}
+          {/* <div className="col-lg-4 col-md-6 p-0 explore-section">
             <div className="sport-img-box  ">
               <img
                 src={basketballImg}
@@ -112,7 +139,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col-lg-12  col-md-6 p-0 explore-section">
             <div className="the-facility-img-box ">
               <img

@@ -1,8 +1,15 @@
 import React from "react";
 import Header from "../layout/header";
 import Footer from "../../pages/Footer";
+import { useGetMissionsDataQuery } from "../apis/missionsApi";
+import DOMPurify from "dompurify";
 
 const OurMissions = () => {
+  const { data }: any = useGetMissionsDataQuery();
+  if (!data) {
+    return null;
+  }
+  const description = DOMPurify.sanitize(data[0]?.description);
   return (
     <div>
       <Header />
@@ -11,9 +18,13 @@ const OurMissions = () => {
           <div className="row">
             <div className="col-lg-6 p-0  our-missions-page">
               <div className="our-missions-page-content ">
-                <h1 className="about-page-heading">Our Mission</h1>
-
-                <p className="about-page-para">
+                <h1 className="about-page-heading">{data[0].name}</h1>
+                <div
+                  dangerouslySetInnerHTML={{ __html: description }}
+                  className="about-page-para"
+                />
+                <br />
+                {/* <p className="about-page-para">
                   As a society, wisdom and experience has taught us to view
                   education as the great equalizer. To succeed as individuals
                   and as a nation in an ever-changing and highly-technical
@@ -22,7 +33,7 @@ const OurMissions = () => {
                   first-hand that the “one size fits all” approach to success is
                   resulting in far too many youth falling between the cracks,
                   with the majority being youth of all ethnic backgrounds of low
-                  socio-economic status.
+                  socio-economic status.{" "}
                 </p>
                 <p className="about-page-para">
                   Positive youth development theorists speak about the value of
@@ -72,7 +83,7 @@ const OurMissions = () => {
                   community. The vision is compelling and the stakes are high.
                   Our young people and our community members deserve nothing
                   less.
-                </p>
+                </p> */}
               </div>
             </div>
 

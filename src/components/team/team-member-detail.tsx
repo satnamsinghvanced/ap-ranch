@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../layout/header";
 import { useGetTeamByIdQuery } from "../apis/teamApi";
+import DOMPurify from "dompurify";
+import { apiBaseUrl } from "../consts/api-url.const";
 
 const TeamMemberDetail: React.FC = () => {
   const { id } = useParams<{ id: any }>();
@@ -25,7 +27,7 @@ const TeamMemberDetail: React.FC = () => {
     );
   }
   const nameParts = data?.name.split(" ");
-
+  const description = DOMPurify.sanitize(data?.descriptions);
   return (
     <>
       <div>
@@ -45,14 +47,19 @@ const TeamMemberDetail: React.FC = () => {
                 <p className="member-profile">{data?.role}</p>
 
                 <div>
-                  <p className="about-member">{data?.descriptions}</p>
+                  <p className="about-member">
+                    <div
+                      dangerouslySetInnerHTML={{ __html: description }}
+                      className="about-page-para"
+                    />
+                  </p>
                 </div>
               </div>
             </div>
             <div className="col-lg-6 p-0 d-none-lg">
               <div className="d-flex justify-content-end banner-img">
                 <img
-                  src={data?.image}
+                  src={`${apiBaseUrl}/${data?.image}`}
                   alt=""
                   height={1174}
                   width={626}

@@ -8,7 +8,6 @@ import DOMPurify from "dompurify";
 
 const About = () => {
   const { data }: any = useGetAboutDataQuery();
-  console.log(data, "data");
   if (!data) {
     return null;
   }

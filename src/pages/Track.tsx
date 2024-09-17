@@ -11,7 +11,6 @@ const Track = () => {
   // const { data } = useGetServicesByIdQuery<any>({
   //   serviceId: 4,
   // });
-  // console.log(data, "datavvv");
   return (
     <div>
       <Header />

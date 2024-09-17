@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { PaymentForm, CreditCard } from "react-square-web-payments-sdk";
 import { useCreateDanateMutation } from "../apis/donateApi";
@@ -49,9 +50,6 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
         cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
           try {
             if (token.status === "OK") {
-              console.log("Token received:", token);
-              console.log("Billing details:", token?.details?.billing);
-
               // Prepare form data
               let formData = {
                 ...pay,
@@ -61,8 +59,8 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
               console.log(formData);
 
               // Process payment with your API
-              //  const res = await addDonate(formData).unwrap();
-              // setResponse(res);
+              const res = await addDonate(formData).unwrap();
+              setResponse(res);
 
               // Handle successful response
               reloadAllStep();

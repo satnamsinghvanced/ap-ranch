@@ -7,7 +7,6 @@ import { apiBaseUrl } from "../components/consts/api-url.const";
 
 const Collaborate = () => {
   const { data }: any = useGetCollaborateDataQuery();
-  console.log(data, "data");
   if (!data) {
     return null;
   }
@@ -18,7 +17,7 @@ const Collaborate = () => {
       <section
         className="collabrate-banner"
         style={{
-          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(${apiBaseUrl}/${data[0].headerImage})`,
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(${apiBaseUrl}/${data[0]?.headerImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           height: "100vh",
@@ -105,7 +104,7 @@ const Collaborate = () => {
               <div
                 className="about-collaborate"
                 style={{
-                  backgroundImage: `url(${apiBaseUrl}/${data[0].image})`,
+                  backgroundImage: `url(${apiBaseUrl}/${data[0]?.image})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   height: "1390px",

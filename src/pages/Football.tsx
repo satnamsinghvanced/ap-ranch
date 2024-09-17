@@ -11,7 +11,6 @@ const Football = () => {
   // const { data } = useGetServicesByIdQuery<any>({
   //   serviceId: 3,
   // });
-  // console.log(data, "datavvv");
   return (
     <div>
       <Header />
