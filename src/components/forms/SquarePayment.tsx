@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PaymentForm, CreditCard } from "react-square-web-payments-sdk";
 import { useCreateDanateMutation } from "../apis/donateApi";
 import { squareApplicationId, squareLocationId } from "../consts/api-url.const";
@@ -40,8 +40,23 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
         postalCode: "99999",
       });
       setSubmitCheck(false);
-    }, 3000);
+    }, 5000);
   };
+  const handleError = (err:any) => {
+    if (err && typeof err === 'object' && 'data' in err) {
+      const errorData = (err as any).data; // Casting to `any` to access the 'data' property
+      console.log('Error data:', errorData?.msg?.errors[0]?.detail);
+      setError(errorData?.msg?.errors[0]?.detail);
+    } else {
+      console.log('Error:', err);
+      setError("Payment Failed, Please try again!");
+    }
+    reloadAllStep();
+  };
+  useEffect(() => {
+    console.log('Error state changed:', error);
+  }, [error]);
+
   return (
     <div className="form-donation ">
       <PaymentForm
@@ -71,9 +86,17 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
               reloadAllStep();
             }
           } catch (err) {
-            console.error("Error processing payment:", err);
-            setError("Payment Failed, Please try again!");
-            reloadAllStep();
+            handleError(err);
+            /*if (err && typeof err === 'object' && 'data' in err) {
+              const errorData = (err as any).data; // Casting to `any` to access the 'data' property
+              console.log('Error data:', errorData?.msg?.errors[0]?.detail);
+              setError(errorData?.msg?.errors[0]?.detail);
+              reloadAllStep();
+            } else {
+              console.log('Error:', err);
+              setError("Payment Failed, Please try again!");
+              reloadAllStep();
+            }*/
           }
         }}
       >
@@ -93,17 +116,20 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
           Submit
         </CreditCard>
 
-        {error && (
+        {error && ( 
           <div
-            className="error-message"
+            className=""
             style={{
               fontWeight: 600,
+              color: "#ff0000",
+              fontFamily: "'Satoshi', sans-serif",
+              marginTop: "5px",
+              fontSize: 16
             }}
           >
             {error}
           </div>
         )}
-
         {response && (
           <div style={{ fontSize: "14px", marginTop: "5px", color: "green" }}>
             {response?.message}
