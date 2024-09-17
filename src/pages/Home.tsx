@@ -1,20 +1,24 @@
 import Header from "../components/layout/header";
 import Footer from "./Footer";
-import facilityImg from "../assets/img/png/facility-img.png";
 import { ROUTES } from "../components/consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetHomeDataQuery } from "../components/apis/homeAPi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
 import DOMPurify from "dompurify";
 import { useGetServicesListQuery } from "../components/apis/servicesApi";
+import { useGetFacilitiesDataQuery } from "../components/apis/facilityApi";
 const Home = () => {
   const navigate = useNavigate();
   const { data }: any = useGetHomeDataQuery();
   const { data: services }: any = useGetServicesListQuery();
+  const { data: facilities }: any = useGetFacilitiesDataQuery();
   if (!data) {
     return null;
   }
   if (!services) {
+    return null;
+  }
+  if (!facilities) {
     return null;
   }
   const description = DOMPurify.sanitize(data[0].banner.descriptions);
@@ -46,10 +50,10 @@ const Home = () => {
 
       <section className=" about-apr section-padding pb-2">
         <div className="max-width-1050 mx-auto text-center ">
-          {/* <p>{data[0].banner.descriptions}</p> */}
           <div
             dangerouslySetInnerHTML={{ __html: description }}
             className="home-description"
+            style={{ fontFamily: "Satoshi" }}
           />
         </div>
       </section>
@@ -77,22 +81,13 @@ const Home = () => {
                   backgroundPosition: "center",
                 }}
               >
-                {/* <img
-                  src={`${apiBaseUrl}/${item.service?.servicesImage}`}
-                  alt=""
-                  height={"100%"}
-                  width={"100%"}
-                  style={{
-                    objectFit: "cover",
-                  }}
-                /> */}
                 <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
                   <h3 className="sport-name-heading">
                     {item.service?.servicesName}
                   </h3>
                   <button
                     className="explore-btn  mt-4"
-                    onClick={() => navigate(ROUTES.FOOTBALL)}
+                    onClick={() => navigate(`/sports/${item.service?.id}`)}
                   >
                     EXPLORE
                   </button>
@@ -100,57 +95,18 @@ const Home = () => {
               </div>
             </div>
           ))}
-          {/* <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="sport-img-box  ">
-              <img
-                src={basketballImg}
-                alt=""
-                height={"100%"}
-                width={"100%"}
-                style={{ objectFit: "cover" }}
-              />
-              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
-                <h3 className="sport-name-heading">BASKETBALL</h3>
-                <button
-                  className="explore-btn  mt-4"
-                  onClick={() => navigate(ROUTES.BASKETBALL)}
-                >
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6 p-0 explore-section">
-            <div className="sport-img-box">
-              <img
-                src={trackImg}
-                alt=""
-                height={"100%"}
-                width={"100%"}
-                style={{ objectFit: "cover" }}
-              />
-              <div className="d-flex align-items-center justify-content-center flex-column h-100 position-absolute w-100 top-0">
-                <h3 className="sport-name-heading">TRACK</h3>
-                <button
-                  className="explore-btn  mt-4"
-                  onClick={() => navigate(ROUTES.TRACK)}
-                >
-                  EXPLORE
-                </button>
-              </div>
-            </div>
-          </div> */}
           <div className="col-lg-12  col-md-6 p-0 explore-section">
-            <div className="the-facility-img-box ">
-              <img
-                src={facilityImg}
-                alt=""
-                height={"100%"}
-                width={"100%"}
-                style={{ objectFit: "cover" }}
-              />
+            <div
+              className="the-facility-img-box "
+              style={{
+                boxShadow: "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 60%)",
+                backgroundImage: `url(${apiBaseUrl}/${facilities[0]?.image})`,
+              }}
+            >
               <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md position-absolute w-100 top-0">
-                <h3 className="sport-name-heading font-50">the facility</h3>
+                <h3 className="sport-name-heading font-50">
+                  {facilities[0]?.name}
+                </h3>
                 <button
                   className="explore-btn  mt-4"
                   onClick={() => navigate(ROUTES.FACILITY)}

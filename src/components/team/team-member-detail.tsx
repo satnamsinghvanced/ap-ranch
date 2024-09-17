@@ -51,6 +51,7 @@ const TeamMemberDetail: React.FC = () => {
                     <div
                       dangerouslySetInnerHTML={{ __html: description }}
                       className="about-page-para"
+                      style={{ fontFamily: "Satoshi" }}
                     />
                   </p>
                 </div>

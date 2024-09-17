@@ -45,16 +45,13 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
   const handleError = (err:any) => {
     if (err && typeof err === 'object' && 'data' in err) {
       const errorData = (err as any).data; // Casting to `any` to access the 'data' property
-      console.log('Error data:', errorData?.msg?.errors[0]?.detail);
       setError(errorData?.msg?.errors[0]?.detail);
     } else {
-      console.log('Error:', err);
       setError("Payment Failed, Please try again!");
     }
     reloadAllStep();
   };
   useEffect(() => {
-    console.log('Error state changed:', error);
   }, [error]);
 
   return (
@@ -71,7 +68,6 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
                 sourceId: token.token || "",
                 postalCode: token?.details?.billing?.postalCode || "",
               };
-              console.log(formData);
 
               // Process payment with your API
               const res = await addDonate(formData).unwrap();
@@ -89,11 +85,9 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
             handleError(err);
             /*if (err && typeof err === 'object' && 'data' in err) {
               const errorData = (err as any).data; // Casting to `any` to access the 'data' property
-              console.log('Error data:', errorData?.msg?.errors[0]?.detail);
               setError(errorData?.msg?.errors[0]?.detail);
               reloadAllStep();
             } else {
-              console.log('Error:', err);
               setError("Payment Failed, Please try again!");
               reloadAllStep();
             }*/

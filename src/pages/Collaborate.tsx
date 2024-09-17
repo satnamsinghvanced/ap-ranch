@@ -34,9 +34,11 @@ const Collaborate = () => {
           <div className="row">
             <div className="col-lg-6">
               <div className="about-inner-page">
-                <h3 className="about-collabrate-question mb-3">
-                  <div dangerouslySetInnerHTML={{ __html: description }} />
-                </h3>
+                <div
+                  dangerouslySetInnerHTML={{ __html: description }}
+                  style={{ fontFamily: "Satoshi" }}
+                />
+
                 {/* <p className="about-collabrate-answer mb-4">
                   Any student entering fifth through twelfth grade is welcome to
                   apply. We are looking for students who demonstrate a strong

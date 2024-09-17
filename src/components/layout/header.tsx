@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { ROUTES } from "../consts/routes.consts";
 import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
-import { Link, matchPath, useLocation } from "react-router-dom";
+import { Link, useLocation,} from "react-router-dom";
+import { useGetServicesListQuery } from "../apis/servicesApi";
 const Header = () => {
   const location = useLocation();
   const teamMemberPattern = new RegExp(`^${ROUTES.TEAM}|/team/\\d+`, "i");
   const isActive = (path: any) => {
     return location.pathname === path;
   };
-
+  const { data: services }: any = useGetServicesListQuery();
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isSportsVisible, setSportsVisible] = useState(false);
   const handleMouseEnter = () => {
@@ -156,15 +157,15 @@ const Header = () => {
                   {isSportsVisible && (
                     <div className="dropdown-menu">
                       <ul>
-                        <Link to={ROUTES.FOOTBALL} className="nav-link">
-                          Football
-                        </Link>
-                        <Link to={ROUTES.BASKETBALL} className="nav-link">
-                          Basketball
-                        </Link>
-                        <Link to={ROUTES.TRACK} className="nav-link">
-                          Track
-                        </Link>
+                        {services?.map((item: any, index: any) => (
+                          <Link
+                            to={`/sports/${item.service?.id}`}
+                            className="nav-link"
+                            key={index}
+                          >
+                            {item.service?.servicesName}
+                          </Link>
+                        ))}
                       </ul>
                     </div>
                   )}

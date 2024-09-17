@@ -1,6 +1,7 @@
 export const ROUTES = {
   HOME: "/",
   ABOUT: "/about",
+  SPORTS: "/sports/:id",
   FOOTBALL: "/football",
   BASKETBALL: "/basketball",
   TRACK: "/track",

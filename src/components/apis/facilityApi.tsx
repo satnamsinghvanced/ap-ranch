@@ -1,10 +1,10 @@
 import { emptySplitApi as api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getAboutData: builder.query<[], void>({
+    getFacilitiesData: builder.query<[], void>({
       query: () => {
         return {
-          url: `/api/about`,
+          url: `/api/facility`,
         };
       },
     }),
@@ -12,4 +12,4 @@ const injectedRtkApi = api.injectEndpoints({
 });
 export { injectedRtkApi as enhancedApi };
 
-export const { useGetAboutDataQuery } = injectedRtkApi;
+export const { useGetFacilitiesDataQuery } = injectedRtkApi;

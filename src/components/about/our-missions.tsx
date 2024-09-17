@@ -22,6 +22,7 @@ const OurMissions = () => {
                 <div
                   dangerouslySetInnerHTML={{ __html: description }}
                   className="about-page-para"
+                  style={{ fontFamily: "Satoshi" }}
                 />
                 <br />
                 {/* <p className="about-page-para">
