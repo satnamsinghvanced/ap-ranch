@@ -32,5 +32,21 @@ export const allStates = [
   { "name": "New Mexico", "value": "NM" },
   { "name": "New York", "value": "NY" },
   { "name": "North Carolina", "value": "NC" },
-  { "name": "North Dakota", "value": "ND" }
+  { "name": "North Dakota", "value": "ND" },
+  { "name": "Ohio", "value": "OH" },
+  { "name": "Oklahoma", "value": "OK" },
+  { "name": "Oregon", "value": "OR" },
+  { "name": "Pennsylvania", "value": "PA" },
+  { "name": "Rhode Island", "value": "RI" },
+  { "name": "South Carolina", "value": "SC" },
+  { "name": "South Dakota", "value": "SD" },
+  { "name": "Tennessee", "value": "TN" },
+  { "name": "Texas", "value": "TX" },
+  { "name": "Utah", "value": "UT" },
+  { "name": "Vermont", "value": "VT" },
+  { "name": "Virginia", "value": "VA" },
+  { "name": "Washington", "value": "WA" },
+  { "name": "West Virginia", "value": "WV" },
+  { "name": "Wisconsin", "value": "WI" },
+  { "name": "Wyoming", "value": "WY" }
 ];
