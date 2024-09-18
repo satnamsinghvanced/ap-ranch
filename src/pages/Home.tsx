@@ -11,13 +11,49 @@ const Home = () => {
   const { data: services }: any = useGetServicesListQuery();
   const { data: facilities }: any = useGetFacilitiesDataQuery();
   if (!data) {
-    return null;
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
   }
   if (!services) {
-    return null;
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
   }
   if (!facilities) {
-    return null;
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
   }
   const description = DOMPurify.sanitize(data[0].banner.descriptions);
   return (

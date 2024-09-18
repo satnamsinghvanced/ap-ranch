@@ -8,12 +8,23 @@ const About = () => {
   const { data }: any = useGetAboutDataQuery();
   const isMobileSmall = useMediaQuery({ query: "(max-width: 993px)" });
   if (!data) {
-    return null;
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
   }
   const description = DOMPurify.sanitize(data[0]?.descriptions);
   return (
     <div>
-
       <section className="about-banner">
         <div className="container-fluid">
           <div className="row">
@@ -65,7 +76,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };

@@ -7,8 +7,22 @@ const Team = () => {
   const handleMemberClick = (id: any) => {
     navigate(`/team/${id}`);
   };
-  const { data, }: any = useGetTeamListQuery();
-
+  const { data }: any = useGetTeamListQuery();
+  if (!data) {
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
+  }
   return (
     <div>
       <section className="team-section">

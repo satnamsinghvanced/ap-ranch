@@ -12,7 +12,19 @@ const AboutAccordions = () => {
   };
   const { data }: any = useGetServicesListQuery();
   if (!data) {
-    return null;
+    return (
+      <div
+        style={{
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p>LOADING...</p>
+      </div>
+    );
   }
   return (
     <>
