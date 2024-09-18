@@ -92,8 +92,11 @@ h3,
 h4,
 h5,
 h6,
-p {
+p, li {
     margin-bottom: 20px;
+}
+ol {
+    padding-left: 35px;
 }
 
 a {
@@ -1581,6 +1584,23 @@ body {
 
 .our-missions-page-content ol {
     padding-left: 35px;
+}
+
+.our-missions-page-content ol li {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #ffffff;
+    font-family: 'Satoshi', sans-serif;
+    word-wrap: break-word;
+}
+.our-missions-page-content p {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #ffffff;
+    font-family: 'Satoshi', sans-serif;
+    word-wrap: break-word;
 }
 
 /* indemnity agreement  and  code of conduvt css 

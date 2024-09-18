@@ -4,7 +4,7 @@ import Footer from "../../pages/Footer";
 import { ROUTES } from "../consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetFormsDataQuery } from "../apis/formsApi";
-// import DOMPurify from "dompurify";
+import DOMPurify from "dompurify";
 
 const Forms = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Forms = () => {
   if (!data) {
     return null;
   }
-  // const description = DOMPurify.sanitize(data[0]?.description);
+  const description = DOMPurify.sanitize(data[0]?.description);
   return (
     <div>
       <div>
@@ -22,11 +22,11 @@ const Forms = () => {
             <div className="row">
               <div className="col-lg-6 p-0  our-missions-page ">
                 <div className="our-missions-page-content ">
-                  {/* <div
+                  <div
                     dangerouslySetInnerHTML={{ __html: description }}
                     style={{fontFamily:"Satoshi"}}
-                  /> */}
-                  <h1 className="about-collabrate-question">
+                  />
+                  {/* <h1 className="about-collabrate-question">
                     REGISTRATION NOW OPEN!!!
                   </h1>
                   <ol>
@@ -64,7 +64,7 @@ const Forms = () => {
                   </p>
                   <p className="about-page-para  text-start  mt-3">
                     Location: 1590 RM 2871 Fort Worth, TX 76126
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -86,7 +86,7 @@ const Forms = () => {
                   >
                     Parent's Code of Conduct Agreement
                   </button>
-                  {/* {data[0]?.formButton.map((val: any, idx: any) => (
+                  {data[0]?.formButton.map((val: any, idx: any) => (
                     <button
                       className="form-white-btn"
                       style={{ fontFamily: "'Satoshi', sans-serif" }}
@@ -95,8 +95,8 @@ const Forms = () => {
                     >
                       {val.buttonTxt}
                     </button>
-                  ))} */}
-                  <button
+                  ))}
+                  {/* <button
                     className="form-white-btn"
                     onClick={() =>
                       window.open(
@@ -150,7 +150,7 @@ const Forms = () => {
                     }
                   >
                     Participant Release and Indemnity Agreement
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
