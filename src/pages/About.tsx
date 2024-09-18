@@ -46,7 +46,7 @@ const About = () => {
                   alt=""
                   className="img-fluid"
                   style={{
-                    minHeight: "1066px",
+                    minHeight: "1270px",
                     minWidth: "626px",
                     maxWidth: "626px",
                     objectFit: "cover",

@@ -63,26 +63,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="contact-details">
-            <div className="form-group">
-              <label htmlFor="" className="footer-contect">
-                CONTACT US
-              </label>
-              <p className="footer-items">+1 999 888-76-54</p>
-            </div>
-            <div className="form-group">
-              <label htmlFor="" className="footer-contect">
-                EMAIl
-              </label>
-              <p className="footer-items">hello@apranch.com</p>
-            </div>
-            <div className="form-group">
-              <label htmlFor="" className="footer-contect">
-                Address
-              </label>
-              <p className="footer-items">1590 FM2871 Fort Worth, TX 76126</p>
-            </div>
-          </div>
           <div className="media-link">
             <div>
               <a href="/#">

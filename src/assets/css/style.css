@@ -844,6 +844,7 @@ body {
     height: 525px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 /* football css   responsive 
@@ -1086,7 +1087,7 @@ body {
     }
 
     .about-page-para {
-        text-align: center;
+        /* text-align: center; */
         margin-bottom: 14px;
     }
 
@@ -1105,6 +1106,7 @@ body {
     justify-content: center;
     height: 100%;
     padding: 0px 12px;
+    margin-top: 60px;
 }
 
 .contact-img {
@@ -1193,6 +1195,7 @@ body {
         max-width: 100%;
         margin-left: 0;
         padding: 0px 32px;
+        margin: 0;
     }
 
     .contact-form-inner {
@@ -1277,7 +1280,7 @@ body {
 
     .member-name {
         font-size: 38px;
-        margin-top: 350px;
+        margin-top: 520px;
     }
 
     .member-profile {

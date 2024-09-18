@@ -41,7 +41,7 @@ const TeamMemberDetail: React.FC = () => {
                     ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(${apiBaseUrl}/${data?.image})`
                     : "",
                   backgroundRepeat: isMobileSmall ? "no-repeat" : "",
-                  backgroundSize: isMobileSmall ? "cover" : "",
+                  backgroundSize: isMobileSmall ? "contain" : "",
                 }}
               >
                 <h1 className="member-name">
