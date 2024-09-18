@@ -1067,6 +1067,9 @@ body {
     font-family: 'Satoshi', sans-serif;
     margin-top: 20px;
     word-wrap: break-word;
+    /* max-height: 380px;
+    overflow: hidden;
+    overflow-y: auto; */
 }
 
 .about-page-accordian {
@@ -1247,18 +1250,19 @@ body {
 }
 
 .member-name {
-    font-size: 72px;
+    font-size: 60px;
     font-weight: 800;
     color: #ffffff;
     font-family: 'Tactic Sans Extra Extended';
     text-transform: uppercase;
+    word-wrap: break-word;
 }
 
 .member-profile {
     font-size: 28px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 86px;
+    margin-bottom: 50px;
     font-family: 'Satoshi';
     text-transform: uppercase;
 }
@@ -1274,8 +1278,9 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    max-width: 610px;
+    max-width: 700px;
     margin-left: auto;
+    padding: 0 30px;
 }
 
 .member-detail {
@@ -1731,4 +1736,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         left: 0;
         background-image: linear-gradient(rgb(1 173 181 / 0%) 0%, rgb(22 20 21) 95%);
     }
+}
+
+@media(min-width:600px) {
+    .member-detail-container {
+        background-position: center !important;
+        background-size: cover !important;
+    }
+}
+.banner-img img {
+    max-width: 100%;
 }

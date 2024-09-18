@@ -70,8 +70,8 @@ const TeamMemberDetail: React.FC = () => {
                 <img
                   src={`${apiBaseUrl}/${data?.image}`}
                   alt=""
-                  height={1174}
-                  width={626}
+                  // height={1174}
+                  // width={626}
                   style={{
                     objectFit: "cover",
                   }}
