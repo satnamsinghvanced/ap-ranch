@@ -767,12 +767,13 @@ body {
     padding: 0 16px;
 }
 
-
 .apr-sport-name {
     font-size: 112px;
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
 }
 
 .sport-contant-us {
@@ -1718,4 +1719,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 700;
     font-family: 'Satoshi';
     text-transform: uppercase;
+}
+
+@media(max-width:768px) {
+    .football-banner:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(rgb(1 173 181 / 0%) 0%, rgb(22 20 21) 95%);
+    }
 }
