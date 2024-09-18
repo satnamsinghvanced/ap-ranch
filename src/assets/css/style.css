@@ -256,7 +256,7 @@ body {
     }
 }
 
-@media(max-width:1200px) {
+@media(max-width:1250px) {
     .navbar-nav .nav-item .nav-link {
         font-size: 9px;
     }
