@@ -42,23 +42,17 @@ const Header = () => {
             <Link to={ROUTES.HOME} className="navbar-brand p-0">
               <img src={logo} alt="" />
             </Link>
-            <Link to={ROUTES.HOME} className="logo-mobile">
+            <Link
+              to={ROUTES.HOME}
+              className="logo-mobile"
+              onClick={handleServiceClick}
+            >
               <img src={logo2} alt="" />
             </Link>
           </div>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-            <span className="menu-mobile">
-              <span className="me-3">
+          <div>
+            <button className="navbar-toggler">
+              <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -75,23 +69,37 @@ const Header = () => {
                   />
                 </svg>
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="14"
-                viewBox="0 0 20 14"
-                fill="none"
-              >
-                <path
-                  d="M1 7H19M1 1H19M7 13H19"
-                  stroke="#F2F2F2"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
+            </button>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+              <span className="menu-mobile">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 20 14"
+                  fill="none"
+                >
+                  <path
+                    d="M1 7H19M1 1H19M7 13H19"
+                    stroke="#F2F2F2"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+
           <div
             className="collapse navbar-collapse flex-none header-nav"
             id="navbarNav"
@@ -119,13 +127,25 @@ const Header = () => {
                   {isDropdownVisible && (
                     <div className="dropdown-menu">
                       <ul>
-                        <Link to={ROUTES.ABOUT} className="nav-link">
+                        <Link
+                          to={ROUTES.ABOUT}
+                          className="nav-link"
+                          onClick={handleServiceClick}
+                        >
                           About
                         </Link>
-                        <Link to={ROUTES.OUR_MISSION} className="nav-link">
+                        <Link
+                          to={ROUTES.OUR_MISSION}
+                          className="nav-link"
+                          onClick={handleServiceClick}
+                        >
                           OUR MISSION
                         </Link>
-                        <Link to={ROUTES.FORM} className="nav-link">
+                        <Link
+                          to={ROUTES.FORM}
+                          className="nav-link"
+                          onClick={handleServiceClick}
+                        >
                           FORMS
                         </Link>
                       </ul>
@@ -137,6 +157,7 @@ const Header = () => {
                 className={`nav-item ${
                   isActive(ROUTES.COLLABORATE) ? "active" : ""
                 }`}
+                onClick={handleServiceClick}
               >
                 <Link to={ROUTES.COLLABORATE} className="nav-link">
                   Collaborate
@@ -183,6 +204,7 @@ const Header = () => {
                 className={`nav-item ${
                   isActive(ROUTES.FACILITY) ? "active" : ""
                 }`}
+                onClick={handleServiceClick}
               >
                 <Link to={ROUTES.FACILITY} className="nav-link">
                   The Facility
@@ -195,6 +217,7 @@ const Header = () => {
                     ? "active"
                     : ""
                 }`}
+                onClick={handleServiceClick}
               >
                 <Link to={ROUTES.TEAM} className="nav-link">
                   The Team
@@ -204,15 +227,26 @@ const Header = () => {
                 className={`nav-item ${
                   isActive(ROUTES.CONTACT) ? "active" : ""
                 }`}
+                onClick={handleServiceClick}
               >
                 <Link to={ROUTES.CONTACT} className="nav-link">
                   Contact
                 </Link>
               </li>
               <li
+                className={`nav-item ${isActive("") ? "active" : ""}`}
+                onClick={handleServiceClick}
+              >
+                {/* <Link to={""} className="nav-link">
+                  Login
+                </Link> */}
+                <p className="nav-link m-0">Login</p>
+              </li>
+              <li
                 className={`nav-item ${
                   isActive(ROUTES.DONATE) ? "active" : ""
                 } donate-button`}
+                onClick={handleServiceClick}
               >
                 <Link to={ROUTES.DONATE} className="nav-link">
                   DONATE
@@ -220,7 +254,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="donate-link">
+          <div className="donate-link" style={{ margin: "0 16px" }}>
             <button className="donate-btn btn">
               <Link to={ROUTES.DONATE} className="nav-link">
                 DONATE
