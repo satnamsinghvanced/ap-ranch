@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ROUTES } from "../consts/routes.consts";
 import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
-import { Link, useLocation,} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useGetServicesListQuery } from "../apis/servicesApi";
 const Header = () => {
   const location = useLocation();
@@ -26,6 +26,13 @@ const Header = () => {
 
   const handleSportsMouseLeave = () => {
     setSportsVisible(false);
+  };
+  const handleServiceClick = () => {
+    // Close the mobile menu by targeting the collapse element
+    const navbarCollapse = document.getElementById("navbarNav");
+    if (navbarCollapse?.classList.contains("show")) {
+      navbarCollapse.classList.remove("show");
+    }
   };
   return (
     <header className="apr-header">
@@ -137,11 +144,7 @@ const Header = () => {
               </li>
               <li
                 className={`nav-item ${
-                  isActive(ROUTES.FOOTBALL) ||
-                  isActive(ROUTES.BASKETBALL) ||
-                  isActive(ROUTES.TRACK)
-                    ? "active"
-                    : ""
+                  location.pathname.startsWith("/sports") ? "active" : ""
                 }`}
               >
                 <div
@@ -160,8 +163,13 @@ const Header = () => {
                         {services?.map((item: any, index: any) => (
                           <Link
                             to={`/sports/${item.service?.id}`}
-                            className="nav-link"
+                            className={`nav-link ${
+                              isActive(`/sports/${item.service?.id}`)
+                                ? "active"
+                                : ""
+                            }`}
                             key={index}
+                            onClick={handleServiceClick}
                           >
                             {item.service?.servicesName}
                           </Link>
@@ -199,6 +207,15 @@ const Header = () => {
               >
                 <Link to={ROUTES.CONTACT} className="nav-link">
                   Contact
+                </Link>
+              </li>
+              <li
+                className={`nav-item ${
+                  isActive(ROUTES.DONATE) ? "active" : ""
+                } donate-button`}
+              >
+                <Link to={ROUTES.DONATE} className="nav-link">
+                  DONATE
                 </Link>
               </li>
             </ul>

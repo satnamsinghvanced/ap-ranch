@@ -12,7 +12,6 @@ const Basketball = () => {
 
   return (
     <div>
-      <Header />
       <section className="basketball-banner">
         <div className="d-flex align-items-center justify-content-center h-100">
           <h1 className="apr-sport-name">Basketball</h1>
@@ -46,7 +45,6 @@ const Basketball = () => {
       <section className="sports-services-section">
         <CustomServices items={basketballServices} />
       </section>
-      <Footer />
     </div>
   );
 };

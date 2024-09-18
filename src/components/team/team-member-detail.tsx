@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Header from "../layout/header";
 import { useGetTeamByIdQuery } from "../apis/teamApi";
 import DOMPurify from "dompurify";
 import { apiBaseUrl } from "../consts/api-url.const";
+import { useMediaQuery } from "react-responsive";
 
 const TeamMemberDetail: React.FC = () => {
   const { id } = useParams<{ id: any }>();
-
+  const isMobileSmall = useMediaQuery({ query: "(max-width: 993px)" });
   const { data } = useGetTeamByIdQuery<any>({
     id: id,
   });
@@ -31,11 +31,19 @@ const TeamMemberDetail: React.FC = () => {
   return (
     <>
       <div>
-        <Header />
         <section className="container-fluid">
           <div className="row">
             <div className="col-lg-6 p-0 member-detail">
-              <div className="member-detail-container">
+              <div
+                className="member-detail-container"
+                style={{
+                  background: isMobileSmall
+                    ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(${apiBaseUrl}/${data?.image})`
+                    : "",
+                  backgroundRepeat: isMobileSmall ? "no-repeat" : "",
+                  backgroundSize: isMobileSmall ? "cover" : "",
+                }}
+              >
                 <h1 className="member-name">
                   {nameParts?.map((part: any, index: any) => (
                     <React.Fragment key={index}>

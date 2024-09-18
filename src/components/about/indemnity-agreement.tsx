@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../layout/header";
-import Footer from "../../pages/Footer";
 import { toast } from "react-toastify";
 import { useCreateIndemnityAgreementMutation } from "../apis/indemnityAgreementAPI";
 
@@ -134,7 +132,6 @@ const IndemnityAgreement = () => {
   }, [response?.message]);
   return (
     <div>
-      <Header />
 
       <section className="code-of-conduct">
         <div className="container">
@@ -460,7 +457,6 @@ const IndemnityAgreement = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

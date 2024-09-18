@@ -1,6 +1,3 @@
-import React from "react";
-import Header from "../layout/header";
-import Footer from "../../pages/Footer";
 import { useGetMissionsDataQuery } from "../apis/missionsApi";
 import DOMPurify from "dompurify";
 
@@ -12,13 +9,12 @@ const OurMissions = () => {
   const description = DOMPurify.sanitize(data[0]?.description);
   return (
     <div>
-      <Header />
       <section className="about-banner ">
         <div className="container-fluid mb-4">
           <div className="row">
             <div className="col-lg-6 p-0  our-missions-page">
               <div className="our-missions-page-content ">
-                <h1 className="about-page-heading">{data[0].name}</h1>
+                <h1 className="about-page-heading">{data[0]?.name}</h1>
                 <div
                   dangerouslySetInnerHTML={{ __html: description }}
                   className="about-page-para"
@@ -96,7 +92,6 @@ const OurMissions = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

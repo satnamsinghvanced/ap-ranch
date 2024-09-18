@@ -2,5 +2,5 @@
 // export const apiBaseUrl = "https://ap-ranch-api.vercel.app";
 // export const apiBaseUrl = "https://apranch.org/apr-server"
 export const apiBaseUrl = "https://apranch.org/apr-server";
-export const squareApplicationId = "sandbox-sq0idb-ELTm_dktaWbcG0VpN5kbvA";
-export const squareLocationId = "LQ5ZCR8PDAMKJ";
+export const squareApplicationId = "sq0idp-ZoW4IK4rPRl9gM6zyID82A";
+export const squareLocationId = "L8QRK1TAESYKK";

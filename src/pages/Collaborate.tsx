@@ -1,6 +1,3 @@
-import React from "react";
-import Header from "../components/layout/header";
-import Footer from "./Footer";
 import { useGetCollaborateDataQuery } from "../components/apis/collaborate";
 import DOMPurify from "dompurify";
 import { apiBaseUrl } from "../components/consts/api-url.const";
@@ -13,7 +10,6 @@ const Collaborate = () => {
   const description = DOMPurify.sanitize(data[0]?.descriptions);
   return (
     <div>
-      <Header />
       <section
         className="collabrate-banner"
         style={{
@@ -116,7 +112,6 @@ const Collaborate = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

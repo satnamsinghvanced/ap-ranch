@@ -1,6 +1,3 @@
-import React from "react";
-import Header from "../components/layout/header";
-import Footer from "./Footer";
 import { useGetFacilitiesDataQuery } from "../components/apis/facilityApi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
 const Facilities = () => {
@@ -10,12 +7,10 @@ const Facilities = () => {
   }
   return (
     <div>
-      <Header />
-
       <section
         className="facilities-banner"
         style={{
-          backgroundImage: `url(${apiBaseUrl}/${data[0]?.image})`,
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${apiBaseUrl}/${data[0]?.image})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           height: "100vh",
@@ -43,8 +38,6 @@ const Facilities = () => {
           ))}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

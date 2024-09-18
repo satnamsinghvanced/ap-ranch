@@ -1,5 +1,3 @@
-import Header from "../components/layout/header";
-import Footer from "./Footer";
 import { ROUTES } from "../components/consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetHomeDataQuery } from "../components/apis/homeAPi";
@@ -24,8 +22,6 @@ const Home = () => {
   const description = DOMPurify.sanitize(data[0].banner.descriptions);
   return (
     <section className="apr-main-section">
-      <Header />
-
       <section
         className="apr-banner"
         style={{
@@ -43,7 +39,7 @@ const Home = () => {
             src={`${apiBaseUrl}/${data[0].banner.logoImage}`}
             alt=""
             className="img-fluid"
-            style={{ maxWidth: "820px", maxHeight: "231px" }}
+            style={{ maxHeight: "231px" }}
           />
         </div>
       </section>
@@ -123,7 +119,14 @@ const Home = () => {
           our incredible partners
         </h3>
 
-        <div className="incredible-partners-logos">
+        <div
+          className="incredible-partners-logos"
+          style={{
+            justifyContent:
+              data[0].partnerLogos.length <= 3 ? "center" : "space-between",
+            gap: data[0].partnerLogos.length <= 3 ? "30px" : "0",
+          }}
+        >
           {data[0].partnerLogos.map((val: any, indx: any) => (
             <div className="text-center" key={indx}>
               <img
@@ -162,8 +165,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </section>
   );
 };

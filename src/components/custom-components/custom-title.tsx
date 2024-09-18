@@ -10,7 +10,7 @@ const CustomTittle = ({ title }: { title: any }) => {
     <>
       <div
         dangerouslySetInnerHTML={{ __html: description }}
-        style={{ fontFamily: "Satoshi" }}
+        style={{ fontFamily: "Satoshi", fontSize: "25px" }}
       />
 
       <button

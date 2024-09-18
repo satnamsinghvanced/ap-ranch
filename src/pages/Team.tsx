@@ -1,5 +1,3 @@
-import Header from "../components/layout/header";
-import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { useGetTeamListQuery } from "../components/apis/teamApi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
@@ -13,8 +11,6 @@ const Team = () => {
 
   return (
     <div>
-      <Header />
-
       <section className="team-section">
         <div className="container ">
           <h1 className="team-section-heading pt-5">the team</h1>
@@ -38,8 +34,6 @@ const Team = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -92,9 +92,11 @@ h3,
 h4,
 h5,
 h6,
-p, li {
+p,
+li {
     margin-bottom: 20px;
 }
+
 ol {
     padding-left: 35px;
 }
@@ -150,6 +152,10 @@ body {
 }
 
 
+.apr-header li,
+.apr-footer li {
+    margin-bottom: 0 !important;
+}
 
 .container.apr-navbar {
     @media(max-width: 992px) {
@@ -192,8 +198,18 @@ body {
 
 .donate-link {
     @media(max-width: 992px) {
-        display: none;
+        display: none !important;
     }
+}
+
+.donate-button {
+    @media(max-width: 992px) {
+        display: block !important;
+    }
+}
+
+.donate-button {
+    display: none;
 }
 
 .header-nav {
@@ -332,7 +348,7 @@ body {
 }
 
 .max-width-1050 {
-    max-width: 1480px;
+    max-width: 1050px;
 }
 
 .about-apr p {
@@ -380,6 +396,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    background-position: center;
 }
 
 .incredible-partners {
@@ -469,7 +486,9 @@ body {
 
     .incredible-partners-logos {
         grid-template-columns: repeat(3, auto);
-        justify-content: center;
+        justify-content: center !important;
+        grid-gap: 16px !important;
+        row-gap: 50px !important;
     }
 
 }
@@ -575,9 +594,9 @@ body {
 .form-donation .form-group {
     margin-bottom: 30px;
 
-    @media(max-width: 768px) {
+    /* @media(max-width: 768px) {
         margin-bottom: 17px;
-    }
+    } */
 }
 
 .form-group input::placeholder {
@@ -864,7 +883,7 @@ body {
     }
 
     .football-banner {
-        background-position: center;
+        background-position: center !important;
     }
 }
 
@@ -1023,6 +1042,7 @@ body {
     color: #ffffff;
     margin-bottom: 48px;
     word-wrap: break-word;
+    text-transform: uppercase;
 }
 
 .about-page-para {
@@ -1062,6 +1082,7 @@ body {
         margin-top: 30px;
         margin-bottom: 11px;
         word-wrap: break-word;
+        text-transform: uppercase;
     }
 
     .about-page-para {
@@ -1244,12 +1265,6 @@ body {
 ===================================== */
 
 @media(max-width:993px) {
-    .member-detail-container {
-        background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(../img/png/mike-dry-img.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
     .d-none-lg {
         display: none;
     }
@@ -1594,6 +1609,7 @@ body {
     font-family: 'Satoshi', sans-serif;
     word-wrap: break-word;
 }
+
 .our-missions-page-content p {
     font-size: 22px;
     line-height: 30px;

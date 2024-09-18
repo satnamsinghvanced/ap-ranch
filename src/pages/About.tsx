@@ -1,6 +1,3 @@
-import React from "react";
-import Footer from "./Footer";
-import Header from "../components/layout/header";
 import AboutAccordions from "../components/custom-components/custom-about-accordian";
 import { useGetAboutDataQuery } from "../components/apis/aboutApi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
@@ -16,7 +13,6 @@ const About = () => {
   const description = DOMPurify.sanitize(data[0]?.descriptions);
   return (
     <div>
-      <Header />
 
       <section className="about-banner">
         <div className="container-fluid">
@@ -40,24 +36,6 @@ const About = () => {
                     style={{ fontFamily: "Satoshi" }}
                   />
                 </p>
-                {/* <p className="about-page-para">
-                  We strive to provide a nurturing environment where athletes
-                  can explore their passions, develop skills, and unlock their
-                  true potential. Through relentless dedication, innovative
-                  teaching techniques, and a commitment to fostering character
-                  development, and personal growth we aim to inspire our team to
-                  push boundaries, overcome challenges, and achieve their
-                  highest performance.
-                </p>
-                <p className="about-page-para">
-                  Together, we aspire to build a community that celebrates
-                  diversity, fosters teamwork, and instills lifelong values of
-                  discipline, resilience, and sportsmanship.
-                </p>
-                <p className="about-page-para fw-bold">
-                  At AP Ranch, we empower athletes to new heights and define
-                  their limits to leave a lasting impact on the world.
-                </p> */}
               </div>
             </div>
 
@@ -67,7 +45,12 @@ const About = () => {
                   src={`${apiBaseUrl}/${data[0]?.image}`}
                   alt=""
                   className="img-fluid"
-                  style={{ minHeight: "1066px", minWidth: "626px" }}
+                  style={{
+                    minHeight: "1066px",
+                    minWidth: "626px",
+                    maxWidth: "626px",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
             </div>
@@ -83,7 +66,6 @@ const About = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

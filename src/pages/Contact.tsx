@@ -1,35 +1,28 @@
 import ContactForm from "../components/forms/contact-form";
-import Footer from "./Footer";
-import Header from "../components/layout/header";
-import contactBg from "../assets/img/png/contact-bg.png";
 import DOMPurify from "dompurify";
-
-import { ROUTES } from "../components/consts/routes.consts";
-import { useNavigate } from "react-router-dom";
 import { apiBaseUrl } from "../components/consts/api-url.const";
 import { useGetContactUsDataQuery } from "../components/apis/contactAPi";
 
 const Contact = () => {
-  const navigate = useNavigate();
   const { data }: any = useGetContactUsDataQuery();
   if (!data) {
     return null;
   }
   const description = DOMPurify.sanitize(data[0]?.description);
 
+  const contact = DOMPurify.sanitize(data[0]?.contact);
+
   return (
     <div>
-      <Header />
       <div className="row contact-main">
         <div className="col-lg-6 p-0 ">
           <div className="contact-form">
-            <h1 className="contact-page-heading">{data[0]?.contact}</h1>
+            <h1 className="contact-page-heading">CONTACT</h1>
             <ContactForm />
           </div>
         </div>
 
         <div className="col-lg-6 text-end p-0 contact-img d-none-lg">
-
           <img
             src={`${apiBaseUrl}/${data[0]?.image}`}
             alt=""
@@ -46,13 +39,13 @@ const Contact = () => {
           height="100%"
           style={{ border: "0" }}
           loading="lazy"
+          title="contact"
         ></iframe>
       </div>
 
       <div className="container py-5">
         <div className="row">
           <div className="col-md-8">
-
             <div
               dangerouslySetInnerHTML={{ __html: description }}
               style={{ fontFamily: "Satoshi" }}
@@ -74,32 +67,20 @@ const Contact = () => {
               <li className="mt-1">+1 214-538-9086</li>
               <li className="mt-1">greg@apranch.org</li>
             </ul> */}
-
           </div>
 
           <div className="col-md-4">
             <h1 className="directions">Contact Us</h1>
 
-            <h5 className="directions-description fw-bold fs-5">
-              Email our team:
-            </h5>
-            <ul className="directions-description mt-3 ps-4">
-              <li>greg@apranch.org</li>
-              <li className="mt-1">latoska@apranch.org</li>
-            </ul>
-
+            <div
+              dangerouslySetInnerHTML={{ __html: contact }}
+              style={{ fontFamily: "Satoshi" }}
+            />
           </div>
-
         </div>
-
       </div>
 
-      <div className="justify-content-start m-0 directions-container">
-
-      </div>
-
-
-      <Footer />
+      <div className="justify-content-start m-0 directions-container"></div>
     </div>
   );
 };

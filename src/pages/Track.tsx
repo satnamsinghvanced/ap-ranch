@@ -13,8 +13,6 @@ const Track = () => {
   // });
   return (
     <div>
-      <Header />
-
       <section className="track-banner">
         <div className="d-flex align-items-center justify-content-center h-100">
           <h1 className="apr-sport-name">track</h1>
@@ -50,8 +48,6 @@ const Track = () => {
       <section className="sports-services-section">
         <CustomServices items={TrackServices} />
       </section>
-
-      <Footer />
     </div>
   );
 };

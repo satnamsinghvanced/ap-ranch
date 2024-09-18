@@ -1,6 +1,3 @@
-import React from "react";
-import Header from "../layout/header";
-import Footer from "../../pages/Footer";
 import { ROUTES } from "../consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetFormsDataQuery } from "../apis/formsApi";
@@ -17,7 +14,6 @@ const Forms = () => {
   return (
     <div>
       <div>
-        <Header />
         <section className="about-banner ">
           <div className="container mb-4 mt-3">
             <div className="row">
@@ -69,7 +65,12 @@ const Forms = () => {
                 </div>
               </div>
 
-              <div className="col-lg-6 p-0 our-missions-page  ">
+              <div
+                className="col-lg-6 our-missions-page"
+                style={{
+                  padding: "20px",
+                }}
+              >
                 <div
                   className="d-flex justify-content-center flex-wrap "
                   style={{ gap: "20px" }}
@@ -91,7 +92,9 @@ const Forms = () => {
                     <button
                       className="form-white-btn"
                       style={{ fontFamily: "'Satoshi', sans-serif" }}
-                      onClick={() => window.open(`${apiBaseUrl}/${val.link}`, "_blank")}
+                      onClick={() =>
+                        window.open(`${apiBaseUrl}/${val.link}`, "_blank")
+                      }
                       key={idx}
                     >
                       {val.buttonTxt}
@@ -157,7 +160,6 @@ const Forms = () => {
             </div>
           </div>
         </section>
-        <Footer />
       </div>
     </div>
   );

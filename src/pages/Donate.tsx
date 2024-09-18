@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import DonationForm from "../components/forms/donation-form";
-import Footer from "./Footer";
-import Header from "../components/layout/header";
 import SquarePayment from "../components/forms/SquarePayment";
 const Donate = () => {
 
@@ -19,7 +17,8 @@ const Donate = () => {
 
   const handleSubmit = () => {
     const { sourceId, ...otherFields } = pay;
-    if(!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(pay.email)){
+    const emailRegex = /^[^\s@]+(\.[^\s@]+)*@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(pay.email)){
       return false;
     }
     const allFieldsFilled = Object.values(otherFields).every(value => value.trim() !== "");
@@ -30,7 +29,6 @@ const Donate = () => {
   return (
     <section className="apr-main-section">
       <section className="donation-banner">
-        <Header />
         <div className="banner-form">
           <h2>DONATE</h2>
           {!submitCheck ?
@@ -48,7 +46,6 @@ const Donate = () => {
           }
         </div>
       </section>
-      <Footer />
     </section>
   );
 };

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-// import { ROUTES } from "../consts/routes.consts";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useGetServicesListQuery } from "../apis/servicesApi";
 import { apiBaseUrl } from "../consts/api-url.const";
 import DOMPurify from "dompurify";
 
 const AboutAccordions = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
   const toggleAccordion = (index: any) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -89,7 +88,9 @@ const AboutAccordions = () => {
                         </p>
                         <button
                           className="explore-btn-transparent"
-                          // onClick={() => navigate(item.path)}
+                          onClick={() =>
+                            navigate(`/sports/${item.service?.id}`)
+                          }
                         >
                           Explore
                         </button>

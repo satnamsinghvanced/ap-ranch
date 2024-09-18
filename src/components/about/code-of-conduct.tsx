@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../layout/header";
-import Footer from "../../pages/Footer";
 import { toast } from "react-toastify";
 import { useCreateParentAgreementMutation } from "../apis/parentAgreement";
 
@@ -92,7 +90,6 @@ const CodeOfConductForm = () => {
   }, [response?.message]);
   return (
     <div>
-      <Header />
       <section className="indemnity-form">
         <div className="container">
           <div className="row">
@@ -275,8 +272,6 @@ const CodeOfConductForm = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

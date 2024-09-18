@@ -1,8 +1,6 @@
 import React from "react";
 import CustomTittle from "../components/custom-components/custom-title";
 import CustomServices from "../components/custom-components/custom-services";
-import Footer from "./Footer";
-import Header from "../components/layout/header";
 import { useParams } from "react-router-dom";
 import { useGetServicesByIdQuery } from "../components/apis/servicesApi";
 import { apiBaseUrl } from "../components/consts/api-url.const";
@@ -17,8 +15,6 @@ const Sports = () => {
   }
   return (
     <div>
-      <Header />
-
       <section
         className="football-banner"
         style={{
@@ -69,7 +65,6 @@ const Sports = () => {
       <section className="sports-services-section">
         <CustomServices items={data.providedServices} />
       </section>
-      <Footer />
     </div>
   );
 };
