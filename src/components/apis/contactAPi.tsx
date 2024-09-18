@@ -1,10 +1,10 @@
 import { emptySplitApi as api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getAboutData: builder.query<[], void>({
+    getContactUsData: builder.query<[], void>({
       query: () => {
         return {
-          url: `/api/about`,
+          url: `/api/contact`,
         };
       },
     }),
@@ -29,4 +29,4 @@ export type ContactApiArg = {
   comments?: any;
 };
 
-export const { useCreateContactMutation } = injectedRtkApi;
+export const { useCreateContactMutation, useGetContactUsDataQuery } = injectedRtkApi;
