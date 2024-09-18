@@ -5,6 +5,7 @@ import { ROUTES } from "../consts/routes.consts";
 import { useNavigate } from "react-router-dom";
 import { useGetFormsDataQuery } from "../apis/formsApi";
 import DOMPurify from "dompurify";
+import { apiBaseUrl } from "../consts/api-url.const";
 
 const Forms = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Forms = () => {
                 <div className="our-missions-page-content ">
                   <div
                     dangerouslySetInnerHTML={{ __html: description }}
-                    style={{fontFamily:"Satoshi"}}
+                    style={{ fontFamily: "Satoshi" }}
                   />
                   {/* <h1 className="about-collabrate-question">
                     REGISTRATION NOW OPEN!!!
@@ -90,7 +91,7 @@ const Forms = () => {
                     <button
                       className="form-white-btn"
                       style={{ fontFamily: "'Satoshi', sans-serif" }}
-                      onClick={() => window.open(val.link, "_blank")}
+                      onClick={() => window.open(`${apiBaseUrl}/${val.link}`, "_blank")}
                       key={idx}
                     >
                       {val.buttonTxt}
