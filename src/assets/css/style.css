@@ -196,7 +196,7 @@ body {
     }
 }
 
-.donate-link {
+/* .donate-link {
     @media(max-width: 992px) {
         display: none !important;
     }
@@ -206,11 +206,22 @@ body {
     @media(max-width: 992px) {
         display: block !important;
     }
-}
-
+} */
 .donate-button {
     display: none;
 }
+
+@media(max-width:992px) {
+    .donate-button {
+        display: block !important;
+    }
+
+    .donate-link {
+        display: none !important;
+    }
+}
+
+
 
 .header-nav {
     @media(max-width: 992px) {
@@ -407,6 +418,7 @@ body {
     color: #F2F2F2;
     font-size: 30px;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .incredible-partners-logos {
@@ -1211,6 +1223,11 @@ body {
     .directions-container {
         max-width: 60%;
         margin-bottom: 20px !important;
+
+    }
+
+    .banner-form {
+        padding-top: 30px;
     }
 }
 

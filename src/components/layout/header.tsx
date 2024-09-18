@@ -236,9 +236,25 @@ const Header = () => {
               <li
                 className={`nav-item ${isActive("") ? "active" : ""}`}
                 onClick={handleServiceClick}
+                // style={{
+                //   borderRadius: "50px",
+                //   color: "#164576",
+                //   fontWeight: 900,
+                //   textDecoration: "underline",
+                // }}
               >
-                <Link target="_blank" to={"https://student.apranch.org/"} className="nav-link">
-                  Login
+                <Link
+                  target="_blank"
+                  to={"https://student.apranch.org/"}
+                  style={{
+                    borderRadius: "50px",
+                    color: "#164576",
+                    fontWeight: 900,
+                    textDecoration: "underline",
+                  }}
+                  className="nav-link"
+                >
+                  LOGIN
                 </Link>
                 {/* <p className="nav-link m-0">Login</p> */}
               </li>
@@ -254,7 +270,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="donate-link" style={{ margin: "0 16px" }}>
+          <div className="donate-link">
             <button className="donate-btn btn">
               <Link to={ROUTES.DONATE} className="nav-link">
                 DONATE
