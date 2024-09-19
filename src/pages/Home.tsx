@@ -6,10 +6,22 @@ import DOMPurify from "dompurify";
 import { useGetServicesListQuery } from "../components/apis/servicesApi";
 import { useGetFacilitiesDataQuery } from "../components/apis/facilityApi";
 const Home = () => {
+  function isImage(url: any) {
+    const imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp"];
+    const extension = url && url.split(".").pop().toLowerCase();
+    return imageExtensions.includes(extension);
+  }
+
+  function isVideo(url: any) {
+    const videoExtensions = ["mp4", "webm", "ogg", "avi", "mov"];
+    const extension = url && url.split(".").pop().toLowerCase();
+    return videoExtensions.includes(extension);
+  }
   const navigate = useNavigate();
   const { data }: any = useGetHomeDataQuery();
   const { data: services }: any = useGetServicesListQuery();
   const { data: facilities }: any = useGetFacilitiesDataQuery();
+
   if (!data) {
     return (
       <div
@@ -56,12 +68,19 @@ const Home = () => {
     );
   }
   const description = DOMPurify.sanitize(data[0].banner.descriptions);
+  const bannerUrl = data[0].banner.bannerImage;
+  const image = isImage(bannerUrl);
+  const video = isVideo(bannerUrl);
   return (
     <section className="apr-main-section">
       <section
         className="apr-banner"
         style={{
-          background: `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(${apiBaseUrl}/${data[0].banner.bannerImage})`,
+          backgroundImage: `${
+            image
+              ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), url(${apiBaseUrl}/${data[0].banner.bannerImage})`
+              : "linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%)"
+          }`,
           backgroundRepeat: " no-repeat",
           backgroundSize: "cover",
           height: "100vh",
@@ -70,6 +89,29 @@ const Home = () => {
           padding: "0 16px",
         }}
       >
+        {video && (
+          <video
+            autoPlay
+            loop
+            muted
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              zIndex: -1, // Send the video behind the content
+             
+            }}
+          >
+            <source
+              src={`${apiBaseUrl}/${bannerUrl}`}
+              type={`video/${bannerUrl.split(".").pop().toLowerCase()}`}
+            />
+            Your browser does not support the video tag.
+          </video>
+        )}
         <div className="d-flex justify-content-center w-100 align-items-center h-100 ">
           <img
             src={`${apiBaseUrl}/${data[0].banner.logoImage}`}

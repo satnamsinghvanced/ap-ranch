@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { PaymentForm, CreditCard } from "react-square-web-payments-sdk";
-import { useCreateDanateMutation } from "../apis/donateApi";
+import { useCreateDonateMutation } from "../apis/donateApi";
 import { squareApplicationId, squareLocationId } from "../consts/api-url.const";
 interface PayState {
   firstName: string;
@@ -24,7 +24,7 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
   setPay,
   setSubmitCheck,
 }) => {
-  const [addDonate] = useCreateDanateMutation();
+  const [addDonate] = useCreateDonateMutation();
   const [response, setResponse] = useState<any>("");
   const [error, setError] = useState<any>("");
   const reloadAllStep = () => {

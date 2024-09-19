@@ -4,9 +4,15 @@ import whiteLogo from "../assets/img/png/apr-white-logo.png";
 import footerlogo from "../assets/img/png/footer-logo.png";
 import { Link } from "react-router-dom";
 import { useGetServicesListQuery } from "../components/apis/servicesApi";
+import { apiBaseUrl } from "../components/consts/api-url.const";
+import { useGetFooterDataQuery } from "../components/apis/footerApi";
 
 const Footer = () => {
   const { data: services }: any = useGetServicesListQuery();
+  const { data }: any = useGetFooterDataQuery();
+  if (!data) {
+    return null;
+  }
   return (
     <footer className="apr-footer">
       <div className="container">
@@ -14,7 +20,12 @@ const Footer = () => {
           <img src={whiteLogo} alt="" />
         </div>
         <div className="footer-logo">
-          <img src={footerlogo} alt="" className="img-fluid" />
+          {/* <img src={footerlogo} alt="" className="img-fluid" /> */}
+          <img
+            src={`${apiBaseUrl}/${data[0]?.footerLogo}`}
+            alt=""
+            className="img-fluid"
+          />
         </div>
 
         <div className="footer-content">
@@ -64,7 +75,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="media-link">
-            <div>
+            {/* <div>
               <a href="/#">
                 <svg
                   width="32"
@@ -113,10 +124,31 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-            </div>
+            </div> */}
+            {data[0]?.mediaLinks.map(
+              (
+                val: { link: string | undefined; logo: string | undefined },
+                idx: React.Key | null | undefined
+              ) => (
+                <div className="m-1" key={idx}>
+                  <a href={val.link} target="_blank" rel="noreferrer">
+                    <img
+                      src={`${apiBaseUrl}/${val.logo}`}
+                      alt=""
+                      height={28}
+                      width={28}
+                      style={{ borderRadius: "4px" }}
+                    />
+                  </a>
+                </div>
+              )
+            )}
           </div>
           <div>
-            <p className="apr-copyright">© 2024 — AP Ranch Copyright</p>
+            <p className="apr-copyright">
+              {/* © 2024 — AP Ranch Copyright */}
+              {data[0]?.footerTxt}
+            </p>
           </div>
         </div>
       </div>

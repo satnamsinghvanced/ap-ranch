@@ -1,12 +1,19 @@
 import { emptySplitApi as api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    createDanate: builder.mutation<any, DonateApiArg>({
+    createDonate: builder.mutation<any, DonateApiArg>({
       query: (queryArg) => {
         return {
           url: `/api/donate`,
           method: "POST",
           body: queryArg,
+        };
+      },
+    }),
+    getDonateTabData: builder.query<[], void>({
+      query: () => {
+        return {
+          url: `/api/donateTab`,
         };
       },
     }),
@@ -24,4 +31,5 @@ export type DonateApiArg = {
   sourceId?: string;
 };
 
-export const { useCreateDanateMutation } = injectedRtkApi;
+export const { useCreateDonateMutation, useGetDonateTabDataQuery } =
+  injectedRtkApi;

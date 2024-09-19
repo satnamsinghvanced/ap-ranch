@@ -128,6 +128,13 @@ body {
     position: relative;
 }
 
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+
+
 .navbar-nav .nav-item.active .nav-link {
     font-weight: 900;
 }
@@ -158,7 +165,7 @@ body {
 }
 
 .container.apr-navbar {
-    @media(max-width: 992px) {
+    @media(max-width: 995px) {
         background: none;
         gap: 16px;
     }
@@ -176,13 +183,13 @@ body {
     .logo-mobile {
         display: none;
 
-        @media(max-width: 992px) {
+        @media(max-width: 995px) {
             display: block;
         }
     }
 
     .navbar-toggler-icon {
-        @media(max-width: 992px) {
+        @media(max-width: 995px) {
             display: none;
         }
     }
@@ -190,28 +197,28 @@ body {
     .menu-mobile {
         display: none;
 
-        @media(max-width: 992px) {
+        @media(max-width: 995px) {
             display: block;
         }
     }
 }
 
 /* .donate-link {
-    @media(max-width: 992px) {
+    @media(max-width: 995px) {
         display: none !important;
     }
 }
 
 .donate-button {
-    @media(max-width: 992px) {
+    @media(max-width: 995px) {
         display: block !important;
     }
 } */
 .donate-button {
-    display: none;
+    display: none !important;
 }
 
-@media(max-width:992px) {
+@media(max-width:995px) {
     .donate-button {
         display: block !important;
     }
@@ -224,7 +231,7 @@ body {
 
 
 .header-nav {
-    @media(max-width: 992px) {
+    @media(max-width: 995px) {
         width: 100%;
 
         .nav-link {
@@ -235,7 +242,7 @@ body {
 }
 
 .apr-header {
-    @media(max-width: 992px) {
+    @media(max-width: 995px) {
         background: #161415;
         position: absolute;
         width: 100%;
@@ -243,7 +250,7 @@ body {
     }
 }
 
-@media (max-width:992px) {
+@media (max-width:995px) {
     .nav-link {
         color: #ffffff !important;
         padding-left: 30px;
@@ -269,7 +276,7 @@ body {
 
 @media(max-width:1250px) {
     .navbar-nav .nav-item .nav-link {
-        font-size: 9px;
+        font-size: 8px;
     }
 
     .donate-btn {
@@ -554,7 +561,7 @@ body {
 /* contact css 
 =================================================== */
 .donation-banner {
-    background-image: url(https://i.imgur.com/0HWcP9K.png);
+    /* background-image: url(https://i.imgur.com/0HWcP9K.png); */
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1256,6 +1263,8 @@ body {
     font-family: 'Tactic Sans Extra Extended';
     text-transform: uppercase;
     word-wrap: break-word;
+    position: relative;
+    z-index: 1;
 }
 
 .member-profile {
@@ -1265,6 +1274,8 @@ body {
     margin-bottom: 50px;
     font-family: 'Satoshi';
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
 }
 
 .about-member {
@@ -1272,6 +1283,8 @@ body {
     font-weight: 700;
     color: #ffffff;
     font-family: 'Satoshi';
+    position: relative;
+    z-index: 1;
 }
 
 .member-detail-container {
@@ -1298,7 +1311,17 @@ body {
     .member-detail-container {
         max-width: 100%;
         padding: 0 33px;
+        position: relative
+    }
 
+    .member-detail-container:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(rgb(1 173 181 / 0%) 0%, rgb(22 20 21) 95%);
     }
 
     .member-name {
@@ -1322,6 +1345,19 @@ body {
 
     .member-detail {
         margin-top: 0px;
+    }
+}
+
+@media(max-width:500px) {
+
+    .member-detail-container:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 30%;
+        left: 0;
+        background-image: linear-gradient(rgb(1 173 181 / 0%) 0%, rgb(22 20 21) 95%);
     }
 }
 
@@ -1744,6 +1780,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         background-size: cover !important;
     }
 }
+
 .banner-img img {
     max-width: 100%;
 }

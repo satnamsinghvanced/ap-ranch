@@ -32,7 +32,7 @@ const About = () => {
               <div
                 className="about-page-content "
                 style={{
-                  background: isMobileSmall
+                  backgroundImage: isMobileSmall
                     ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(${apiBaseUrl}/${data[0]?.image})`
                     : "",
                   backgroundRepeat: "no-repeat",

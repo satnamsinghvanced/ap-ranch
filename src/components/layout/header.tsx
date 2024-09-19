@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import { ROUTES } from "../consts/routes.consts";
-import logo from "../../assets/img/png/apr-logo.png";
+// import logo from "../../assets/img/png/apr-logo.png";
 import logo2 from "../../assets/img/png/apr-sx-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { useGetServicesListQuery } from "../apis/servicesApi";
+import { useGetHeaderDataQuery } from "../apis/headerApi";
+import { apiBaseUrl } from "../consts/api-url.const";
+import { useCreateSearchMutation } from "../apis/searchApi";
 const Header = () => {
+  const { data }: any = useGetHeaderDataQuery();
   const location = useLocation();
   const teamMemberPattern = new RegExp(`^${ROUTES.TEAM}|/team/\\d+`, "i");
   const isActive = (path: any) => {
     return location.pathname === path;
   };
   const { data: services }: any = useGetServicesListQuery();
+  const [search] = useCreateSearchMutation();
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isSportsVisible, setSportsVisible] = useState(false);
+  const [searchField, setSearchField] = useState(false);
+  const [searchOpenField, setSearchOpenField] = useState(false);
+  const [searchValue, setSearchValue] = useState<any>("");
+  const [searchedValue, setSearchedValue] = useState("");
   const handleMouseEnter = () => {
     setDropdownVisible(true);
   };
@@ -34,13 +43,30 @@ const Header = () => {
       navbarCollapse.classList.remove("show");
     }
   };
+  const handleSearchOpen = () => {
+    setSearchField(!searchField);
+  };
+  const handleResponsiveSearchOpen = () => {
+    setSearchOpenField(!searchOpenField);
+  };
+  const handleSearchChange = async (event: any) => {
+    setSearchValue(event.target.value);
+    try {
+      const res = await search({ searchTerm: event.target.value }).unwrap();
+      setSearchedValue(res);
+    } catch (error: any) {}
+  };
+  if (!data) {
+    return null;
+  }
   return (
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
-        <div className="container apr-navbar">
+        <div className="container apr-navbar" style={{ position: "relative" }}>
           <div className="logo-bar mt-2">
             <Link to={ROUTES.HOME} className="navbar-brand p-0">
-              <img src={logo} alt="" />
+              {/* <img src={logo} alt="" /> */}
+              <img src={`${apiBaseUrl}/${data[0]?.headerLogo}`} alt="" />
             </Link>
             <Link
               to={ROUTES.HOME}
@@ -48,10 +74,46 @@ const Header = () => {
               onClick={handleServiceClick}
             >
               <img src={logo2} alt="" />
+              {/* <img src={`${apiBaseUrl}/${data[0]?.headerLogo}`} alt="" /> */}
             </Link>
           </div>
-          <div>
-            <button className="navbar-toggler">
+
+          <div
+            style={{
+              position: "relative",
+              width: "50%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            {searchOpenField === true && searchField !== true && (
+              <div
+                className="input-group input-group-sm"
+                style={{
+                  position: "absolute",
+                  width: "60%",
+                  left: "40px",
+                  bottom: "-3px",
+                }}
+              >
+                <input
+                  type="text"
+                  className="form-control"
+                  aria-label="Small"
+                  aria-describedby="inputGroup-sizing-sm"
+                  style={{
+                    border: "1px solid #164576",
+                    borderRadius: "70px",
+                  }}
+                  onChange={handleSearchChange}
+                  value={searchValue}
+                />
+              </div>
+            )}
+            <button
+              className="navbar-toggler"
+              onClick={handleResponsiveSearchOpen}
+            >
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -258,6 +320,56 @@ const Header = () => {
                 </Link>
                 {/* <p className="nav-link m-0">Login</p> */}
               </li>
+
+              {searchOpenField !== true && searchField === true && (
+                <div
+                  className="input-group input-group-sm"
+                  style={{
+                    position: "absolute",
+                    width: "20%",
+                    left: "67%",
+                    top: "55px",
+                  }}
+                >
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Small"
+                    aria-describedby="inputGroup-sizing-sm"
+                    style={{
+                      border: "1px solid #164576",
+                      borderRadius: "70px",
+                    }}
+                  />
+                </div>
+              )}
+              <button
+                type="button"
+                className="nav-item btn"
+                style={{
+                  height: "35.5px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                onClick={handleSearchOpen}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M13 13L10.6667 10.6667M12.3333 6.66667C12.3333 9.79628 9.79628 12.3333 6.66667 12.3333C3.53705 12.3333 1 9.79628 1 6.66667C1 3.53705 3.53705 1 6.66667 1C9.79628 1 12.3333 3.53705 12.3333 6.66667Z"
+                    stroke="#707070"
+                    strokeWidth="1.33333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
               <li
                 className={`nav-item ${
                   isActive(ROUTES.DONATE) ? "active" : ""
