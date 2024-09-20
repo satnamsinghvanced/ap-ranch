@@ -1815,3 +1815,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 500;
     color: #000000;
 }
+
+@media(max-width:425px) {
+    .responsive-search .input-group {
+        width: 100% !important;
+        left: -25px !important;
+        top: 39px !important;
+
+    }
+}
