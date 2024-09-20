@@ -38,7 +38,7 @@ const Footer = () => {
                 /
               </li>
               {services?.map((item: any, index: any) => (
-                <li className="color-gray-custom footer-items">
+                <li className="color-gray-custom footer-items" key={index}>
                   <Link
                     to={`/sports/${item.service?.id}`}
                     key={index}

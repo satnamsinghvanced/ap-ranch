@@ -9,7 +9,6 @@ import { apiBaseUrl } from "../consts/api-url.const";
 import { useCreateSearchMutation } from "../apis/searchApi";
 import DOMPurify from "dompurify";
 const Header = () => {
-  debugger;
   const { data }: any = useGetHeaderDataQuery();
   const location = useLocation();
   const teamMemberPattern = new RegExp(`^${ROUTES.TEAM}|/team/\\d+`, "i");
@@ -62,6 +61,11 @@ const Header = () => {
   if (!data) {
     return null;
   }
+  const removeHtmlTags = (content: string) => {
+    // Use a regular expression to match and remove all HTML tags
+    return content.replace(/<\/?[^>]+(>|$)/g, "");
+  };
+
   return (
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
@@ -123,7 +127,7 @@ const Header = () => {
                       borderRadius: "8px",
                       top: "36px",
                       left: "24px",
-                      width: "60%",
+                      width: "90%",
                       padding: "20px",
                       display: "flex",
                       flexDirection: "column",
@@ -135,7 +139,7 @@ const Header = () => {
                     {searchedValue.data?.length !== 0 ? (
                       <>
                         {searchedValue.data?.map((val: any, idx: any) => {
-                          const description = DOMPurify.sanitize(val.content);
+                          const description = removeHtmlTags(DOMPurify.sanitize(val.content));
                           return (
                             <div
                               style={{
@@ -143,6 +147,7 @@ const Header = () => {
                                 padding: " 0 0 15px 0",
                                 cursor: "pointer",
                               }}
+                              key={idx}
                             >
                               <Link
                                 key={idx}
@@ -150,20 +155,19 @@ const Header = () => {
                                 style={{ color: "#000000" }}
                               >
                                 <div
-                                  dangerouslySetInnerHTML={{
-                                    __html: description,
-                                  }}
                                   className="search-list"
                                   style={{
                                     fontFamily: "Satoshi",
                                     color: "#000000",
-                                    maxWidth: "170px",
+                                    maxWidth: "270px",
                                     whiteSpace: "nowrap",
                                     overflow: "hidden",
                                     textOverflow: "ellipsis",
                                     display: "block",
                                   }}
-                                />
+                                >
+                                  {description}
+                                  </div>
                               </Link>
                             </div>
                           );
