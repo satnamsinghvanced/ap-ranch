@@ -7,7 +7,9 @@ import { useGetServicesListQuery } from "../apis/servicesApi";
 import { useGetHeaderDataQuery } from "../apis/headerApi";
 import { apiBaseUrl } from "../consts/api-url.const";
 import { useCreateSearchMutation } from "../apis/searchApi";
+import DOMPurify from "dompurify";
 const Header = () => {
+  debugger;
   const { data }: any = useGetHeaderDataQuery();
   const location = useLocation();
   const teamMemberPattern = new RegExp(`^${ROUTES.TEAM}|/team/\\d+`, "i");
@@ -21,7 +23,7 @@ const Header = () => {
   const [searchField, setSearchField] = useState(false);
   const [searchOpenField, setSearchOpenField] = useState(false);
   const [searchValue, setSearchValue] = useState<any>("");
-  const [searchedValue, setSearchedValue] = useState("");
+  const [searchedValue, setSearchedValue] = useState<any>();
   const handleMouseEnter = () => {
     setDropdownVisible(true);
   };
@@ -56,6 +58,7 @@ const Header = () => {
       setSearchedValue(res);
     } catch (error: any) {}
   };
+
   if (!data) {
     return null;
   }
@@ -86,28 +89,93 @@ const Header = () => {
               justifyContent: "flex-end",
             }}
           >
-            {searchOpenField === true && searchField !== true && (
-              <div
-                className="input-group input-group-sm"
-                style={{
-                  position: "absolute",
-                  width: "60%",
-                  left: "40px",
-                  bottom: "-3px",
-                }}
-              >
-                <input
-                  type="text"
-                  className="form-control"
-                  aria-label="Small"
-                  aria-describedby="inputGroup-sizing-sm"
+            {searchOpenField === true && (
+              <div>
+                <div
+                  className="input-group input-group-sm"
                   style={{
-                    border: "1px solid #164576",
-                    borderRadius: "70px",
+                    position: "absolute",
+                    width: "60%",
+                    left: "23px",
+                    bottom: "-3px",
                   }}
-                  onChange={handleSearchChange}
-                  value={searchValue}
-                />
+                >
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Small"
+                    aria-describedby="inputGroup-sizing-sm"
+                    style={{
+                      border: "1px solid #164576",
+                      borderRadius: "70px",
+                    }}
+                    onChange={handleSearchChange}
+                    value={searchValue}
+                  />
+                </div>
+                {searchedValue && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      zIndex: 999,
+                      background: "white",
+                      boxShadow: "0px 2px 20px 0px #0000003d",
+                      borderRadius: "8px",
+                      top: "36px",
+                      left: "24px",
+                      width: "60%",
+                      padding: "20px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "15px",
+                      maxHeight: "500px",
+                      overflow: "auto",
+                    }}
+                  >
+                    {searchedValue.data?.length !== 0 ? (
+                      <>
+                        {searchedValue.data?.map((val: any, idx: any) => {
+                          const description = DOMPurify.sanitize(val.content);
+                          return (
+                            <div
+                              style={{
+                                borderBottom: " 1px solid black",
+                                padding: " 0 0 15px 0",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <Link
+                                key={idx}
+                                to={val.page_name}
+                                style={{ color: "#000000" }}
+                              >
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: description,
+                                  }}
+                                  className="search-list"
+                                  style={{
+                                    fontFamily: "Satoshi",
+                                    color: "#000000",
+                                    maxWidth: "170px",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    display: "block",
+                                  }}
+                                />
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </>
+                    ) : (
+                      <p style={{ padding: "16px", textAlign: "center" }}>
+                        No match found
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             )}
             <button
@@ -320,55 +388,58 @@ const Header = () => {
                 </Link>
                 {/* <p className="nav-link m-0">Login</p> */}
               </li>
-
-              {searchOpenField !== true && searchField === true && (
-                <div
-                  className="input-group input-group-sm"
-                  style={{
-                    position: "absolute",
-                    width: "20%",
-                    left: "67%",
-                    top: "55px",
-                  }}
-                >
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Small"
-                    aria-describedby="inputGroup-sizing-sm"
+              <div className="search-button">
+                {searchField === true && (
+                  <div
+                    className="input-group input-group-sm "
                     style={{
-                      border: "1px solid #164576",
-                      borderRadius: "70px",
+                      position: "absolute",
+                      width: "20%",
+                      left: "67%",
+                      top: "55px",
                     }}
-                  />
-                </div>
-              )}
-              <button
-                type="button"
-                className="nav-item btn"
-                style={{
-                  height: "35.5px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                onClick={handleSearchOpen}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm"
+                      style={{
+                        border: "1px solid #164576",
+                        borderRadius: "70px",
+                      }}
+                      onChange={handleSearchChange}
+                      value={searchValue}
+                    />
+                  </div>
+                )}
+                <button
+                  type="button"
+                  className="nav-item btn"
+                  style={{
+                    height: "35.5px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  onClick={handleSearchOpen}
                 >
-                  <path
-                    d="M13 13L10.6667 10.6667M12.3333 6.66667C12.3333 9.79628 9.79628 12.3333 6.66667 12.3333C3.53705 12.3333 1 9.79628 1 6.66667C1 3.53705 3.53705 1 6.66667 1C9.79628 1 12.3333 3.53705 12.3333 6.66667Z"
-                    stroke="#707070"
-                    strokeWidth="1.33333"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                  >
+                    <path
+                      d="M13 13L10.6667 10.6667M12.3333 6.66667C12.3333 9.79628 9.79628 12.3333 6.66667 12.3333C3.53705 12.3333 1 9.79628 1 6.66667C1 3.53705 3.53705 1 6.66667 1C9.79628 1 12.3333 3.53705 12.3333 6.66667Z"
+                      stroke="#707070"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
 
               <li
                 className={`nav-item ${

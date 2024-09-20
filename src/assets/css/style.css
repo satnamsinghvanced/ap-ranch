@@ -226,6 +226,10 @@ body {
     .donate-link {
         display: none !important;
     }
+
+    .search-button {
+        display: none !important;
+    }
 }
 
 
@@ -1783,4 +1787,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .banner-img img {
     max-width: 100%;
+}
+
+
+/*  ------------------ search list ----------------- */
+
+.search-list,
+.search-list span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
 }
