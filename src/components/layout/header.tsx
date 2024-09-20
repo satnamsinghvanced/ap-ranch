@@ -146,15 +146,18 @@ const Header = () => {
                                 borderBottom: " 1px solid black",
                                 padding: " 0 0 15px 0",
                                 cursor: "pointer",
+                                fontFamily: "Satoshi",
                               }}
                               key={idx}
                             >
                               <Link
                                 key={idx}
                                 to={val.page_name}
-                                style={{ color: "#000000" }}
+                                style={{ color: "blue", fontSize: "14px", whiteSpace: "nowrap" }}
                               >
-                                <div
+                                /{val.page_name}
+                              </Link>
+                              <div
                                   className="search-list"
                                   style={{
                                     fontFamily: "Satoshi",
@@ -168,7 +171,6 @@ const Header = () => {
                                 >
                                   {description}
                                   </div>
-                              </Link>
                             </div>
                           );
                         })}
