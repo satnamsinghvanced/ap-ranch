@@ -87,7 +87,7 @@ const Forms = () => {
                   className="d-flex justify-content-center flex-wrap "
                   style={{ gap: "20px" }}
                 >
-                  {data[0]?.buttonStatus[0].hidden === 1 && (
+                  {data[0]?.buttonStatus[0].hidden === 0 && (
                     <button
                       className="form-white-btn"
                       style={{ fontFamily: "'Satoshi', sans-serif" }}
@@ -97,7 +97,7 @@ const Forms = () => {
                     </button>
                   )}
 
-                  {data[0]?.buttonStatus[1].hidden === 1 && (
+                  {data[0]?.buttonStatus[1].hidden === 0 && (
                     <button
                       className="form-white-btn"
                       onClick={() => navigate(ROUTES.CODE_OF_CONDUCT)}
