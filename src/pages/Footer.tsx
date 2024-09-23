@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="apr-footer">
       <div className="container">
         <div className="apr-footer-logo">
-          <img src={whiteLogo} alt="" />
+          <img src={whiteLogo} alt="" className="img-fluid" />
         </div>
         <div className="footer-logo">
           {/* <img src={footerlogo} alt="" className="img-fluid" /> */}
