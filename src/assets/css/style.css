@@ -239,6 +239,10 @@ body {
         display: flex !important;
     }
 
+    .donation-banner {
+        margin-top: 0 !important;
+    }
+
 }
 
 
@@ -319,6 +323,49 @@ body {
 
 .flex-none {
     flex: none;
+}
+
+@media(max-width:425px) {
+
+    .collabrate-heading,
+    .the-facility-img-box h3,
+    .sport-name-heading,
+    .incredible-partners-heading,
+    .about-page-accordian {
+        font-size: 20px !important;
+    }
+
+    .sport-services-heading,
+    .contact-page-heading,
+    .banner-form h2 {
+        font-size: 30px !important;
+        text-align: center
+    }
+
+    .click-to-donate-heading {
+        font-size: 30px !important;
+    }
+
+    .home-description {
+        font-size: 16px !important;
+    }
+
+    .home-page-logo {
+        width: 250px;
+    }
+
+    .explore-btn-transparent {
+        padding: 5px 20px !important;
+    }
+
+    .service-icon svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .form-donation {
+        width: 300px !important;
+    }
 }
 
 /* apr banner css 
@@ -536,10 +583,6 @@ body {
         background-position: center;
     }
 
-    .the-facility-img-box h3 {
-        font-size: 30px !important;
-    }
-
     .about-apr p {
         font-size: 14px;
         line-height: 1.7;
@@ -619,8 +662,8 @@ body {
     padding: 76px 55px 59px;
 
     @media(max-width: 768px) {
-        width: 325px;
         padding: 47px 26px 40px;
+        width: 400px;
     }
 }
 
@@ -1140,7 +1183,8 @@ body {
 
     .about-page-content {
         max-width: 100%;
-        padding: 0 40px;
+        /* padding: 0 40px; */
+        padding-top: 0 !important;
 
     }
 
@@ -1288,6 +1332,7 @@ body {
     .banner-form {
         padding-top: 30px;
     }
+
 }
 
 
@@ -1703,11 +1748,7 @@ body {
     }
 }
 
-@media(max-width:420px) {
-    .collabrate-heading {
-        font-size: 28px;
-    }
-}
+
 
 /* ------------- Forms ------------ */
 
@@ -1902,4 +1943,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .facilities-list img {
         opacity: 0.5;
     }
+
+
 }

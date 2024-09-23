@@ -19,7 +19,7 @@ const CustomAccordion = ({ items }: { items: any }) => {
                   className="accordion-title-button"
                 >
                   <h1 className="sport-services-text">{item.title}</h1>
-                  <div>
+                  <div className="service-icon">
                     {index !== activeIndex ? (
                       <svg
                         width="38"

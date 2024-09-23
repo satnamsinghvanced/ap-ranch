@@ -96,7 +96,7 @@ const Home = () => {
             muted
             style={{
               position: "absolute",
-              top: 0,
+              top: -2,
               left: 0,
               width: "100%",
               height: "100%",
@@ -116,8 +116,9 @@ const Home = () => {
           <img
             src={`${apiBaseUrl}/${data[0].banner.logoImage}`}
             alt=""
-            className="img-fluid"
+            className="img-fluid home-page-logo"
             style={{ maxHeight: "231px" }}
+
           />
         </div>
       </section>
@@ -178,7 +179,7 @@ const Home = () => {
               }}
             >
               <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md position-absolute w-100 top-0">
-                <h3 className="sport-name-heading font-50">
+                <h3 className="sport-name-heading">
                   {facilities[0]?.name}
                 </h3>
                 <button

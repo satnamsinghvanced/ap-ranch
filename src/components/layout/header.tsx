@@ -118,9 +118,10 @@ const Header = () => {
                     }}
                     onChange={handleSearchChange}
                     value={searchValue}
+                    placeholder="Search"
                   />
                 </div>
-                {searchedValue && (
+                {searchValue !== "" && searchedValue && (
                   <div
                     style={{
                       position: "absolute",
@@ -135,7 +136,7 @@ const Header = () => {
                       maxHeight: "500px",
                       overflow: "auto",
                     }}
-                    className="search-values"
+                    className="search-values responsive-search"
                   >
                     {" "}
                     <div
@@ -146,7 +147,7 @@ const Header = () => {
                         margin: "20px 0",
                       }}
                     >
-                      {searchedValue.data?.length !== 0 ? (
+                      {searchedValue.data?.length !== 0 && (
                         <>
                           {searchedValue.data?.map((val: any, idx: any) => {
                             const description = removeHtmlTags(
@@ -203,10 +204,6 @@ const Header = () => {
                             );
                           })}
                         </>
-                      ) : (
-                        <p style={{ padding: "16px", textAlign: "center" }}>
-                          No match found
-                        </p>
                       )}
                     </div>
                   </div>
@@ -433,28 +430,123 @@ const Header = () => {
               </li>
               <div className="search-button">
                 {searchField === true && (
-                  <div
-                    className="input-group input-group-sm "
-                    style={{
-                      position: "absolute",
-                      width: "20%",
-                      left: "67%",
-                      top: "55px",
-                    }}
-                  >
-                    <input
-                      type="text"
-                      className="form-control"
-                      aria-label="Small"
-                      aria-describedby="inputGroup-sizing-sm"
+                  <>
+                    <div
+                      className="input-group input-group-sm "
                       style={{
-                        border: "1px solid #164576",
-                        borderRadius: "70px",
+                        position: "absolute",
+                        width: "20%",
+                        left: "67%",
+                        top: "55px",
                       }}
-                      onChange={handleSearchChange}
-                      value={searchValue}
-                    />
-                  </div>
+                    >
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-label="Small"
+                        aria-describedby="inputGroup-sizing-sm"
+                        style={{
+                          border: "1px solid #164576",
+                          borderRadius: "70px",
+                        }}
+                        onChange={handleSearchChange}
+                        value={searchValue}
+                        placeholder="Search"
+                      />
+                    </div>
+                    {searchValue !== "" && searchedValue && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          zIndex: 999,
+                          background: "white",
+                          boxShadow: "0px 2px 20px 0px #0000003d",
+                          borderRadius: "8px",
+                          top: "88px",
+                          width: "20%",
+                          left: "67%",
+                          padding: "0 20px",
+                          maxHeight: "500px",
+                          overflow: "auto",
+                        }}
+                        // className="search-button"
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "15px",
+                            margin: "20px 0",
+                          }}
+                        >
+                          {searchedValue.data?.length !== 0 ? (
+                            <>
+                              {searchedValue.data?.map((val: any, idx: any) => {
+                                const description = removeHtmlTags(
+                                  DOMPurify.sanitize(val.content)
+                                );
+                                return (
+                                  <>
+                                    <div
+                                      style={{
+                                        borderBottom: " 1px solid black",
+                                        padding: " 0 0 15px 0",
+                                        cursor: "pointer",
+                                        fontFamily: "Satoshi",
+                                      }}
+                                      key={idx}
+                                    >
+                                      <Link
+                                        key={idx}
+                                        to={
+                                          val.page_name === "home"
+                                            ? "/"
+                                            : val.page_name === "sports" ||
+                                              val.page_name === "team"
+                                            ? `${val.page_name}/${val.id}`
+                                            : val.page_name
+                                        }
+                                        style={{
+                                          color: "rgb(22, 69, 118)",
+                                          fontWeight: 900,
+                                          textDecoration: "underline",
+                                        }}
+                                        onClick={handleServiceClick}
+                                      >
+                                        /
+                                        {val.page_name === "sports" ||
+                                        val.page_name === "team"
+                                          ? `${val.page_name}/${val.id}`
+                                          : val.page_name}
+                                      </Link>
+                                      <div
+                                        className="search-list"
+                                        style={{
+                                          fontFamily: "Satoshi",
+                                          color: "#000000",
+                                          maxWidth: "270px",
+                                          whiteSpace: "nowrap",
+                                          overflow: "hidden",
+                                          textOverflow: "ellipsis",
+                                          display: "block",
+                                        }}
+                                      >
+                                        {description}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              })}
+                            </>
+                          ) : (
+                            <p style={{ padding: "16px", textAlign: "center" }}>
+                              No match found
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
                 <button
                   type="button"
@@ -482,97 +574,6 @@ const Header = () => {
                     />
                   </svg>
                 </button>
-                {searchedValue && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      zIndex: 999,
-                      background: "white",
-                      boxShadow: "0px 2px 20px 0px #0000003d",
-                      borderRadius: "8px",
-                      top: "88px",
-                      width: "20%",
-                      left: "67%",
-                      padding: "0 20px",
-                      maxHeight: "500px",
-                      overflow: "auto",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "15px",
-                        margin: "20px 0",
-                      }}
-                    >
-                      {searchedValue.data?.length !== 0 ? (
-                        <>
-                          {searchedValue.data?.map((val: any, idx: any) => {
-                            const description = removeHtmlTags(
-                              DOMPurify.sanitize(val.content)
-                            );
-                            return (
-                              <>
-                                <div
-                                  style={{
-                                    borderBottom: " 1px solid black",
-                                    padding: " 0 0 15px 0",
-                                    cursor: "pointer",
-                                    fontFamily: "Satoshi",
-                                  }}
-                                  key={idx}
-                                >
-                                  <Link
-                                    key={idx}
-                                    to={
-                                      val.page_name === "home"
-                                        ? "/"
-                                        : val.page_name === "sports" ||
-                                          val.page_name === "team"
-                                        ? `${val.page_name}/${val.id}`
-                                        : val.page_name
-                                    }
-                                    style={{
-                                      color: "rgb(22, 69, 118)",
-                                      fontWeight: 900,
-                                      textDecoration: "underline",
-                                    }}
-                                    onClick={handleServiceClick}
-                                  >
-                                    /
-                                    {val.page_name === "sports" ||
-                                    val.page_name === "team"
-                                      ? `${val.page_name}/${val.id}`
-                                      : val.page_name}
-                                  </Link>
-                                  <div
-                                    className="search-list"
-                                    style={{
-                                      fontFamily: "Satoshi",
-                                      color: "#000000",
-                                      maxWidth: "270px",
-                                      whiteSpace: "nowrap",
-                                      overflow: "hidden",
-                                      textOverflow: "ellipsis",
-                                      display: "block",
-                                    }}
-                                  >
-                                    {description}
-                                  </div>
-                                </div>
-                              </>
-                            );
-                          })}
-                        </>
-                      ) : (
-                        <p style={{ padding: "16px", textAlign: "center" }}>
-                          No match found
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
 
               <li

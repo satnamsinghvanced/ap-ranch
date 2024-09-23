@@ -59,7 +59,7 @@ const AboutAccordions = () => {
                   <h1 className="about-page-accordian">
                     {item.service?.servicesName}
                   </h1>
-                  <div className="ms-auto">
+                  <div className="ms-auto service-icon ">
                     {openIndex !== index ? (
                       <svg
                         width="38"
