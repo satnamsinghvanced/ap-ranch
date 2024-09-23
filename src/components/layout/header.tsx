@@ -45,6 +45,7 @@ const Header = () => {
     setSearchField(false);
     setSearchedValue(undefined);
     setSearchValue("");
+    setSearchOpenField(false);
   };
   const handleSearchOpen = () => {
     setSearchField(!searchField);
@@ -134,6 +135,7 @@ const Header = () => {
                       maxHeight: "500px",
                       overflow: "auto",
                     }}
+                    className="search-values"
                   >
                     {" "}
                     <div
@@ -272,7 +274,8 @@ const Header = () => {
                 className={`nav-item ${
                   isActive(ROUTES.OUR_MISSION) ||
                   isActive(ROUTES.FORM) ||
-                  isActive(ROUTES.ABOUT)
+                  isActive(ROUTES.ABOUT) ||
+                  isActive(ROUTES.COLLABORATE)
                     ? "active"
                     : ""
                 }`}
@@ -311,12 +314,19 @@ const Header = () => {
                         >
                           FORMS
                         </Link>
+                        <Link
+                          to={ROUTES.COLLABORATE}
+                          className="nav-link"
+                          onClick={handleServiceClick}
+                        >
+                          Collaborate
+                        </Link>
                       </ul>
                     </div>
                   )}
                 </div>
               </li>
-              <li
+              {/* <li
                 className={`nav-item ${
                   isActive(ROUTES.COLLABORATE) ? "active" : ""
                 }`}
@@ -325,7 +335,7 @@ const Header = () => {
                 <Link to={ROUTES.COLLABORATE} className="nav-link">
                   Collaborate
                 </Link>
-              </li>
+              </li> */}
               <li
                 className={`nav-item ${
                   location.pathname.startsWith("/sports") ? "active" : ""

@@ -45,6 +45,7 @@ const Facilities = () => {
                 alt=""
                 className="img-fluid"
               />
+
               <p className="facility-conatnt-heading">{val?.facilityName}</p>
             </div>
           ))}

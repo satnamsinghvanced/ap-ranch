@@ -87,19 +87,24 @@ const Forms = () => {
                   className="d-flex justify-content-center flex-wrap "
                   style={{ gap: "20px" }}
                 >
-                  <button
-                    className="form-white-btn"
-                    style={{ fontFamily: "'Satoshi', sans-serif" }}
-                    onClick={() => navigate(ROUTES.INDEMNITY_AGREEMENT)}
-                  >
-                    Indemnity Agreement
-                  </button>
-                  <button
-                    className="form-white-btn"
-                    onClick={() => navigate(ROUTES.CODE_OF_CONDUCT)}
-                  >
-                    Parent's Code of Conduct Agreement
-                  </button>
+                  {data[0]?.buttonStatus[0].hidden === 1 && (
+                    <button
+                      className="form-white-btn"
+                      style={{ fontFamily: "'Satoshi', sans-serif" }}
+                      onClick={() => navigate(ROUTES.INDEMNITY_AGREEMENT)}
+                    >
+                      {data[0]?.buttonStatus[0].buttonTxt}
+                    </button>
+                  )}
+
+                  {data[0]?.buttonStatus[1].hidden === 1 && (
+                    <button
+                      className="form-white-btn"
+                      onClick={() => navigate(ROUTES.CODE_OF_CONDUCT)}
+                    >
+                      {data[0]?.buttonStatus[1].buttonTxt}
+                    </button>
+                  )}
                   {data[0]?.formButton.map((val: any, idx: any) => (
                     <button
                       className="form-white-btn"
