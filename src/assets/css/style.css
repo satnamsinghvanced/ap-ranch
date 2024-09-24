@@ -161,6 +161,10 @@ body {
         left: 5px;
         top: 16px;
     }
+
+    .apr-footer {
+        margin-top: 30px !important;
+    }
 }
 
 
@@ -1177,7 +1181,7 @@ body {
 }
 
 .about-page-accordian {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
@@ -1276,6 +1280,11 @@ body {
 }
 
 input.contact-from-input {
+    font-family: 'Satoshi', sans-serif;
+
+}
+
+.search-input input {
     font-family: 'Satoshi', sans-serif;
 
 }

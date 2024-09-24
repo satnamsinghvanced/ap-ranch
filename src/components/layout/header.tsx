@@ -98,7 +98,7 @@ const Header = () => {
             {searchOpenField === true && (
               <div>
                 <div
-                  className="input-group input-group-sm"
+                  className="input-group input-group-sm search-input"
                   style={{
                     position: "absolute",
                     width: "60%",
@@ -444,7 +444,7 @@ const Header = () => {
                 {searchField === true && (
                   <>
                     <div
-                      className="input-group input-group-sm "
+                      className="input-group input-group-sm search-input"
                       style={{
                         position: "absolute",
                         width: "20%",
