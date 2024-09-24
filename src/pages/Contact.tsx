@@ -47,7 +47,7 @@ const Contact = () => {
             src={`${apiBaseUrl}/${data[0]?.image}`}
             alt=""
             className="img-fluid"
-            style={{ minHeight: "1066px", minWidth: "626px" }}
+            style={{ minHeight: "1066px"}}
           />
         </div>
       </div>
