@@ -67,7 +67,6 @@ const Header = () => {
   const removeHtmlTags = (content: string) => {
     return content.replace(/<\/?[^>]+(>|$)/g, "");
   };
-
   return (
     <header className="apr-header">
       <nav className="navbar navbar-expand-lg">
@@ -138,7 +137,6 @@ const Header = () => {
                     }}
                     className="search-values responsive-search"
                   >
-                    {" "}
                     <div
                       style={{
                         display: "flex",
@@ -147,7 +145,8 @@ const Header = () => {
                         margin: "20px 0",
                       }}
                     >
-                      {searchedValue.data?.length !== 0 && (
+                      {searchedValue.data &&
+                      searchedValue.data?.length !== 0 ? (
                         <>
                           {searchedValue.data?.map((val: any, idx: any) => {
                             const description = removeHtmlTags(
@@ -204,6 +203,19 @@ const Header = () => {
                             );
                           })}
                         </>
+                      ) : (
+                        <p
+                          style={{
+                            padding: "16px",
+                            textAlign: "center",
+                            color: "#000000",
+                            fontFamily: "satoshi",
+                            margin: 0,
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          No match found
+                        </p>
                       )}
                     </div>
                   </div>
@@ -479,7 +491,8 @@ const Header = () => {
                             margin: "20px 0",
                           }}
                         >
-                          {searchedValue.data?.length !== 0 ? (
+                          {searchedValue.data &&
+                          searchedValue.data?.length !== 0 ? (
                             <>
                               {searchedValue.data?.map((val: any, idx: any) => {
                                 const description = removeHtmlTags(
@@ -539,7 +552,16 @@ const Header = () => {
                               })}
                             </>
                           ) : (
-                            <p style={{ padding: "16px", textAlign: "center" }}>
+                            <p
+                              style={{
+                                padding: "16px",
+                                textAlign: "center",
+                                color: "#000000",
+                                fontFamily: "satoshi",
+                                margin: 0,
+                                textTransform: "capitalize",
+                              }}
+                            >
                               No match found
                             </p>
                           )}
