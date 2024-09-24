@@ -1316,7 +1316,7 @@ input.contact-from-input {
 @media(max-width:995px) {
 
     .contact-form {
-        background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(../img/png/contact-bg.png);
+        /* background: linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(../img/png/contact-bg.png); */
         background-repeat: no-repeat;
         background-repeat: no-repeat;
         background-size: cover;

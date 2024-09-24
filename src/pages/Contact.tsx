@@ -2,8 +2,10 @@ import ContactForm from "../components/forms/contact-form";
 import DOMPurify from "dompurify";
 import { apiBaseUrl } from "../components/consts/api-url.const";
 import { useGetContactUsDataQuery } from "../components/apis/contactAPi";
+import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
+  const isMobileSmall = useMediaQuery({ query: "(max-width: 995px)" });
   const { data }: any = useGetContactUsDataQuery();
   if (!data) {
     return (
@@ -23,12 +25,18 @@ const Contact = () => {
   const description = DOMPurify.sanitize(data[0]?.description);
 
   const contact = DOMPurify.sanitize(data[0]?.contact);
-
   return (
     <div>
       <div className="row contact-main">
         <div className="col-lg-6 p-0 ">
-          <div className="contact-form">
+          <div
+            className="contact-form"
+            style={{
+              backgroundImage: isMobileSmall
+                ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(${apiBaseUrl}/${data[0]?.image})`
+                : "",
+            }}
+          >
             <h1 className="contact-page-heading">CONTACT</h1>
             <ContactForm />
           </div>
@@ -87,7 +95,7 @@ const Contact = () => {
 
             <div
               dangerouslySetInnerHTML={{ __html: contact }}
-              style={{ fontFamily: "Satoshi", }}
+              style={{ fontFamily: "Satoshi" }}
               className="description"
             />
           </div>
