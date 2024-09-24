@@ -37,11 +37,12 @@ const TeamMemberDetail: React.FC = () => {
               <div
                 className="member-detail-container"
                 style={{
-                  background: isMobileSmall
+                  backgroundImage: isMobileSmall
                     ? `linear-gradient(180deg, rgba(22, 20, 21, 0) 0%, #161415 100%), linear-gradient(0deg, rgba(22, 20, 21, 0.6), rgba(22, 20, 21, 0.6)), url(${apiBaseUrl}/${data?.image})`
                     : "",
                   backgroundRepeat: isMobileSmall ? "no-repeat" : "",
-                  backgroundSize: isMobileSmall ? "contain" : "",
+                  backgroundSize: isMobileSmall ? "cover" : "",
+                  backgroundPosition: "center",
                 }}
               >
                 <h1 className="member-name">
@@ -59,7 +60,11 @@ const TeamMemberDetail: React.FC = () => {
                   <div
                     dangerouslySetInnerHTML={{ __html: description }}
                     // className="about-page-para"
-                    style={{ fontFamily: "Satoshi" }}
+                    style={{
+                      fontFamily: "Satoshi",
+                      zIndex: 1,
+                      position: "relative",
+                    }}
                     className="description"
                   />
                   {/* </p> */}

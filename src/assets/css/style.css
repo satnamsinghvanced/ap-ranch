@@ -1908,7 +1908,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media(min-width:600px) {
     .member-detail-container {
-        background-position: center !important;
+        background-position: 50% 15% !important;
         background-size: cover !important;
     }
 }
