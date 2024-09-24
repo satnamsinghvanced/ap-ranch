@@ -55,13 +55,14 @@ const TeamMemberDetail: React.FC = () => {
                 <p className="member-profile">{data?.role}</p>
 
                 <div>
-                  <p className="about-member">
-                    <div
-                      dangerouslySetInnerHTML={{ __html: description }}
-                      className="about-page-para"
-                      style={{ fontFamily: "Satoshi" }}
-                    />
-                  </p>
+                  {/* <p className="about-member"> */}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: description }}
+                    // className="about-page-para"
+                    style={{ fontFamily: "Satoshi" }}
+                    className="description"
+                  />
+                  {/* </p> */}
                 </div>
               </div>
             </div>

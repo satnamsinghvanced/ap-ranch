@@ -61,6 +61,7 @@ const Contact = () => {
             <div
               dangerouslySetInnerHTML={{ __html: description }}
               style={{ fontFamily: "Satoshi" }}
+              className="description"
             />
 
             {/* <h1 className="directions">
@@ -86,7 +87,8 @@ const Contact = () => {
 
             <div
               dangerouslySetInnerHTML={{ __html: contact }}
-              style={{ fontFamily: "Satoshi" }}
+              style={{ fontFamily: "Satoshi", }}
+              className="description"
             />
           </div>
         </div>

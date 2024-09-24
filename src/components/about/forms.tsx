@@ -27,13 +27,15 @@ const Forms = () => {
     <div>
       <div>
         <section className="about-banner ">
-          <div className="container mb-4 mt-3">
+          <div className="container mb-4">
             <div className="row">
               <div className="col-lg-6 p-0  our-missions-page ">
-                <div className="our-missions-page-content ">
+                <h1 className="about-page-heading px-3">{data[0]?.name}</h1>
+                <div className="our-missions-page-content">
                   <div
                     dangerouslySetInnerHTML={{ __html: description }}
                     style={{ fontFamily: "Satoshi" }}
+                    className="description"
                   />
                   {/* <h1 className="about-collabrate-question">
                     REGISTRATION NOW OPEN!!!

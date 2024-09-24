@@ -50,12 +50,13 @@ const CustomAccordion = ({ items }: { items: any }) => {
                   </div>
                 </div>
                 {index === activeIndex && (
-                  <p className="accordion-description">
-                    <div
-                      dangerouslySetInnerHTML={{ __html: description }}
-                      style={{ fontFamily: "Satoshi" }}
-                    />
-                  </p>
+                  // <p className="accordion-description">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: description }}
+                    style={{ fontFamily: "Satoshi" }}
+                    className="description"
+                  />
+                  // </p>
                 )}
               </>
             ) : (

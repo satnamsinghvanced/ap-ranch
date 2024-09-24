@@ -27,7 +27,7 @@ const Team = () => {
     <div>
       <section className="team-section">
         <div className="container ">
-          <h1 className="team-section-heading pt-5">the team</h1>
+          <h1 className="team-section-heading">the team</h1>
           <div className="row team-member">
             {data?.map((val: any, idx: any) => (
               <div

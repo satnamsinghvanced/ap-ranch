@@ -94,8 +94,8 @@ const AboutAccordions = () => {
                     <div className="col-lg-6 mt-5">
                       <div
                         dangerouslySetInnerHTML={{ __html: description }}
-                        className="about-page-para"
                         style={{ fontFamily: "Satoshi" }}
+                        className="description"
                       />
                     </div>
                     <div className="col-lg-5 mt-5">

@@ -37,15 +37,14 @@ const OurMissions = () => {
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  paddingTop: "60px",
                 }}
               >
                 <h1 className="about-page-heading px-3">{data[0]?.name}</h1>
                 <p className="about-page-para px-3">
                   <div
                     dangerouslySetInnerHTML={{ __html: description }}
-                    className="about-page-para"
                     style={{ fontFamily: "Satoshi" }}
+                    className="description"
                   />
                 </p>
               </div>

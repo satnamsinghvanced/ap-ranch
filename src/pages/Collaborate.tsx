@@ -42,9 +42,11 @@ const Collaborate = () => {
           <div className="row">
             <div className="col-lg-6">
               <div className="about-inner-page">
-                <div className="collabrate-page-text"
+                <div
+                  //  className="collabrate-page-text"
                   dangerouslySetInnerHTML={{ __html: description }}
                   style={{ fontFamily: "Satoshi" }}
+                  className="description"
                 />
 
                 {/* <p className="about-collabrate-answer mb-4">

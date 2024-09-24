@@ -102,7 +102,6 @@ const Home = () => {
               height: "100%",
               objectFit: "cover",
               zIndex: -1, // Send the video behind the content
-             
             }}
           >
             <source
@@ -118,7 +117,6 @@ const Home = () => {
             alt=""
             className="img-fluid home-page-logo"
             style={{ maxHeight: "231px" }}
-
           />
         </div>
       </section>
@@ -127,7 +125,7 @@ const Home = () => {
         <div className="max-width-1050 mx-auto text-center ">
           <div
             dangerouslySetInnerHTML={{ __html: description }}
-            className="home-description"
+            className="description px-3"
             style={{ fontFamily: "Satoshi" }}
           />
         </div>
@@ -149,7 +147,7 @@ const Home = () => {
                 className="sport-img-box "
                 style={{
                   boxShadow:
-                    "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 60%)",
+                    "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 23%)",
                   backgroundImage: `url(${apiBaseUrl}/${item.service?.servicesImage})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
@@ -174,14 +172,12 @@ const Home = () => {
             <div
               className="the-facility-img-box "
               style={{
-                boxShadow: "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 60%)",
+                boxShadow: "inset -20px -20px 0px 400px hsl(0deg 0% 0% / 23%)",
                 backgroundImage: `url(${apiBaseUrl}/${facilities[0]?.image})`,
               }}
             >
               <div className="d-flex align-items-center justify-content-center flex-column h-100 text-center-md position-absolute w-100 top-0">
-                <h3 className="sport-name-heading">
-                  {facilities[0]?.name}
-                </h3>
+                <h3 className="sport-name-heading">{facilities[0]?.name}</h3>
                 <button
                   className="explore-btn  mt-4"
                   onClick={() => navigate(ROUTES.FACILITY)}
@@ -235,7 +231,7 @@ const Home = () => {
             <div
               className="click-to-donate-box"
               style={{
-                background: `linear-gradient(180deg, #00000099, #00000099),  url(${apiBaseUrl}/${data[0].donate.image})`,
+                backgroundImage: `linear-gradient(180deg, #00000099, #00000099),  url(${apiBaseUrl}/${data[0].donate.image})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 height: "600px",
