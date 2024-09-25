@@ -182,10 +182,11 @@ const ContactForm = () => {
           Submit
         </button>
       </div>
-      <h1 className="success-message">{response?.message}</h1>
+      {response && (
+        <h1 className="success-message">Thank you for contacting us!</h1>
+      )}
     </div>
   );
 };
 
 export default ContactForm;
-    
