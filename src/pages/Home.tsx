@@ -122,7 +122,7 @@ const Home = () => {
       </section>
 
       <section className=" about-apr section-padding pb-2">
-        <div className="max-width-1050 mx-auto text-center ">
+        <div className="max-width-1050 mx-auto text-center">
           <div
             dangerouslySetInnerHTML={{ __html: description }}
             className="description px-3"

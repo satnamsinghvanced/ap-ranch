@@ -22,9 +22,15 @@ const Contact = () => {
       </div>
     );
   }
-  const description = DOMPurify.sanitize(data[0]?.description);
 
-  const contact = DOMPurify.sanitize(data[0]?.contact);
+  const description = DOMPurify.sanitize(data[0]?.description, {
+    ADD_TAGS: ["iframe"],
+    ADD_ATTR: ["target", "rel"],
+  });
+  const contact = DOMPurify.sanitize(data[0]?.contact, {
+    ADD_TAGS: ["iframe"],
+    ADD_ATTR: ["target", "rel"],
+  });
   return (
     <div>
       <div className="row contact-main">
@@ -47,7 +53,7 @@ const Contact = () => {
             src={`${apiBaseUrl}/${data[0]?.image}`}
             alt=""
             className="img-fluid"
-            style={{ minHeight: "1066px"}}
+            style={{ minHeight: "1066px" }}
           />
         </div>
       </div>
@@ -63,11 +69,13 @@ const Contact = () => {
         ></iframe>
       </div>
 
-      <div className="container py-5">
+      <div className="container description-main-section py-5">
         <div className="row">
           <div className="col-md-8">
             <div
-              dangerouslySetInnerHTML={{ __html: description }}
+              dangerouslySetInnerHTML={{
+                __html: description,
+              }}
               style={{ fontFamily: "Satoshi" }}
               className="description"
             />

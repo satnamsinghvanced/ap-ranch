@@ -5,7 +5,10 @@ import DOMPurify from "dompurify";
 
 const CustomTittle = ({ title }: { title: any }) => {
   const navigate = useNavigate();
-  const description = DOMPurify.sanitize(title);
+  const description = DOMPurify.sanitize(title,{
+    ADD_TAGS: ["iframe"],
+    ADD_ATTR: ["target", "rel"],
+  });
   return (
     <>
       <div

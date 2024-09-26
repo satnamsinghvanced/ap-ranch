@@ -19,7 +19,10 @@ const Collaborate = () => {
       </div>
     );
   }
-  const description = DOMPurify.sanitize(data[0]?.descriptions);
+  const description = DOMPurify.sanitize(data[0]?.descriptions,{
+    ADD_TAGS: ["iframe"],
+    ADD_ATTR: ["target", "rel"],
+  });
   return (
     <div>
       <section

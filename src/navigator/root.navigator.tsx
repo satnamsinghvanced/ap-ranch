@@ -15,6 +15,7 @@ import Collaborate from "../pages/Collaborate";
 import CodeOfConductForm from "../components/about/code-of-conduct";
 import IndemnityAgreement from "../components/about/indemnity-agreement";
 import Layout from "../components/layout/Layout";
+import SquareServices from "../pages/Square-services";
 
 export const RootNavigator = () => {
   return (
@@ -44,6 +45,7 @@ export const RootNavigator = () => {
             path={ROUTES.INDEMNITY_AGREEMENT}
             element={<IndemnityAgreement />}
           />
+          <Route path={ROUTES.SQUARE_SERVICES} element={<SquareServices />} />
         </Route>
       </Routes>
     </>

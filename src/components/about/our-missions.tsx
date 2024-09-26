@@ -21,7 +21,10 @@ const OurMissions = () => {
       </div>
     );
   }
-  const description = DOMPurify.sanitize(data[0]?.description);
+  const description = DOMPurify.sanitize(data[0]?.description,{
+    ADD_TAGS: ["iframe"],
+    ADD_ATTR: ["target", "rel"],
+  });
   return (
     <div>
       <section className="about-banner">

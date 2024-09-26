@@ -35,7 +35,7 @@ const Team = () => {
                 onClick={() => handleMemberClick(val?.id)}
               >
                 <div className="team-member-list">
-                  <div>
+                  <div className="team-member-box">
                     <div className="team-member-imgbox">
                       <img src={`${apiBaseUrl}/${val?.image}`} alt="" />
                     </div>

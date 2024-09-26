@@ -9,7 +9,10 @@ const CustomAccordion = ({ items }: { items: any }) => {
   return (
     <div className="accordion-main">
       {items.map((item: any, index: any) => {
-        const description = DOMPurify.sanitize(item.descriptions);
+        const description = DOMPurify.sanitize(item.descriptions,{
+          ADD_TAGS: ["iframe"],
+          ADD_ATTR: ["target", "rel"],
+        });
         return (
           <div key={item.title}>
             {description ? (

@@ -344,7 +344,11 @@ body {
         font-size: 20px !important;
     }
 
-    .sport-services-heading,
+    .sport-services-heading {
+        font-size: 22px !important;
+        text-align: center
+    }
+
     .contact-page-heading,
     .banner-form h2 {
         font-size: 30px !important;
@@ -363,7 +367,9 @@ body {
         width: 250px;
     }
 
-    .explore-btn-transparent {
+    .explore-btn-transparent,
+    .explore-btn,
+    .form-white-btn {
         padding: 5px 20px !important;
     }
 
@@ -379,7 +385,59 @@ body {
     .member-name {
         font-size: 24px !important;
     }
+
+    .incredible-partners-logos {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .incredible-partners-logos img {
+        width: 75%;
+    }
+
+    .click-to-donate-heading {
+        text-align: center;
+    }
+
+    .click-to-donate-content {
+        align-items: center;
+    }
+
+    .incredible-partners {
+        padding: 50px 0px !important;
+    }
+
+    .click-to-donate,
+    .about-collabrate {
+        padding: 0px !important
+    }
+
+    .click-to-donate .pb-5 {
+        padding-bottom: 30px !important;
+    }
+
+    .about-inner-page {
+        margin-top: 40px !important;
+    }
+
+    .sport-services-text {
+        font-size: 18px !important;
+    }
+
+    .sports-services-section {
+        padding: 50px 16px 30px 16px !important;
+    }
+
+    .accordion-main {
+        gap: 10px !important;
+    }
+
+    .container.description-main-section.py-5 {
+        padding-bottom: 0px !important;
+    }
 }
+
+
 
 /* apr banner css 
 ===================================== */
@@ -616,8 +674,16 @@ body {
     }
 
     .section-padding {
-        padding: 0px 0px 65px 0;
+        padding: 0px 0px 0px 0;
     }
+
+    .about-apr {
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        height: 328px;
+    }
+
 }
 
 @media(max-width:380px) {
@@ -961,7 +1027,7 @@ body {
 
 @media(max-width:768px) {
     .apr-sport-name {
-        font-size: 34px;
+        font-size: 30px;
     }
 
     .football-banner {
@@ -1056,6 +1122,10 @@ body {
     padding-bottom: 63px;
     display: flex;
     justify-content: center;
+}
+
+.team-member-box {
+    cursor: pointer;
 }
 
 .team-member {
@@ -1505,6 +1575,7 @@ textarea.contact-from-input {
     justify-content: space-between;
     align-items: flex-start;
     cursor: pointer;
+    gap: 10px;
 }
 
 .accordion-description {
@@ -1983,10 +2054,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 }
 
-.description p,
-.description div {
-    font-size: 16px;
-}
 
 .description {
     display: flex;

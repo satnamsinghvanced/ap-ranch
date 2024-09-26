@@ -15,4 +15,5 @@ export const ROUTES = {
   COLLABORATE: "/collaborate",
   INDEMNITY_AGREEMENT: "/indemnity-agreement",
   CODE_OF_CONDUCT: "/code-of-conduct",
+  SQUARE_SERVICES: "/square-services",
 };

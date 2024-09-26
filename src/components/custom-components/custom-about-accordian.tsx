@@ -30,7 +30,11 @@ const AboutAccordions = () => {
     <>
       {data.map((item: any, index: any) => {
         const description = DOMPurify.sanitize(
-          item.service?.serviceDescriptions
+          item.service?.serviceDescriptions,
+          {
+            ADD_TAGS: ["iframe"],
+            ADD_ATTR: ["target", "rel"],
+          }
         );
         return (
           <div className="col-ms-12 p-0" key={index}>
