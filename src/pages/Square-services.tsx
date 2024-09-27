@@ -13,5 +13,4 @@ const SquareServices = () => {
     </div>
   );
 };
-
 export default SquareServices;
