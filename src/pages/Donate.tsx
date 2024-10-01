@@ -16,19 +16,31 @@ const Donate = () => {
   });
   const [submitCheck, setSubmitCheck] = useState(false);
   const { data }: any = useGetDonateTabDataQuery();
-  console.log(data);
 
+  const [errors, setErrors] = useState({ firstName: false, lastName: false, email: false, phone: false, state: false, amount: false });
   const handleSubmit = () => {
-    const { sourceId, ...otherFields } = pay;
+   // const { sourceId, ...otherFields } = pay;
     const emailRegex = /^[^\s@]+(\.[^\s@]+)*@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(pay.email)) {
-      return false;
+      // return false;
     }
-    const allFieldsFilled = Object.values(otherFields).every(
-      (value) => value.trim() !== ""
-    );
-    if (allFieldsFilled) {
-      setSubmitCheck(true);
+
+    let tempErrors = {
+      firstName: !pay.firstName,
+      lastName: !pay.lastName,
+      email: !pay.email || !emailRegex.test(pay.email),
+      phone: !pay.phone || pay.phone.length !== 10 ,     
+      state: !pay.state,
+      amount: !pay.amount,
+    };
+    setErrors(tempErrors);
+    if (errors.firstName && errors.lastName && errors.email && errors.phone && errors.state && errors.amount) {
+     /* const allFieldsFilled = Object.values(otherFields).every(
+        (value) => value.trim() !== ""
+      );
+      if (allFieldsFilled) {*/
+        setSubmitCheck(true);
+     // }
     }
   };
 
@@ -51,6 +63,8 @@ const Donate = () => {
               handleSubmit={handleSubmit}
               pay={pay}
               setPay={setPay}
+              errors={errors}
+              setErrors={setErrors}
             />
           ) : (
             <SquarePayment

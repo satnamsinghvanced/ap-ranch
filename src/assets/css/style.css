@@ -2059,3 +2059,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: column;
 }
+.error-border {
+    border: 2px solid red;
+  }

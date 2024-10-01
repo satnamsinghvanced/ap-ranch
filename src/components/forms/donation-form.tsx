@@ -10,38 +10,62 @@ interface PayState {
   sourceId: string;
   postalCode: string;
 }
-
+type ErrorState = {
+  firstName: boolean;
+  lastName: boolean;
+  email: boolean;
+  phone: boolean;
+  state: boolean;
+  amount: boolean;
+};
 interface DonationFormProps {
   handleSubmit: (event: React.FormEvent) => void;
   pay: PayState;
   setPay: React.Dispatch<React.SetStateAction<PayState>>;
+  errors: ErrorState;
+  setErrors:React.Dispatch<React.SetStateAction<ErrorState>>;
 }
 const DonationForm: React.FC<DonationFormProps> = ({
   handleSubmit,
   pay,
   setPay,
+  errors,
+  setErrors
 }) => {
+
   const [emailError, setEmailError] = useState("");
 
-  const handleEmailChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const email = ev.target.value;
-    setPay({ ...pay, email });
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(email)) {
-      setEmailError("");
-    } else {
-      setEmailError("Invalid email format");
+  const handleFieldChange = (field: keyof PayState, value: string) => {
+    if(field === "phone" || field === "amount"){
+      value = value.replace(/\D/g, "");
     }
-  };
-
-  const handlePhoneChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const value = ev.target.value.replace(/\D/g, "");
-    setPay({ ...pay, phone: value });
-  };
-  const handleAmountChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    const value = ev.target.value.replace(/\D/g, "");
-    setPay({ ...pay, amount: value });
+    if (value.trim() !== '') {
+      setErrors((prevErrors) => ({ ...prevErrors, [field]: false }));
+    }else{
+      setErrors((prevErrors) => ({ ...prevErrors, [field]: true }));
+    }
+    if (field === "phone") {
+      // Check if the phone number has 10 digits (US phone number without country code)
+      // (value.length === 11 && value.startsWith("1"))
+      if (value.length === 10) {
+        setErrors((prevErrors) => ({ ...prevErrors, phone: false }));
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, phone: true }));
+      }
+    }
+    //
+    if(field === "email"){
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailRegex.test(value)) {
+        setEmailError("");
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: false }));
+      } else {
+        setEmailError("Enter a valid email address");
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: true }));
+      }
+    }
+    //
+    setPay((prevState) => ({ ...prevState, [field]: value })) 
   };
   return (
     <div className="form-donation">
@@ -50,9 +74,9 @@ const DonationForm: React.FC<DonationFormProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className={`form-control form-control-lg ${errors.firstName ? 'error-border' : ''}`}
               placeholder="First Name"
-              onChange={(ev) => setPay({ ...pay, firstName: ev.target.value })}
+              onChange={(ev) => handleFieldChange('firstName', ev.target.value)}
             />
           </div>
         </div>
@@ -60,9 +84,9 @@ const DonationForm: React.FC<DonationFormProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className={`form-control form-control-lg ${errors.lastName ? 'error-border' : ''}`}
               placeholder="Last Name"
-              onChange={(ev) => setPay({ ...pay, lastName: ev.target.value })}
+              onChange={(ev) => handleFieldChange('lastName', ev.target.value)}
             />
           </div>
         </div>
@@ -70,9 +94,9 @@ const DonationForm: React.FC<DonationFormProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className={`form-control form-control-lg ${errors.email ? 'error-border' : ''}`}
               placeholder="Email"
-              onChange={handleEmailChange}
+              onChange={(ev) => handleFieldChange('email', ev.target.value)}
             />
             {emailError && (
               <div
@@ -90,10 +114,10 @@ const DonationForm: React.FC<DonationFormProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className={`form-control form-control-lg ${errors.phone ? 'error-border' : ''}`}
               placeholder="Phone"
               value={pay.phone}
-              onChange={handlePhoneChange}
+              onChange={(ev) => handleFieldChange('phone', ev.target.value)}
             />
           </div>
         </div>
@@ -102,8 +126,8 @@ const DonationForm: React.FC<DonationFormProps> = ({
             <select
               name=""
               id=""
-              className="form-select form-select-lg"
-              onChange={(ev) => setPay({ ...pay, state: ev.target.value })}
+              className={`form-control form-control-lg ${errors.state ? 'error-border' : ''}`}
+              onChange={(ev) => handleFieldChange('state', ev.target.value)}
             >
               <option value="">State</option>
               {allStates.map((state) => (
@@ -121,9 +145,10 @@ const DonationForm: React.FC<DonationFormProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className={`form-control form-control-lg ${errors.amount ? 'error-border' : ''}`}
               placeholder="Amount ($)"
-              onChange={handleAmountChange}
+              value={pay.amount}
+              onChange={(ev) => handleFieldChange('amount', ev.target.value)}
             />
           </div>
         </div>
