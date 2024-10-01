@@ -24,17 +24,17 @@ const Donate = () => {
     if (!emailRegex.test(pay.email)) {
       // return false;
     }
-
-    let tempErrors = {
+    let tempErrors = errors;
+    tempErrors = {
       firstName: !pay.firstName,
       lastName: !pay.lastName,
       email: !pay.email || !emailRegex.test(pay.email),
-      phone: !pay.phone || pay.phone.length !== 10 ,     
+      phone: !pay.phone || pay.phone.length !== 10, 
       state: !pay.state,
       amount: !pay.amount,
     };
     setErrors(tempErrors);
-    if (errors.firstName && errors.lastName && errors.email && errors.phone && errors.state && errors.amount) {
+    if (!tempErrors.firstName && !tempErrors.lastName && !tempErrors.email && !tempErrors.phone && !tempErrors.state && !tempErrors.amount) {
      /* const allFieldsFilled = Object.values(otherFields).every(
         (value) => value.trim() !== ""
       );
