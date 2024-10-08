@@ -47,7 +47,7 @@ const OurMissions = () => {
                   <div
                     dangerouslySetInnerHTML={{ __html: description }}
                     style={{ fontFamily: "Satoshi" }}
-                    className="description"
+                    className="description text-lg-start  text-center"
                   />
                 </p>
               </div>
