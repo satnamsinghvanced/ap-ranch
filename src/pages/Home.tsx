@@ -123,8 +123,6 @@ const Home = () => {
 
       <section className=" about-apr section-padding pb-2">
         <div className="max-width-1050 mx-auto text-center">
-        <h2>Testing</h2>
-
           <div
             dangerouslySetInnerHTML={{ __html: description }}
             className="description px-3"
