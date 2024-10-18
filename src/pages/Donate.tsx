@@ -13,6 +13,7 @@ const Donate = () => {
     amount: "",
     sourceId: "",
     postalCode: "99999",
+    memo: ""
   });
   const [submitCheck, setSubmitCheck] = useState(false);
   const { data }: any = useGetDonateTabDataQuery();

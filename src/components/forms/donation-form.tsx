@@ -9,6 +9,7 @@ interface PayState {
   amount: string;
   sourceId: string;
   postalCode: string;
+  memo: string;
 }
 type ErrorState = {
   firstName: boolean;
@@ -149,6 +150,17 @@ const DonationForm: React.FC<DonationFormProps> = ({
               placeholder="Amount ($)"
               value={pay.amount}
               onChange={(ev) => handleFieldChange('amount', ev.target.value)}
+            />
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-12 ">
+          <div className="form-group">
+            <input
+              type="text"
+              className={`form-control form-control-lg`}
+              placeholder="Memo"
+              value={pay.memo}
+              onChange={(ev) => handleFieldChange('memo', ev.target.value)}
             />
           </div>
         </div>

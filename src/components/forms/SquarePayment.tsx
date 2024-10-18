@@ -12,6 +12,7 @@ interface PayState {
   amount: string;
   sourceId: string;
   postalCode: string;
+  memo: string;
 }
 
 interface SquarePaymentProps {
@@ -38,6 +39,7 @@ const SquarePayment: React.FC<SquarePaymentProps> = ({
         amount: "",
         sourceId: "",
         postalCode: "99999",
+        memo: "",
       });
       setSubmitCheck(false);
     }, 5000);
